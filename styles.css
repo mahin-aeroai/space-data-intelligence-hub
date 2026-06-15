@@ -1044,3 +1044,95 @@ strong{color:#f8fafc}
   line-height: 1.5;
   letter-spacing: 0.02em;
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   SVG GALLERY CARDS (replaces broken external images)
+══════════════════════════════════════════════════════════════════ */
+.svg-gallery-item {
+  background: var(--space-navy);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform .35s ease, box-shadow .35s ease;
+  border: 1px solid var(--glass-border);
+}
+.svg-gallery-item:hover { transform: scale(1.04); box-shadow: 0 12px 40px rgba(0,0,0,.6); }
+.svg-gallery-item svg { width: 100%; display: block; }
+.gallery-item img {
+  width: 100%; height: 150px; object-fit: cover; display: block;
+  transition: transform .4s ease;
+}
+.gallery-item img[src=""] ,
+.gallery-item img:not([src]) { display: none; }
+
+/* ══════════════════════════════════════════════════════════════════
+   PERSISTENT PHASE NAV BANNER
+══════════════════════════════════════════════════════════════════ */
+.phase-nav-banner {
+  position: fixed;
+  bottom: 0; left: var(--sidebar-w); right: 0;
+  z-index: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: rgba(8,15,30,0.96);
+  border-top: 1px solid rgba(74,158,255,0.2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: left var(--transition);
+  flex-wrap: wrap;
+}
+.phase-nav-banner.sidebar-collapsed { left: var(--sidebar-collapsed); }
+@media(max-width:992px){ .phase-nav-banner { left: 0; } }
+
+.pnb-label {
+  font-size: .7rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--text-dim);
+  white-space: nowrap;
+}
+.pnb-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 7px 16px; border-radius: 9px;
+  font-size: .8rem; font-weight: 700;
+  text-decoration: none; transition: all .2s;
+  white-space: nowrap; border: 1px solid;
+}
+.pnb-btn.p1 {
+  color: #fff;
+  background: linear-gradient(135deg,rgba(74,158,255,.35),rgba(6,182,212,.25));
+  border-color: rgba(74,158,255,.5);
+}
+.pnb-btn.p1:hover {
+  background: linear-gradient(135deg,rgba(74,158,255,.55),rgba(6,182,212,.4));
+  box-shadow: 0 0 20px rgba(74,158,255,.25); color:#fff;
+}
+.pnb-btn.p2 {
+  color: var(--accent-cyan);
+  background: rgba(6,182,212,.08);
+  border-color: rgba(6,182,212,.3);
+}
+.pnb-btn.p2:hover {
+  color: #fff; background: rgba(6,182,212,.2);
+  border-color: rgba(6,182,212,.6);
+  box-shadow: 0 0 20px rgba(6,182,212,.2);
+}
+.pnb-btn.arch {
+  color: var(--accent-purple);
+  background: rgba(168,85,247,.07);
+  border-color: rgba(168,85,247,.25);
+}
+.pnb-btn.arch:hover {
+  color: #fff; background: rgba(168,85,247,.18);
+  border-color: rgba(168,85,247,.5);
+}
+.pnb-divider { width:1px; height:22px; background:rgba(255,255,255,.1); flex-shrink:0; }
+.pnb-new { font-size:.52rem; font-weight:800; letter-spacing:.1em; padding:1px 5px; border-radius:4px;
+  background:linear-gradient(135deg,var(--accent-blue),var(--accent-cyan)); color:#fff; text-transform:uppercase; }
+
+/* Push page content up so banner doesn't cover it */
+.site-footer { padding-bottom: 80px; }
+
+/* on phase2 and architecture pages adjust for no sidebar */
+body.no-sidebar .phase-nav-banner { left: 0; }

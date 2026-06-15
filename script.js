@@ -438,3 +438,16 @@ window.generatePDF=function(){
   window.addEventListener('scroll',()=>btn.classList.toggle('visible',window.scrollY>400),{passive:true});
   btn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 })();
+
+/* ── PHASE NAV BANNER — sync with sidebar collapse ── */
+(function(){
+  const banner=document.getElementById('phaseNavBanner');
+  const sidebar=document.getElementById('sidebar');
+  const toggle=document.getElementById('sidebarToggle');
+  if(!banner||!sidebar||!toggle) return;
+  toggle.addEventListener('click',()=>{
+    setTimeout(()=>{
+      banner.classList.toggle('sidebar-collapsed', sidebar.classList.contains('collapsed'));
+    }, 10);
+  });
+})();
