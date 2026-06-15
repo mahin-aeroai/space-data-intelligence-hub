@@ -364,11 +364,7 @@ function buildCareerGrid(careers){
             <span class="cec-domain">${c.domain}</span>
           </div>
         </div>
-        <div class="cec-salary">
-          <div class="cec-sal-item"><span class="flag">🇮🇳</span><span class="sal">${c.india}</span><span style="font-size:.62rem;color:var(--text-dim)">India LPA</span></div>
-          <div class="cec-sal-item"><span class="flag">🇺🇸</span><span class="sal">${c.usa}</span><span style="font-size:.62rem;color:var(--text-dim)">USA/yr</span></div>
-          <div class="cec-sal-item"><span class="flag">🇪🇺</span><span class="sal">${c.europe}</span><span style="font-size:.62rem;color:var(--text-dim)">Europe/yr</span></div>
-        </div>
+
         <div class="cec-section-label">Core Skills</div>
         <div class="cec-skill-tags">${c.skills.slice(0,5).map(s=>`<span class="cec-skill-tag">${s}</span>`).join('')}</div>
         <div class="cec-section-label" style="margin-top:10px">Tools</div>
@@ -389,9 +385,6 @@ function buildCareerCompare(careers){
   tbody.innerHTML=careers.map(c=>`<tr>
     <td><span style="font-weight:600;color:var(--text-primary)">${c.icon} ${c.role}</span></td>
     <td><span style="font-size:.72rem;padding:2px 8px;border-radius:4px;background:rgba(6,182,212,.1);color:var(--accent-cyan)">${c.domain}</span></td>
-    <td style="color:var(--accent-green);font-weight:600">${c.india}</td>
-    <td style="color:var(--accent-blue)">${c.usa}</td>
-    <td style="color:var(--text-muted)">${c.europe}</td>
     <td style="font-size:.75rem;color:var(--accent-green)">+${c.growth}/yr</td>
     <td>${demandBadge(c.demand)}</td>
   </tr>`).join('');
@@ -603,8 +596,6 @@ async function renderMasterDB(){
       tbody.innerHTML=allCareers.map(c=>`<tr>
         <td style="font-weight:600;color:var(--text-primary)">${c.icon} ${c.role}</td>
         <td>${c.domain}</td>
-        <td style="color:var(--accent-green);font-weight:600">${c.india}</td>
-        <td style="color:var(--accent-blue)">${c.usa}</td>
         <td>${demandBadge(c.demand)}</td>
         <td style="color:var(--accent-green)">+${c.growth}</td>
       </tr>`).join('');

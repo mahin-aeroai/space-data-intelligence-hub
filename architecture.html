@@ -144,12 +144,30 @@ tbody tr:last-child td{border-bottom:none}
 .role-em{color:var(--t1);font-weight:600}
 
 /* FOOTER */
+/* PHASE 2 BUTTON */
+.topbar-phase2-btn{display:inline-flex;align-items:center;gap:7px;padding:6px 13px;border-radius:9px;font-size:.78rem;font-weight:700;color:var(--cyan);background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.25);text-decoration:none;transition:all .2s;flex-shrink:0;white-space:nowrap}
+.topbar-phase2-btn:hover{color:#fff;background:rgba(6,182,212,.18);border-color:rgba(6,182,212,.5);transform:translateY(-1px)}
+.topbar-phase2-btn i{font-size:.72rem}
+.phase2-new-badge{font-size:.52rem;font-weight:800;letter-spacing:.1em;padding:1px 5px;border-radius:4px;background:linear-gradient(135deg,#4a9eff,#06b6d4);color:#fff;text-transform:uppercase}
+/* AUTHOR CARD */
+.footer-author-card{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.03);border:1px solid rgba(74,158,255,.18);border-radius:14px;padding:18px 22px;margin-bottom:24px;text-align:left;flex-wrap:wrap}
+.fac-avatar{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#4a9eff,#a855f7);display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:#fff;flex-shrink:0;box-shadow:0 0 20px rgba(74,158,255,.3)}
+.fac-info{flex:1;min-width:160px}
+.fac-name{font-size:1rem;font-weight:800;color:var(--t1);margin-bottom:2px}
+.fac-title{font-size:.72rem;color:var(--t2);line-height:1.6;margin-bottom:9px}
+.fac-links{display:flex;flex-wrap:wrap;gap:8px}
+.fac-links a{font-size:.72rem;font-weight:600;color:var(--blue);display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:6px;background:rgba(74,158,255,.08);border:1px solid rgba(74,158,255,.15);transition:all .2s;text-decoration:none}
+.fac-links a:hover{background:rgba(74,158,255,.18);color:var(--cyan)}
+.fac-badge{display:flex;flex-direction:column;align-items:center;gap:5px;padding:8px 12px;border-radius:9px;background:rgba(168,85,247,.08);border:1px solid rgba(168,85,247,.18);text-align:center;flex-shrink:0;color:var(--purple)}
+.fac-badge i{font-size:1.1rem}
+.fac-badge span{font-size:.62rem;font-weight:700;color:var(--t3);line-height:1.5}
+
 footer{border-top:1px solid var(--border);padding:40px 32px;text-align:center}
 .footer-inner{max-width:600px;margin:0 auto}
 .footer-brand{font-size:1rem;font-weight:800;color:var(--blue);margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:8px}
 footer p{font-size:.78rem;color:var(--t3);margin-bottom:10px;line-height:1.7}
 .footer-links{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:12px 0}
-.footer-links a{font-size:.78rem;color:var(--t3);transition:color .2s}
+.footer-links a{font-size:.78rem;color:var(--t3);transition:color .2s;text-decoration:none}
 .footer-links a:hover{color:var(--cyan)}
 
 /* BACK TO TOP */
@@ -175,6 +193,7 @@ footer p{font-size:.78rem;color:var(--t3);margin-bottom:10px;line-height:1.7}
     <a href="#charts">Data</a>
     <a href="#careers">Careers</a>
   </nav>
+  <a href="phase2.html" class="topbar-phase2-btn"><i class="fa-solid fa-rocket"></i>Phase 2<span class="phase2-new-badge">NEW</span></a>
   <a href="index.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i>Full Hub</a>
 </header>
 
@@ -313,16 +332,29 @@ footer p{font-size:.78rem;color:var(--t3);margin-bottom:10px;line-height:1.7}
 
 <footer>
   <div class="footer-inner">
+    <div class="footer-author-card" style="max-width:560px;margin:0 auto 20px">
+      <div class="fac-avatar"><i class="fa-solid fa-user-astronaut"></i></div>
+      <div class="fac-info">
+        <div class="fac-name">Mahin</div>
+        <div class="fac-title">B.Tech Aerospace Engineering · VIT Bhopal<br/>PG Certificate AI &amp; ML · IIIT Hyderabad × Accenture</div>
+        <div class="fac-links">
+          <a href="https://github.com/mahin-aeroai" target="_blank"><i class="fa-brands fa-github"></i> mahin-aeroai</a>
+          <a href="https://linkedin.com/in/mahin" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        </div>
+      </div>
+      <div class="fac-badge"><i class="fa-solid fa-satellite"></i><span>Aerospace +<br/>AI Engineer</span></div>
+    </div>
     <div class="footer-brand"><i class="fa-solid fa-satellite"></i>Space Data Intelligence Hub</div>
     <p>An open educational resource for the global satellite-data community. All data credited to ISRO, NASA, ESA, NOAA, USGS.</p>
     <div class="footer-links">
+      <a href="index.html">← Full Hub</a>
+      <a href="phase2.html">Phase 2 Modules</a>
       <a href="https://www.isro.gov.in" target="_blank">ISRO</a>
       <a href="https://earthdata.nasa.gov" target="_blank">NASA EarthData</a>
       <a href="https://www.esa.int" target="_blank">ESA</a>
       <a href="https://bhuvan.nrsc.gov.in" target="_blank">Bhuvan</a>
-      <a href="index.html">← Full Hub</a>
     </div>
-    <p>Built for students, researchers, and hackathon participants.</p>
+    <p>Designed &amp; built by <strong style="color:#4a9eff">Mahin</strong> · Aerospace Engineer &amp; AI/ML Developer · © 2025</p>
   </div>
 </footer>
 
