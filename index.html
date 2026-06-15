@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Space Data Intelligence Hub</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- ── SIDEBAR ─────────────────────────────────────────────── -->
+<nav id="sidebar">
+  <div class="sidebar-header">
+    <i class="fa-solid fa-satellite sidebar-logo"></i>
+    <span>SDIH</span>
+  </div>
+  <ul class="sidebar-nav">
+    <li><a href="#hero"         class="nav-link active"><i class="fa-solid fa-rocket"></i><span>Home</span></a></li>
+    <li><a href="#s1"  class="nav-link"><i class="fa-solid fa-globe"></i><span>Intro</span></a></li>
+    <li><a href="#s2"  class="nav-link"><i class="fa-solid fa-building-columns"></i><span>Ecosystem</span></a></li>
+    <li><a href="#s3"  class="nav-link"><i class="fa-solid fa-satellite-dish"></i><span>Satellites</span></a></li>
+    <li><a href="#s4"  class="nav-link"><i class="fa-solid fa-database"></i><span>Data Sources</span></a></li>
+    <li><a href="#s5"  class="nav-link"><i class="fa-solid fa-file-code"></i><span>Formats</span></a></li>
+    <li><a href="#s6"  class="nav-link"><i class="fa-solid fa-toolbox"></i><span>Tools</span></a></li>
+    <li><a href="#s7"  class="nav-link"><i class="fa-brands fa-python"></i><span>Python</span></a></li>
+    <li><a href="#s8"  class="nav-link"><i class="fa-solid fa-brain"></i><span>AI / ML</span></a></li>
+    <li><a href="#s9"  class="nav-link"><i class="fa-solid fa-diagram-project"></i><span>Pipeline</span></a></li>
+    <li><a href="#s10" class="nav-link"><i class="fa-solid fa-file-lines"></i><span>Reports</span></a></li>
+    <li><a href="#s11" class="nav-link"><i class="fa-solid fa-briefcase"></i><span>Careers</span></a></li>
+    <li><a href="#s12" class="nav-link"><i class="fa-solid fa-graduation-cap"></i><span>Roadmap</span></a></li>
+    <li><a href="#s13" class="nav-link"><i class="fa-solid fa-trophy"></i><span>Hackathons</span></a></li>
+    <li><a href="#s14" class="nav-link"><i class="fa-solid fa-images"></i><span>Gallery</span></a></li>
+    <li><a href="#s15" class="nav-link"><i class="fa-solid fa-circle-nodes"></i><span>Knowledge</span></a></li>
+    <li><a href="#s16" class="nav-link"><i class="fa-solid fa-table"></i><span>Database</span></a></li>
+  </ul>
+  <div class="sidebar-toggle" id="sidebarToggle"><i class="fa-solid fa-chevron-left"></i></div>
+</nav>
+
+<!-- ── MAIN CONTENT ─────────────────────────────────────────── -->
+<div id="mainContent">
+
+  <!-- TOPBAR -->
+  <header id="topbar">
+    <button id="mobileSidebarBtn" class="btn-icon"><i class="fa-solid fa-bars"></i></button>
+    <div class="topbar-brand">Space Data Intelligence Hub</div>
+    <div class="topbar-search">
+      <i class="fa-solid fa-search"></i>
+      <input type="text" id="globalSearch" placeholder="Search satellites, datasets, tools…"/>
+      <div id="searchResults" class="search-dropdown hidden"></div>
+    </div>
+    <div class="topbar-actions">
+      <a href="architecture.html" class="btn-icon" title="Architecture View" style="display:inline-flex;align-items:center;justify-content:center;border:1px solid transparent"><i class="fa-solid fa-diagram-project"></i></a>
+      <button class="btn-icon" onclick="generatePDF()" title="Download PDF Report"><i class="fa-solid fa-file-pdf"></i></button>
+      <button class="btn-icon" onclick="window.print()" title="Print"><i class="fa-solid fa-print"></i></button>
+    </div>
+  </header>
+
+  <!-- ── SECTION: HERO ───────────────────────────────────── -->
+  <section id="hero">
+    <canvas id="starCanvas"></canvas>
+    <div class="hero-content">
+      <div class="hero-badge"><i class="fa-solid fa-satellite"></i> EDUCATIONAL PORTAL</div>
+      <h1 class="hero-title">Space Data<br/><span class="gradient-text">Intelligence Hub</span></h1>
+      <p class="hero-sub">The complete guide to the global satellite-data ecosystem — from raw telemetry to AI-driven insights. Built for students, researchers, aerospace engineers, GIS analysts, and hackathon teams.</p>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num" data-target="200">0</span><span class="stat-label">Satellites Catalogued</span></div>
+        <div class="stat"><span class="stat-num" data-target="50">0</span><span class="stat-label">Data Sources</span></div>
+        <div class="stat"><span class="stat-num" data-target="16">0</span><span class="stat-label">Learning Modules</span></div>
+        <div class="stat"><span class="stat-num" data-target="40">0</span><span class="stat-label">Career Paths</span></div>
+      </div>
+      <div class="hero-cta">
+        <a href="#s1" class="btn-primary-cta">Start Learning <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#s16" class="btn-secondary-cta">Search Database</a>
+      </div>
+    </div>
+    <div class="hero-orbit">
+      <div class="orbit orbit-1"><div class="orbit-dot"></div></div>
+      <div class="orbit orbit-2"><div class="orbit-dot"></div></div>
+      <div class="orbit orbit-3"><div class="orbit-dot"></div></div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 1: INTRODUCTION ─────────────────────────── -->
+  <section id="s1" class="content-section">
+    <div class="section-header">
+      <div class="section-badge"><i class="fa-solid fa-globe"></i> MODULE 01</div>
+      <h2>Introduction to Space Data</h2>
+      <p class="section-desc">Understanding the different types of data generated and collected by space systems.</p>
+    </div>
+
+    <div class="row g-4 mb-5">
+      <div class="col-lg-6">
+        <div class="glass-card h-100">
+          <h3 class="card-title-accent"><i class="fa-solid fa-satellite"></i> What is Satellite Data?</h3>
+          <p>Satellite data refers to any information collected by instruments aboard artificial satellites orbiting Earth or other celestial bodies. These instruments capture electromagnetic radiation across various wavelengths — visible light, infrared, microwave, radar — and transmit it as digital signals to ground stations.</p>
+          <p>Modern satellites carry sophisticated sensors called <strong>payloads</strong> that may measure vegetation health, ocean temperatures, cloud formation, land surface changes, or even gravitational anomalies.</p>
+          <div class="info-tags">
+            <span class="tag tag-blue">Optical Imagery</span>
+            <span class="tag tag-purple">SAR Data</span>
+            <span class="tag tag-teal">Hyperspectral</span>
+            <span class="tag tag-orange">Thermal IR</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="glass-card h-100">
+          <h3 class="card-title-accent"><i class="fa-solid fa-database"></i> What is Space Data?</h3>
+          <p>Space data is a broader term encompassing all data generated within, by, or about the space environment. It includes satellite imagery, telemetry, mission data, astronomical observations, and space weather measurements.</p>
+          <ul class="styled-list">
+            <li>Raw instrument readings from onboard sensors</li>
+            <li>Processed geophysical products (surface reflectance, SST, NDVI)</li>
+            <li>Spacecraft health and housekeeping telemetry</li>
+            <li>Ground control uplink/downlink data</li>
+            <li>Astronomical catalog data from space telescopes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Type Cards -->
+    <h3 class="subsection-title">Types of Space Data</h3>
+    <div class="row g-4 mb-5">
+      <div class="col-md-6 col-xl-4">
+        <div class="type-card" style="--accent:#4a9eff">
+          <div class="type-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+          <h4>Remote Sensing Data</h4>
+          <p>Acquired by sensors that detect energy reflected or emitted from Earth's surface without physical contact. Includes optical, radar, and LiDAR data used for land mapping, agriculture, and disaster monitoring.</p>
+          <div class="type-meta"><span>Passive & Active sensors</span><span>Multi-temporal analysis</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-xl-4">
+        <div class="type-card" style="--accent:#a855f7">
+          <div class="type-icon"><i class="fa-solid fa-wave-square"></i></div>
+          <h4>Telemetry Data</h4>
+          <p>Real-time streams of spacecraft health parameters — battery voltage, temperature, attitude, fuel levels, and instrument status — transmitted from the satellite to mission control for monitoring and commanding.</p>
+          <div class="type-meta"><span>Real-time streams</span><span>HK packets</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-xl-4">
+        <div class="type-card" style="--accent:#10b981">
+          <div class="type-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+          <h4>Geospatial Data</h4>
+          <p>Any data that has a geographic component — coordinates, projections, spatial relationships. Includes vector layers (boundaries, roads) and raster grids derived from satellite imagery with coordinate reference systems.</p>
+          <div class="type-meta"><span>GIS-ready</span><span>CRS / Projections</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-xl-4">
+        <div class="type-card" style="--accent:#f59e0b">
+          <div class="type-icon"><i class="fa-solid fa-flask"></i></div>
+          <h4>Scientific Payload Data</h4>
+          <p>High-precision measurements from specialized scientific instruments — spectrometers, magnetometers, plasma analyzers, cosmic ray detectors — used for planetary science, astrophysics, and heliophysics research.</p>
+          <div class="type-meta"><span>Level 0–4 products</span><span>Calibrated</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-xl-4">
+        <div class="type-card" style="--accent:#ef4444">
+          <div class="type-icon"><i class="fa-solid fa-rocket"></i></div>
+          <h4>Space Mission Data</h4>
+          <p>Comprehensive datasets from entire space missions including trajectory data, science observations, engineering data, and derived higher-level products like topographic maps of planetary surfaces.</p>
+          <div class="type-meta"><span>Mission archives</span><span>PDS format</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-xl-4">
+        <div class="type-card" style="--accent:#06b6d4">
+          <div class="type-icon"><i class="fa-solid fa-cloud-sun"></i></div>
+          <h4>Meteorological Data</h4>
+          <p>Weather satellite observations including cloud imagery, atmospheric temperature/humidity profiles, wind vectors, sea surface temperatures, and precipitation estimates used for weather forecasting and climate monitoring.</p>
+          <div class="type-meta"><span>NWP assimilation</span><span>Nowcasting</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Satellite Image Gallery -->
+    <h3 class="subsection-title">Satellite Families</h3>
+    <div class="img-gallery">
+      <div class="gallery-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Sentinel-2.jpg/320px-Sentinel-2.jpg" alt="Sentinel-2 Earth Observation"/>
+        <div class="gallery-caption">Sentinel-2 (ESA) — Earth Observation</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/GOES-16_Satellite.jpg/320px-GOES-16_Satellite.jpg" alt="GOES-16 Weather"/>
+        <div class="gallery-caption">GOES-16 (NOAA) — Weather</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/GPS_Satellite_NASA_art-iif.jpg/320px-GPS_Satellite_NASA_art-iif.jpg" alt="GPS Navigation"/>
+        <div class="gallery-caption">GPS Block IIF — Navigation</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/HST-SM4.jpeg/320px-HST-SM4.jpeg" alt="Hubble Space Telescope"/>
+        <div class="gallery-caption">Hubble (NASA/ESA) — Space Telescope</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/INSAT-3D_satellite.jpg/320px-INSAT-3D_satellite.jpg" alt="INSAT-3D"/>
+        <div class="gallery-caption">INSAT-3D (ISRO) — Weather/Comm</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Landsat_8_scene.jpg/320px-Landsat_8_scene.jpg" alt="Landsat 8"/>
+        <div class="gallery-caption">Landsat 8 (USGS/NASA) — EO</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 2: GLOBAL ECOSYSTEM ─────────────────────── -->
+  <section id="s2" class="content-section alt-bg">
+    <div class="section-header">
+      <div class="section-badge"><i class="fa-solid fa-building-columns"></i> MODULE 02</div>
+      <h2>Global Space Ecosystem</h2>
+      <p class="section-desc">Space agencies, research centres, and private companies that shape the satellite data landscape.</p>
+    </div>
+
+    <!-- Country Groups -->
+    <div class="country-group mb-5">
+      <div class="country-header"><img src="https://flagcdn.com/w40/in.png" alt="India"/> India</div>
+      <div class="row g-3">
+        <div class="col-sm-6 col-lg-4"><div class="agency-card">
+          <div class="agency-top"><div class="agency-abbr" style="background:linear-gradient(135deg,#ff6b35,#f7931e)">ISRO</div><div class="agency-info"><strong>Indian Space Research Organisation</strong><small>Bengaluru, India · Est. 1969</small></div></div>
+          <p>India's national space agency. Develops launch vehicles (PSLV, GSLV, LVM3), Earth observation, communication and navigation satellites.</p>
+          <div class="agency-missions"><span class="mission-tag">Chandrayaan-3</span><span class="mission-tag">Mangalyaan</span><span class="mission-tag">Aditya-L1</span><span class="mission-tag">NavIC</span></div>
+          <a href="https://www.isro.gov.in" target="_blank" class="agency-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> isro.gov.in</a>
+        </div></div>
+        <div class="col-sm-6 col-lg-4"><div class="agency-card">
+          <div class="agency-top"><div class="agency-abbr" style="background:linear-gradient(135deg,#1a73e8,#0d47a1)">NRSC</div><div class="agency-info"><strong>National Remote Sensing Centre</strong><small>Hyderabad, India</small></div></div>
+          <p>ISRO centre specialising in satellite remote sensing for natural resources, disaster management, and geospatial services via Bhuvan platform.</p>
+          <div class="agency-missions"><span class="mission-tag">Cartosat</span><span class="mission-tag">Resourcesat</span><span class="mission-tag">Bhuvan Portal</span></div>
+          <a href="https://www.nrsc.gov.in" target="_blank" class="agency-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> nrsc.gov.in</a>
+        </div></div>
+        <div class="col-sm-6 col-lg-4"><div class="agency-card">
+          <div class="agency-top"><div class="agency-abbr" style="background:linear-gradient(135deg,#7c3aed,#4c1d95)">SAC</div><div class="agency-info"><strong>Space Applications Centre</strong><small>Ahmedabad, India</small></div></div>
+          <p>Develops payloads for ISRO satellites — oceanographic sensors, atmospheric sounders, microwave imagers — and geospatial applications for weather, ocean, and disaster monitoring.</p>
+          <div class="agency-missions"><span class="mission-tag">MOSDAC</span><span class="mission-tag">INSAT</span><span class="mission-tag">Oceansat</span></div>
+          <a href="https://www.sac.gov.in" target="_blank" class="agency-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> sac.gov.in</a>
+        </div></div>
+        <div class="col-sm-6 col-lg-4"><div class="agency-card">
+          <div class="agency-top"><div class="agency-abbr" style="background:linear-gradient(135deg,#059669,#065f46)">IN-SPACe</div><div class="agency-info"><strong>Indian National Space Promotion & Authorisation Centre</strong><small>Ahmedabad, India · Est. 2020</small></div></div>
+          <p>Regulatory and promotion body enabling private sector participation in India's space sector. Authorises launch and satellite operations.</p>
+          <div class="agency-missions"><span class="mission-tag">Private Launch Approvals</span><span class="mission-tag">FDI Policy</span></div>
+          <a href="https://www.inspace.gov.in" target="_blank" class="agency-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> inspace.gov.in</a>
+        </div></div>
+        <div class="col-sm-6 col-lg-4"><div class="agency-card">
+          <div class="agency-top"><div class="agency-abbr" style="background:linear-gradient(135deg,#dc2626,#7f1d1d)">NSIL</div><div class="agency-info"><strong>NewSpace India Limited</strong><small>Bengaluru, India · Est. 2019</small></div></div>
+          <p>ISRO's commercial arm. Operates OneWeb launches via LVM3, GSAT lease/transfer, and EO data commercialisation.</p>
+          <div class="agency-missions"><span class="mission-tag">OneWeb Launches</span><span class="mission-tag">GSAT Commercial</span></div>
+          <a href="https://www.nsilindia.co.in" target="_blank" class="agency-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> nsilindia.co.in</a>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="country-group mb-5">
+      <div class="country-header"><img src="https://flagcdn.com/w40/us.png" alt="USA"/> United States</div>
+      <div class="row g-3">
+        <div class="col-sm-6 col-lg-4"><div class="agency-card">
+          <div class="agency-top"><div class="agency-abbr" style="background:linear-gradient(135deg,#1d4ed8,#1e3a8a)">NASA</div><div class="agency-info"><strong>National Aeronautics and Space Administration</strong><small>Washington D.C., USA · Est. 1958</small></div></div>
+          <p>World's leading space agency. Operates Earth observation, heliophysics, planetary science, astrophysics, and human spaceflight programmes.</p>
+          <div class="agency-missions"><span class="mission-tag">Landsat</span><span class="mission-tag">Artemis</span><span class="mission-tag">JWST</span><span class="mission-tag">Mars Perseverance</span></div>
+          <a href="https://www.nasa.gov" target="_blank" class="agency-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> nasa.gov</a>
+        </div></div>
+        <div class="col-sm-6 col-lg-4"><div class="agency-card">
+          <div class="agency-top"><div class="agency-abbr" style="background:linear-gradient(135deg,#0369a1,#075985)">NOAA</div><div class="agency-info"><strong>National Oceanic and Atmospheric Administration</strong><small>Silver Spring, MD, USA</small></div></div>
+          <p>Operates GOES and JPSS weather satellite series. Provides real-time weather data to NWS and international partners. Manages NOAA CLASS data archive.</p>
+          <div class="agency-missions"><span class="mission-tag">GOES-16/18</span><span class="mission-tag">JPSS/Suomi NPP</span><span class="mission-tag">DSCOVR</span></div>
+          <a href="https://www.noaa.gov" target="_blank" class="agency-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> noaa.gov</a>
+        </div></div>
+        <div class="col-sm-6 col-lg-4"><div class="agency-card">
+          <div class="agency-top"><div class="agency-abbr" style="background:linear-gradient(135deg,#78350f,#451a03)">USGS</div><div class="agency-info"><strong>US Geological Survey</strong><small>Reston, VA, USA</small></div></div>
+          <p>Manages the Landsat program jointly with NASA. Operates Earth Explorer portal — the world's largest free satellite imagery archive.</p>
+          <div class="agency-missions"><span class="mission-tag">Landsat 8/9</span><span class="mission-tag">Earth Explorer</span><span class="mission-tag">National Map</span></div>
+          <a href="https://www.usgs.gov" target="_blank" class="agency-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> usgs.gov</a>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="country-group mb-5">
+      <div class="country-header"><img src="https://flagcdn.com/w40/eu.png" alt="EU"/> Europe &amp; Japan &amp; Canada</div>
+      <div class="row g-3">
+        <div class="col-sm-6 col-lg-4"><div class="agency-card">
+          <div class="agency-top"><div class="agency-abbr" style="background:linear-gradient(135deg,#0ea5e9,#0369a1)">ESA</div><div class="agency-info"><strong>European Space Agency</strong><small>Paris, France · Est. 1975</small></div></div>
+          <p>Operates Sentinel satellites under Copernicus, Galileo navigation, MetOp weather, and deep-space missions like Mars Express and Rosetta.</p>
+          <div class="agency-missions"><span class="mission-tag">Sentinel 1–6</span><span class="mission-tag">Galileo</span><span class="mission-tag">BepiColombo</span></div>
+          <a href="https://www.esa.int" target="_blank" class="agency-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> esa.int</a>
+        </div></div>
+        <div class="col-sm-6 col-lg-4"><div class="agency-card">
+          <div class="agency-top"><div class="agency-abbr" style="background:linear-gradient(135deg,#6366f1,#3730a3)">EUMETSAT</div><div class="agency-info"><strong>European Organisation for the Exploitation of Meteorological Satellites</strong><small>Darmstadt, Germany</small></div></div>
+          <p>Operates Meteosat and MetOp series providing Europe's weather satellite data. Distributes real-time and archived meteorological data globally.</p>
+          <div class="agency-missions"><span class="mission-tag">Meteosat-12</span><span class="mission-tag">MetOp-C</span><span class="mission-tag">MTG</span></div>
+          <a href="https://www.eumetsat.int" target="_blank" class="agency-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> eumetsat.int</a>
+        </div></div>
+        <div class="col-sm-6 col-lg-4"><div class="agency-card">
+          <div class="agency-top"><div class="agency-abbr" style="background:linear-gradient(135deg,#dc2626,#991b1b)">JAXA</div><div class="agency-info"><strong>Japan Aerospace Exploration Agency</strong><small>Tokyo, Japan · Est. 2003</small></div></div>
+          <p>Operates ALOS Earth observation satellites, the H-II rocket family, contributes to ISS, and conducts deep space missions including Hayabusa asteroid sample return.</p>
+          <div class="agency-missions"><span class="mission-tag">ALOS-2/4</span><span class="mission-tag">Hayabusa2</span><span class="mission-tag">DAICHI</span></div>
+          <a href="https://www.jaxa.jp" target="_blank" class="agency-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> jaxa.jp</a>
+        </div></div>
+        <div class="col-sm-6 col-lg-4"><div class="agency-card">
+          <div class="agency-top"><div class="agency-abbr" style="background:linear-gradient(135deg,#d97706,#92400e)">CSA</div><div class="agency-info"><strong>Canadian Space Agency</strong><small>Saint-Hubert, Canada · Est. 1989</small></div></div>
+          <p>Operates RADARSAT SAR constellation. Developed Canadarm for the Space Shuttle and ISS. Contributes to Artemis gateway.</p>
+          <div class="agency-missions"><span class="mission-tag">RADARSAT Constellation</span><span class="mission-tag">Canadarm3</span><span class="mission-tag">SCISAT</span></div>
+          <a href="https://www.asc-csa.gc.ca" target="_blank" class="agency-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> asc-csa.gc.ca</a>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="country-group">
+      <div class="country-header"><i class="fa-solid fa-building"></i> Private Companies</div>
+      <div class="row g-3">
+        <div class="col-sm-6 col-lg-4"><div class="agency-card">
+          <div class="agency-top"><div class="agency-abbr" style="background:linear-gradient(135deg,#374151,#111827)">SpaceX</div><div class="agency-info"><strong>Space Exploration Technologies Corp.</strong><small>Hawthorne, CA, USA · Est. 2002</small></div></div>
+          <p>Operates Starlink broadband constellation (6000+ satellites), launches Falcon 9/Heavy and Starship. Provides commercial launch services globally.</p>
+          <div class="agency-missions"><span class="mission-tag">Starlink</span><span class="mission-tag">Dragon</span><span class="mission-tag">Starship</span></div>
+          <a href="https://www.spacex.com" target="_blank" class="agency-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> spacex.com</a>
+        </div></div>
+        <div class="col-sm-6 col-lg-4"><div class="agency-card">
+          <div class="agency-top"><div class="agency-abbr" style="background:linear-gradient(135deg,#16a34a,#14532d)">Planet</div><div class="agency-info"><strong>Planet Labs PBC</strong><small>San Francisco, CA, USA · Est. 2010</small></div></div>
+          <p>Operates the largest commercial Earth observation constellation — 200+ Dove CubeSats and SkySat imaging satellites providing daily global coverage at 3–5 m resolution.</p>
+          <div class="agency-missions"><span class="mission-tag">Dove Constellation</span><span class="mission-tag">SkySat</span><span class="mission-tag">Planet Basemaps</span></div>
+          <a href="https://www.planet.com" target="_blank" class="agency-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> planet.com</a>
+        </div></div>
+        <div class="col-sm-6 col-lg-4"><div class="agency-card">
+          <div class="agency-top"><div class="agency-abbr" style="background:linear-gradient(135deg,#0ea5e9,#0c4a6e)">Maxar</div><div class="agency-info"><strong>Maxar Technologies</strong><small>Westminster, CO, USA · Est. 1969</small></div></div>
+          <p>Provides very high resolution (30–50 cm) satellite imagery via WorldView and GeoEye constellations. Major supplier to US government and commercial mapping.</p>
+          <div class="agency-missions"><span class="mission-tag">WorldView-3/4</span><span class="mission-tag">GeoEye-1</span><span class="mission-tag">Legion</span></div>
+          <a href="https://www.maxar.com" target="_blank" class="agency-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> maxar.com</a>
+        </div></div>
+        <div class="col-sm-6 col-lg-4"><div class="agency-card">
+          <div class="agency-top"><div class="agency-abbr" style="background:linear-gradient(135deg,#7c3aed,#3b0764)">ICEYE</div><div class="agency-info"><strong>ICEYE</strong><small>Espoo, Finland · Est. 2012</small></div></div>
+          <p>Operates a SAR (Synthetic Aperture Radar) microsatellite constellation providing sub-metre resolution imaging day, night, and through clouds for disaster response, insurance, and defence.</p>
+          <div class="agency-missions"><span class="mission-tag">SAR Constellation</span><span class="mission-tag">Flood Monitoring</span><span class="mission-tag">Change Detection</span></div>
+          <a href="https://www.iceye.com" target="_blank" class="agency-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> iceye.com</a>
+        </div></div>
+        <div class="col-sm-6 col-lg-4"><div class="agency-card">
+          <div class="agency-top"><div class="agency-abbr" style="background:linear-gradient(135deg,#0f172a,#1e293b)">BlackSky</div><div class="agency-info"><strong>BlackSky Technology</strong><small>Herndon, VA, USA · Est. 2014</small></div></div>
+          <p>High-revisit EO constellation with AI-powered analytics platform. Provides real-time monitoring of critical infrastructure, ports, military, and economic activity sites.</p>
+          <div class="agency-missions"><span class="mission-tag">Gen-3 Constellation</span><span class="mission-tag">Spectra AI</span><span class="mission-tag">Site Monitoring</span></div>
+          <a href="https://www.blacksky.com" target="_blank" class="agency-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> blacksky.com</a>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 3: SATELLITE TYPES ──────────────────────── -->
+  <section id="s3" class="content-section">
+    <div class="section-header">
+      <div class="section-badge"><i class="fa-solid fa-satellite-dish"></i> MODULE 03</div>
+      <h2>Satellite Types &amp; Missions</h2>
+      <p class="section-desc">Detailed profiles of satellite families, their sensors, orbits, and applications.</p>
+    </div>
+
+    <!-- Tabs -->
+    <ul class="tab-nav" id="satTypeTabs">
+      <li class="tab-item active" data-tab="eo">Earth Observation</li>
+      <li class="tab-item" data-tab="wx">Weather</li>
+      <li class="tab-item" data-tab="nav">Navigation</li>
+      <li class="tab-item" data-tab="com">Communication</li>
+      <li class="tab-item" data-tab="sci">Scientific</li>
+    </ul>
+
+    <div class="tab-content" id="eo">
+      <div class="row g-4">
+        <div class="col-md-6 col-xl-4"><div class="sat-card">
+          <div class="sat-header" style="--c1:#1a56db;--c2:#0c2461"><i class="fa-solid fa-camera"></i> Cartosat-3 (ISRO)</div>
+          <table class="sat-table"><tr><th>Orbit</th><td>509 km SSO</td></tr><tr><th>Resolution</th><td>0.25 m panchromatic</td></tr><tr><th>Sensor</th><td>PAN + Multispectral</td></tr><tr><th>Swath</th><td>16 km</td></tr><tr><th>Launch</th><td>2019</td></tr></table>
+          <p class="sat-use">Used for urban planning, infrastructure mapping, cadastral surveys, and defence reconnaissance.</p>
+          <div class="sat-tags"><span>Cartography</span><span>Urban</span><span>Defence</span></div>
+        </div></div>
+        <div class="col-md-6 col-xl-4"><div class="sat-card">
+          <div class="sat-header" style="--c1:#7c3aed;--c2:#3b0764"><i class="fa-solid fa-leaf"></i> Resourcesat-2A (ISRO)</div>
+          <table class="sat-table"><tr><th>Orbit</th><td>817 km SSO</td></tr><tr><th>Sensors</th><td>LISS-3, LISS-4, AWiFS</td></tr><tr><th>Resolution</th><td>5.8–56 m</td></tr><tr><th>Swath</th><td>23–740 km</td></tr><tr><th>Launch</th><td>2016</td></tr></table>
+          <p class="sat-use">Agriculture monitoring, crop acreage estimation, forest inventory, watershed management.</p>
+          <div class="sat-tags"><span>Agriculture</span><span>Forest</span><span>Water</span></div>
+        </div></div>
+        <div class="col-md-6 col-xl-4"><div class="sat-card">
+          <div class="sat-header" style="--c1:#0369a1;--c2:#0c4a6e"><i class="fa-solid fa-water"></i> Oceansat-3 (ISRO)</div>
+          <table class="sat-table"><tr><th>Orbit</th><td>742 km SSO</td></tr><tr><th>Sensors</th><td>OCM-3, OSCAT-3, SSTM</td></tr><tr><th>Resolution</th><td>360 m</td></tr><tr><th>Swath</th><td>1420 km</td></tr><tr><th>Launch</th><td>2022</td></tr></table>
+          <p class="sat-use">Ocean colour monitoring, chlorophyll estimation, sea surface temperature, wind vector retrieval.</p>
+          <div class="sat-tags"><span>Oceanography</span><span>Fisheries</span><span>Climate</span></div>
+        </div></div>
+        <div class="col-md-6 col-xl-4"><div class="sat-card">
+          <div class="sat-header" style="--c1:#047857;--c2:#064e3b"><i class="fa-solid fa-radar"></i> RISAT-1A (ISRO)</div>
+          <table class="sat-table"><tr><th>Orbit</th><td>555 km SSO</td></tr><tr><th>Sensor</th><td>C-band SAR</td></tr><tr><th>Resolution</th><td>1 m (spotlight)</td></tr><tr><th>Swath</th><td>10–240 km</td></tr><tr><th>Launch</th><td>2022</td></tr></table>
+          <p class="sat-use">All-weather imaging for flood mapping, soil moisture, crop monitoring, and border surveillance.</p>
+          <div class="sat-tags"><span>SAR</span><span>Flood</span><span>All-weather</span></div>
+        </div></div>
+        <div class="col-md-6 col-xl-4"><div class="sat-card">
+          <div class="sat-header" style="--c1:#b45309;--c2:#78350f"><i class="fa-solid fa-layer-group"></i> Sentinel-2 (ESA)</div>
+          <table class="sat-table"><tr><th>Orbit</th><td>786 km SSO</td></tr><tr><th>Sensor</th><td>MSI (13 bands)</td></tr><tr><th>Resolution</th><td>10–60 m</td></tr><tr><th>Swath</th><td>290 km</td></tr><tr><th>Revisit</th><td>5 days</td></tr></table>
+          <p class="sat-use">Free open-data for agriculture, land cover change, fire monitoring, coastal and inland water.</p>
+          <div class="sat-tags"><span>Free Data</span><span>NDVI</span><span>Land Cover</span></div>
+        </div></div>
+        <div class="col-md-6 col-xl-4"><div class="sat-card">
+          <div class="sat-header" style="--c1:#dc2626;--c2:#7f1d1d"><i class="fa-solid fa-satellite"></i> Landsat 9 (NASA/USGS)</div>
+          <table class="sat-table"><tr><th>Orbit</th><td>705 km SSO</td></tr><tr><th>Sensor</th><td>OLI-2, TIRS-2</td></tr><tr><th>Resolution</th><td>15–100 m</td></tr><tr><th>Swath</th><td>185 km</td></tr><tr><th>Launch</th><td>2021</td></tr></table>
+          <p class="sat-use">50-year archive of Earth imagery. Used for land change detection, urban growth, glacier retreat, deforestation tracking.</p>
+          <div class="sat-tags"><span>50-yr Archive</span><span>Change Detection</span><span>Free</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="tab-content hidden" id="wx">
+      <div class="row g-4">
+        <div class="col-md-6 col-xl-4"><div class="sat-card">
+          <div class="sat-header" style="--c1:#0ea5e9;--c2:#0369a1"><i class="fa-solid fa-cloud-bolt"></i> INSAT-3DR (ISRO)</div>
+          <table class="sat-table"><tr><th>Orbit</th><td>GEO 74°E</td></tr><tr><th>Sensors</th><td>Imager, Sounder, DRT</td></tr><tr><th>Resolution</th><td>1–8 km</td></tr><tr><th>Channels</th><td>6 (Imager)</td></tr><tr><th>Launch</th><td>2016</td></tr></table>
+          <p class="sat-use">India's primary weather satellite. Provides cyclone tracking, monsoon monitoring, cloud imagery every 30 minutes.</p>
+          <div class="sat-tags"><span>GEO</span><span>Cyclones</span><span>Monsoon</span></div>
+        </div></div>
+        <div class="col-md-6 col-xl-4"><div class="sat-card">
+          <div class="sat-header" style="--c1:#6366f1;--c2:#3730a3"><i class="fa-solid fa-cloud-sun"></i> Meteosat-12 (EUMETSAT)</div>
+          <table class="sat-table"><tr><th>Orbit</th><td>GEO 0°</td></tr><tr><th>Sensor</th><td>SEVIRI (12 channels)</td></tr><tr><th>Resolution</th><td>1–3 km</td></tr><tr><th>Repeat</th><td>15 min full disk</td></tr><tr><th>Launch</th><td>2022</td></tr></table>
+          <p class="sat-use">Europe and Africa weather monitoring. Full-disk imagery every 15 minutes covering 1/3 of the globe.</p>
+          <div class="sat-tags"><span>Europe</span><span>Africa</span><span>GEO</span></div>
+        </div></div>
+        <div class="col-md-6 col-xl-4"><div class="sat-card">
+          <div class="sat-header" style="--c1:#f59e0b;--c2:#92400e"><i class="fa-solid fa-tornado"></i> GOES-18 (NOAA)</div>
+          <table class="sat-table"><tr><th>Orbit</th><td>GEO 137°W</td></tr><tr><th>Sensor</th><td>ABI (16 bands)</td></tr><tr><th>Resolution</th><td>0.5–2 km</td></tr><tr><th>Repeat</th><td>10 min CONUS</td></tr><tr><th>Launch</th><td>2022</td></tr></table>
+          <p class="sat-use">NOAA's western US weather satellite. Hurricane tracking, fire detection, lightning mapper for real-time warnings.</p>
+          <div class="sat-tags"><span>Hurricane</span><span>Fire</span><span>Lightning</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="tab-content hidden" id="nav">
+      <div class="row g-4">
+        <div class="col-md-6 col-xl-4"><div class="sat-card">
+          <div class="sat-header" style="--c1:#ff6b35;--c2:#c2410c"><i class="fa-solid fa-location-crosshairs"></i> NavIC (ISRO)</div>
+          <table class="sat-table"><tr><th>Orbit</th><td>GEO + IGSO</td></tr><tr><th>Satellites</th><td>8 operational</td></tr><tr><th>Accuracy</th><td>&lt;5 m (standard)</td></tr><tr><th>Coverage</th><td>India + 1500 km</td></tr><tr><th>Frequencies</th><td>L5, S-band</td></tr></table>
+          <p class="sat-use">India's indigenous navigation system. Used for vehicle tracking, fishermen safety, disaster management, and mobile phones (NIC chipset mandated from 2023).</p>
+          <div class="sat-tags"><span>India</span><span>L5+S</span><span>Maritime</span></div>
+        </div></div>
+        <div class="col-md-6 col-xl-4"><div class="sat-card">
+          <div class="sat-header" style="--c1:#1d4ed8;--c2:#1e3a8a"><i class="fa-solid fa-map-pin"></i> GPS (US DoD)</div>
+          <table class="sat-table"><tr><th>Orbit</th><td>MEO 20,200 km</td></tr><tr><th>Satellites</th><td>31 operational</td></tr><tr><th>Accuracy</th><td>&lt;3 m (civilian)</td></tr><tr><th>Coverage</th><td>Global</td></tr><tr><th>Frequencies</th><td>L1, L2, L5</td></tr></table>
+          <p class="sat-use">Global Positioning System — the world's most widely used GNSS. Powers navigation in smartphones, aviation, maritime, surveying, and precision agriculture.</p>
+          <div class="sat-tags"><span>Global</span><span>24/7</span><span>L1/L2/L5</span></div>
+        </div></div>
+        <div class="col-md-6 col-xl-4"><div class="sat-card">
+          <div class="sat-header" style="--c1:#0ea5e9;--c2:#0c4a6e"><i class="fa-solid fa-compass"></i> Galileo (ESA)</div>
+          <table class="sat-table"><tr><th>Orbit</th><td>MEO 23,222 km</td></tr><tr><th>Satellites</th><td>28 operational</td></tr><tr><th>Accuracy</th><td>&lt;1 m (high accuracy)</td></tr><tr><th>Coverage</th><td>Global</td></tr><tr><th>Frequencies</th><td>E1, E5a, E5b, E6</td></tr></table>
+          <p class="sat-use">European civilian GNSS. Offers high accuracy service for autonomous vehicles, aviation, surveying, and timing applications.</p>
+          <div class="sat-tags"><span>Civilian</span><span>High Accuracy</span><span>Europe</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="tab-content hidden" id="com">
+      <div class="row g-4">
+        <div class="col-md-6 col-xl-4"><div class="sat-card">
+          <div class="sat-header" style="--c1:#7c3aed;--c2:#4c1d95"><i class="fa-solid fa-tower-broadcast"></i> GSAT-11 (ISRO)</div>
+          <table class="sat-table"><tr><th>Orbit</th><td>GEO 74°E</td></tr><tr><th>Capacity</th><td>16 Gbps</td></tr><tr><th>Beams</th><td>32 spot + 8 wide</td></tr><tr><th>Mass</th><td>5854 kg</td></tr><tr><th>Launch</th><td>2018 (Ariane 5)</td></tr></table>
+          <p class="sat-use">India's heaviest and highest-capacity communications satellite. Broadband internet in remote areas, disaster communication backbone.</p>
+          <div class="sat-tags"><span>Ka-band</span><span>Broadband</span><span>India</span></div>
+        </div></div>
+        <div class="col-md-6 col-xl-4"><div class="sat-card">
+          <div class="sat-header" style="--c1:#0369a1;--c2:#075985"><i class="fa-solid fa-signal"></i> Intelsat-39</div>
+          <table class="sat-table"><tr><th>Orbit</th><td>GEO 62°E</td></tr><tr><th>Transponders</th><td>C, Ku, Ka-band</td></tr><tr><th>Coverage</th><td>Africa, Europe, ME</td></tr><tr><th>Launch</th><td>2019</td></tr></table>
+          <p class="sat-use">Commercial broadband, broadcast (DTH TV), maritime and aeronautical connectivity over Africa, Europe and Middle East.</p>
+          <div class="sat-tags"><span>Commercial</span><span>DTH</span><span>Maritime</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="tab-content hidden" id="sci">
+      <div class="row g-4">
+        <div class="col-md-6 col-xl-4"><div class="sat-card">
+          <div class="sat-header" style="--c1:#dc2626;--c2:#991b1b"><i class="fa-solid fa-moon"></i> Chandrayaan-3 (ISRO)</div>
+          <table class="sat-table"><tr><th>Target</th><td>Moon South Pole</td></tr><tr><th>Lander</th><td>Vikram</td></tr><tr><th>Rover</th><td>Pragyan</td></tr><tr><th>Payloads</th><td>ChaSTE, ILSA, RAMBHA, SHAPE</td></tr><tr><th>Landing</th><td>23 Aug 2023</td></tr></table>
+          <p class="sat-use">India's successful lunar south pole landing. Detected sulphur and other elements, measured seismic activity. India became 4th country to land on Moon.</p>
+          <div class="sat-tags"><span>Moon</span><span>2023</span><span>South Pole</span></div>
+        </div></div>
+        <div class="col-md-6 col-xl-4"><div class="sat-card">
+          <div class="sat-header" style="--c1:#f59e0b;--c2:#b45309"><i class="fa-solid fa-fire"></i> Aditya-L1 (ISRO)</div>
+          <table class="sat-table"><tr><th>Target</th><td>L1 Lagrange Point</td></tr><tr><th>Orbit</th><td>Halo around L1</td></tr><tr><th>Payloads</th><td>7 (VELC, SUIT, SoLEXS…)</td></tr><tr><th>Mission</th><td>Solar observation</td></tr><tr><th>Launch</th><td>Sep 2023</td></tr></table>
+          <p class="sat-use">India's first dedicated solar mission. Studies solar corona, CMEs, solar wind, and space weather from the L1 vantage point 1.5 million km from Earth.</p>
+          <div class="sat-tags"><span>Sun</span><span>Space Weather</span><span>L1</span></div>
+        </div></div>
+        <div class="col-md-6 col-xl-4"><div class="sat-card">
+          <div class="sat-header" style="--c1:#6366f1;--c2:#312e81"><i class="fa-solid fa-star"></i> James Webb ST (NASA)</div>
+          <table class="sat-table"><tr><th>Orbit</th><td>L2 Lagrange Point</td></tr><tr><th>Mirror</th><td>6.5 m primary</td></tr><tr><th>Instruments</th><td>NIRCam, MIRI, NIRSpec, NIRISS</td></tr><tr><th>Wavelength</th><td>0.6–28 μm IR</td></tr><tr><th>Launch</th><td>Dec 2021</td></tr></table>
+          <p class="sat-use">Most powerful space telescope ever built. Observes first galaxies, exoplanet atmospheres, star formation. Replaced Hubble for IR astronomy.</p>
+          <div class="sat-tags"><span>Deep Universe</span><span>Exoplanets</span><span>Infrared</span></div>
+        </div></div>
+        <div class="col-md-6 col-xl-4"><div class="sat-card">
+          <div class="sat-header" style="--c1:#10b981;--c2:#065f46"><i class="fa-solid fa-planet-ringed fa-fw"></i> Mangalyaan MOM (ISRO)</div>
+          <table class="sat-table"><tr><th>Target</th><td>Mars Orbit</td></tr><tr><th>Payloads</th><td>MENCA, TIR, MCC, MSM, LAP</td></tr><tr><th>Orbit insertion</th><td>24 Sep 2014</td></tr><tr><th>Cost</th><td>₹450 Crore (~$74M)</td></tr><tr><th>Status</th><td>Mission complete 2022</td></tr></table>
+          <p class="sat-use">India's first interplanetary mission to Mars. Mapped Martian surface, studied atmosphere. Made ISRO only 4th agency to reach Mars, and the first to succeed on maiden attempt.</p>
+          <div class="sat-tags"><span>Mars</span><span>First Attempt</span><span>Landmark</span></div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 4: DATA SOURCES ─────────────────────────── -->
+  <section id="s4" class="content-section alt-bg">
+    <div class="section-header">
+      <div class="section-badge"><i class="fa-solid fa-database"></i> MODULE 04</div>
+      <h2>Space Data Sources</h2>
+      <p class="section-desc">Free and commercial portals to access satellite and geospatial data globally.</p>
+    </div>
+
+    <div class="search-bar-local mb-4">
+      <i class="fa-solid fa-search"></i>
+      <input type="text" id="sourceSearch" placeholder="Filter data sources by name, type, or format…" oninput="filterTable('sourceSearch','sourceTable')"/>
+    </div>
+
+    <div class="table-responsive">
+      <table class="data-table" id="sourceTable">
+        <thead><tr><th>Source</th><th>Agency</th><th>Data Types</th><th>Formats</th><th>Access</th><th>API</th><th>Free?</th><th>Link</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Bhuvan</strong></td><td>ISRO/NRSC</td><td>EO imagery, thematic maps, DEM, NDVI</td><td>GeoTIFF, KML, WMS</td><td>Web portal, WMS/WFS</td><td><span class="badge-yes">Yes</span></td><td><span class="badge-yes">Free</span></td><td><a href="https://bhuvan.nrsc.gov.in" target="_blank">bhuvan.nrsc.gov.in</a></td></tr>
+          <tr><td><strong>MOSDAC</strong></td><td>ISRO/SAC</td><td>Ocean, weather, atmospheric data</td><td>NetCDF, HDF5, GeoTIFF</td><td>Web portal, FTP</td><td><span class="badge-yes">Yes</span></td><td><span class="badge-yes">Free</span></td><td><a href="https://mosdac.gov.in" target="_blank">mosdac.gov.in</a></td></tr>
+          <tr><td><strong>VEDAS</strong></td><td>ISRO/SAC</td><td>Multi-temporal EO analysis</td><td>GeoTIFF, JSON</td><td>Web interface</td><td><span class="badge-yes">Yes</span></td><td><span class="badge-yes">Free</span></td><td><a href="https://vedas.sac.gov.in" target="_blank">vedas.sac.gov.in</a></td></tr>
+          <tr><td><strong>NRSC Open EO Data</strong></td><td>NRSC</td><td>Cartosat, Resourcesat, LISS products</td><td>GeoTIFF, TIFF</td><td>Registration required</td><td><span class="badge-partial">Partial</span></td><td><span class="badge-yes">Free</span></td><td><a href="https://www.nrsc.gov.in" target="_blank">nrsc.gov.in</a></td></tr>
+          <tr><td><strong>NASA EarthData</strong></td><td>NASA EOSDIS</td><td>Land, ocean, atmosphere, cryosphere</td><td>HDF5, NetCDF, GeoTIFF</td><td>Portal, API, Earthdata Search</td><td><span class="badge-yes">Yes</span></td><td><span class="badge-yes">Free</span></td><td><a href="https://earthdata.nasa.gov" target="_blank">earthdata.nasa.gov</a></td></tr>
+          <tr><td><strong>LAADS DAAC</strong></td><td>NASA</td><td>MODIS, VIIRS products</td><td>HDF4, HDF5, NetCDF</td><td>FTP, HTTPS, API</td><td><span class="badge-yes">Yes</span></td><td><span class="badge-yes">Free</span></td><td><a href="https://ladsweb.modaps.eosdis.nasa.gov" target="_blank">ladsweb.modaps.eosdis.nasa.gov</a></td></tr>
+          <tr><td><strong>NASA Open Data Portal</strong></td><td>NASA</td><td>Cross-mission datasets, APIs</td><td>JSON, CSV, GeoTIFF</td><td>REST API</td><td><span class="badge-yes">Yes</span></td><td><span class="badge-yes">Free</span></td><td><a href="https://data.nasa.gov" target="_blank">data.nasa.gov</a></td></tr>
+          <tr><td><strong>Copernicus Open Access Hub</strong></td><td>ESA</td><td>Sentinel 1–6 products</td><td>SAFE, GeoTIFF, NetCDF</td><td>Portal, API, S3</td><td><span class="badge-yes">Yes</span></td><td><span class="badge-yes">Free</span></td><td><a href="https://scihub.copernicus.eu" target="_blank">scihub.copernicus.eu</a></td></tr>
+          <tr><td><strong>Sentinel Hub</strong></td><td>ESA/Sinergise</td><td>Sentinel, Landsat, MODIS</td><td>GeoTIFF, PNG, WMTS</td><td>REST API, Python client</td><td><span class="badge-yes">Yes</span></td><td><span class="badge-partial">Freemium</span></td><td><a href="https://www.sentinel-hub.com" target="_blank">sentinel-hub.com</a></td></tr>
+          <tr><td><strong>Earth Explorer (USGS)</strong></td><td>USGS</td><td>Landsat, ASTER, DEM, aerial</td><td>GeoTIFF, TIFF, HDF</td><td>Portal, Bulk Download</td><td><span class="badge-yes">Yes</span></td><td><span class="badge-yes">Free</span></td><td><a href="https://earthexplorer.usgs.gov" target="_blank">earthexplorer.usgs.gov</a></td></tr>
+          <tr><td><strong>NOAA CLASS</strong></td><td>NOAA</td><td>GOES, AVHRR, NEXRAD weather radar</td><td>NetCDF, GRIB2, HDF</td><td>Portal, FTP</td><td><span class="badge-yes">Yes</span></td><td><span class="badge-yes">Free</span></td><td><a href="https://www.avl.class.noaa.gov" target="_blank">avl.class.noaa.gov</a></td></tr>
+          <tr><td><strong>EUMETSAT Data Store</strong></td><td>EUMETSAT</td><td>Meteosat, MetOp, Sentinel-3/6</td><td>BUFR, NetCDF, GRIB2</td><td>Portal, EUMDAC API</td><td><span class="badge-yes">Yes</span></td><td><span class="badge-partial">Member states free</span></td><td><a href="https://eoportal.eumetsat.int" target="_blank">eoportal.eumetsat.int</a></td></tr>
+          <tr><td><strong>Google Earth Engine</strong></td><td>Google</td><td>Petabytes — Landsat, Sentinel, MODIS…</td><td>Cloud-native</td><td>JavaScript API, Python</td><td><span class="badge-yes">Yes</span></td><td><span class="badge-partial">Research free</span></td><td><a href="https://earthengine.google.com" target="_blank">earthengine.google.com</a></td></tr>
+          <tr><td><strong>AWS Open Data</strong></td><td>Amazon</td><td>Landsat-9, Sentinel-2, NASADEM…</td><td>Cloud-Optimized GeoTIFF</td><td>S3 REQUESTER PAYS / Free</td><td><span class="badge-yes">Yes</span></td><td><span class="badge-yes">Free</span></td><td><a href="https://registry.opendata.aws" target="_blank">registry.opendata.aws</a></td></tr>
+          <tr><td><strong>Microsoft Planetary Computer</strong></td><td>Microsoft</td><td>Landsat, Sentinel, MODIS, ERA5</td><td>STAC, COG, Zarr</td><td>Python STAC API</td><td><span class="badge-yes">Yes</span></td><td><span class="badge-yes">Free</span></td><td><a href="https://planetarycomputer.microsoft.com" target="_blank">planetarycomputer.microsoft.com</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── SECTION 5: DATA FORMATS ─────────────────────────── -->
+  <section id="s5" class="content-section">
+    <div class="section-header">
+      <div class="section-badge"><i class="fa-solid fa-file-code"></i> MODULE 05</div>
+      <h2>Data Formats</h2>
+      <p class="section-desc">Understanding how satellite data is stored, encoded, and distributed.</p>
+    </div>
+
+    <div class="row g-4 mb-5">
+      <div class="col-lg-6">
+        <div class="glass-card">
+          <h3 class="card-title-accent"><i class="fa-solid fa-image"></i> Raster Data Formats</h3>
+          <p>Raster data represents space as a grid of pixels. Each cell holds a value — reflectance, temperature, elevation. The spatial resolution defines how large each pixel is on the ground.</p>
+          <div class="format-list">
+            <div class="format-item"><div class="format-icon"><i class="fa-solid fa-file-image"></i></div><div><strong>GeoTIFF</strong><p>Industry-standard raster format embedding geographic coordinates and projection info directly in the TIFF header. Supported by every GIS and remote sensing tool.</p></div></div>
+            <div class="format-item"><div class="format-icon"><i class="fa-solid fa-compress-arrows-alt"></i></div><div><strong>JPEG2000</strong><p>Wavelet-based compression with multi-resolution levels. Used by ESA for Sentinel data distribution — smaller files with no quality loss.</p></div></div>
+            <div class="format-item"><div class="format-icon"><i class="fa-solid fa-layer-group"></i></div><div><strong>HDF5</strong><p>Hierarchical Data Format. Self-describing, supports N-dimensional arrays. Used by MODIS, VIIRS, and ICESat-2 for complex multi-variable datasets.</p></div></div>
+            <div class="format-item"><div class="format-icon"><i class="fa-solid fa-temperature-half"></i></div><div><strong>NetCDF</strong><p>Network Common Data Form. Scientific standard for gridded data with time, lat/lon dimensions. Used for climate, ocean, and atmospheric model outputs.</p></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="glass-card">
+          <h3 class="card-title-accent"><i class="fa-solid fa-draw-polygon"></i> Vector Data Formats</h3>
+          <p>Vector data represents geography as points, lines, and polygons with attribute tables. Ideal for roads, administrative boundaries, building footprints, and survey points.</p>
+          <div class="format-list">
+            <div class="format-item"><div class="format-icon"><i class="fa-solid fa-shapes"></i></div><div><strong>Shapefile (.shp)</strong><p>ESRI's legacy but still dominant vector format. Actually 4–6 files (.shp, .dbf, .shx, .prj). Supported by every GIS platform globally.</p></div></div>
+            <div class="format-item"><div class="format-icon"><i class="fa-solid fa-code"></i></div><div><strong>GeoJSON</strong><p>JSON-based vector format ideal for web applications. Human-readable, directly embedded in REST APIs. Supported by Leaflet, Mapbox, and GEE.</p></div></div>
+            <div class="format-item"><div class="format-icon"><i class="fa-brands fa-google"></i></div><div><strong>KML / KMZ</strong><p>Google's XML-based format for Google Earth and Google Maps. KMZ is the compressed version. Used for overlays, placemarks, and flight paths.</p></div></div>
+            <div class="format-item"><div class="format-icon"><i class="fa-solid fa-database"></i></div><div><strong>GeoPackage (.gpkg)</strong><p>OGC standard SQLite-based format storing both vector and raster in a single file. Recommended replacement for Shapefiles — no file-size limits.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="glass-card">
+          <h3 class="card-title-accent"><i class="fa-solid fa-wave-square"></i> Telemetry &amp; Mission Formats</h3>
+          <div class="format-list">
+            <div class="format-item"><div class="format-icon"><i class="fa-solid fa-satellite"></i></div><div><strong>CCSDS Packets</strong><p>Consultative Committee for Space Data Systems standard. Raw telemetry from spacecraft — used by ISRO, NASA, ESA. Packets carry housekeeping and science data.</p></div></div>
+            <div class="format-item"><div class="format-icon"><i class="fa-solid fa-compact-disc"></i></div><div><strong>PDS4 (Planetary)</strong><p>Planetary Data System format used by NASA for planetary mission archives. Self-describing XML labels with raw data files. Used by Curiosity, Perseverance.</p></div></div>
+            <div class="format-item"><div class="format-icon"><i class="fa-solid fa-wind"></i></div><div><strong>GRIB2</strong><p>WMO standard for gridded meteorological data — NWP model outputs, GOES weather products. Used globally by all national weather services.</p></div></div>
+            <div class="format-item"><div class="format-icon"><i class="fa-solid fa-broadcast-tower"></i></div><div><strong>BUFR</strong><p>Binary Universal Form for data Representation. WMO standard for weather observation data — radiosondes, satellite soundings, radar.</p></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="glass-card">
+          <h3 class="card-title-accent"><i class="fa-solid fa-chart-bar"></i> Format Comparison Chart</h3>
+          <canvas id="formatChart" height="260"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 6: TOOLS ─────────────────────────────────── -->
+  <section id="s6" class="content-section alt-bg">
+    <div class="section-header">
+      <div class="section-badge"><i class="fa-solid fa-toolbox"></i> MODULE 06</div>
+      <h2>Space Data Reading Tools</h2>
+      <p class="section-desc">Software platforms for processing, analyzing, and visualizing satellite data.</p>
+    </div>
+
+    <div class="tool-grid">
+      <div class="tool-card"><div class="tool-icon" style="background:#3eaf7c"><i class="fa-solid fa-map"></i></div><h4>QGIS</h4><div class="tool-type">GIS — Open Source</div><p>Most popular free GIS desktop. Supports raster, vector, PostGIS, WMS/WFS. Extensive plugin ecosystem. Runs on all platforms.</p><div class="tool-links"><a href="https://qgis.org" target="_blank"><i class="fa-solid fa-download"></i> Download</a><a href="https://docs.qgis.org" target="_blank"><i class="fa-solid fa-book"></i> Docs</a></div></div>
+      <div class="tool-card"><div class="tool-icon" style="background:#1a73e8"><i class="fa-solid fa-globe"></i></div><h4>ArcGIS Pro</h4><div class="tool-type">GIS — Commercial (Esri)</div><p>Industry-standard GIS suite. 2D/3D analysis, geoprocessing, ModelBuilder. Dominates government and enterprise sectors.</p><div class="tool-links"><a href="https://www.esri.com/arcgis" target="_blank"><i class="fa-solid fa-external-link"></i> Esri</a></div></div>
+      <div class="tool-card"><div class="tool-icon" style="background:#4285f4"><i class="fa-brands fa-google"></i></div><h4>Google Earth Pro</h4><div class="tool-type">Viewer — Free</div><p>View high-resolution satellite imagery globally. Import KML/KMZ, time-lapse of land changes. Free for desktop.</p><div class="tool-links"><a href="https://earth.google.com/download-earth.html" target="_blank"><i class="fa-solid fa-download"></i> Download</a></div></div>
+      <div class="tool-card"><div class="tool-icon" style="background:#e8a020"><i class="fa-solid fa-satellite-dish"></i></div><h4>SNAP (ESA)</h4><div class="tool-type">Remote Sensing — Free</div><p>Sentinel Application Platform. Process Sentinel-1 SAR, Sentinel-2 MSI, Sentinel-3. Free from ESA. Python-callable via snappy.</p><div class="tool-links"><a href="https://step.esa.int/main/download/snap-download/" target="_blank"><i class="fa-solid fa-download"></i> Download</a></div></div>
+      <div class="tool-card"><div class="tool-icon" style="background:#c94a2e"><i class="fa-solid fa-microscope"></i></div><h4>ENVI</h4><div class="tool-type">Remote Sensing — Commercial (NV5)</div><p>Leading hyperspectral and multispectral image analysis software. Used by defence, government, and research. IDL-scripted workflows.</p><div class="tool-links"><a href="https://www.nv5geospatialsoftware.com/Products/ENVI" target="_blank"><i class="fa-solid fa-external-link"></i> NV5</a></div></div>
+      <div class="tool-card"><div class="tool-icon" style="background:#5b2380"><i class="fa-solid fa-layer-group"></i></div><h4>ERDAS Imagine</h4><div class="tool-type">Remote Sensing — Commercial (Hexagon)</div><p>Photogrammetry, classification, mosaicking, LiDAR processing. Used for large-area mapping and orthorectification workflows.</p><div class="tool-links"><a href="https://hexagon.com/products/erdas-imagine" target="_blank"><i class="fa-solid fa-external-link"></i> Hexagon</a></div></div>
+      <div class="tool-card"><div class="tool-icon" style="background:#4a9eff"><i class="fa-brands fa-python"></i></div><h4>Jupyter + Python</h4><div class="tool-type">Scientific — Open Source</div><p>Standard scientific computing environment. Combine rasterio, geopandas, matplotlib, sklearn in interactive notebooks. Industry standard for geospatial ML.</p><div class="tool-links"><a href="https://jupyter.org" target="_blank"><i class="fa-solid fa-download"></i> Jupyter</a></div></div>
+      <div class="tool-card"><div class="tool-icon" style="background:#e34c26"><i class="fa-solid fa-cloud"></i></div><h4>Google Earth Engine</h4><div class="tool-type">Cloud Platform — Free (Research)</div><p>Petabyte-scale planetary analysis in the cloud. JavaScript and Python APIs. No data download needed — run analysis on Google's servers.</p><div class="tool-links"><a href="https://earthengine.google.com" target="_blank"><i class="fa-solid fa-external-link"></i> GEE</a></div></div>
+      <div class="tool-card"><div class="tool-icon" style="background:#ff9900"><i class="fa-brands fa-aws"></i></div><h4>AWS Open Data</h4><div class="tool-type">Cloud Platform — Commercial</div><p>Public datasets on S3 — Landsat-9, Sentinel-2, NEXRAD. Process with SageMaker, EC2, Lambda. Pay only for compute, not storage.</p><div class="tool-links"><a href="https://registry.opendata.aws" target="_blank"><i class="fa-solid fa-external-link"></i> Registry</a></div></div>
+      <div class="tool-card"><div class="tool-icon" style="background:#0078d4"><i class="fa-brands fa-microsoft"></i></div><h4>Microsoft Planetary Computer</h4><div class="tool-type">Cloud Platform — Free</div><p>STAC-based catalog with JupyterHub environment. Access TB of Earth data with Python. Partnered with NASA, USGS, ESA.</p><div class="tool-links"><a href="https://planetarycomputer.microsoft.com" target="_blank"><i class="fa-solid fa-external-link"></i> Portal</a></div></div>
+      <div class="tool-card"><div class="tool-icon" style="background:#e16737"><i class="fa-solid fa-calculator"></i></div><h4>MATLAB</h4><div class="tool-type">Scientific — Commercial (MathWorks)</div><p>Widely used in aerospace and signal processing. Toolboxes for mapping, image processing, statistics. Used by ISRO, NASA for algorithm development.</p><div class="tool-links"><a href="https://mathworks.com/products/matlab.html" target="_blank"><i class="fa-solid fa-external-link"></i> MathWorks</a></div></div>
+      <div class="tool-card"><div class="tool-icon" style="background:#2060a0"><i class="fa-solid fa-chart-line"></i></div><h4>R + terra/sf</h4><div class="tool-type">Statistical — Open Source</div><p>Statistical computing with geospatial packages. terra and sf packages provide raster and vector handling. Popular in ecology and environmental science.</p><div class="tool-links"><a href="https://www.r-project.org" target="_blank"><i class="fa-solid fa-download"></i> R Project</a></div></div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 7: PYTHON ECOSYSTEM ─────────────────────── -->
+  <section id="s7" class="content-section">
+    <div class="section-header">
+      <div class="section-badge"><i class="fa-brands fa-python"></i> MODULE 07</div>
+      <h2>Python Ecosystem for Satellite Data</h2>
+      <p class="section-desc">End-to-end workflow: download → read → process → visualize → model → report.</p>
+    </div>
+
+    <div class="workflow-steps mb-5">
+      <div class="wf-step"><div class="wf-num">1</div><div class="wf-body"><h4>Download Data</h4><p>earthaccess, sentinelsat, pystac-client</p></div></div>
+      <div class="wf-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+      <div class="wf-step"><div class="wf-num">2</div><div class="wf-body"><h4>Read & Parse</h4><p>rasterio, xarray, h5py, netCDF4</p></div></div>
+      <div class="wf-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+      <div class="wf-step"><div class="wf-num">3</div><div class="wf-body"><h4>Process</h4><p>numpy, GDAL, shapely, geopandas</p></div></div>
+      <div class="wf-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+      <div class="wf-step"><div class="wf-num">4</div><div class="wf-body"><h4>Visualize</h4><p>matplotlib, folium, plotly, kepler.gl</p></div></div>
+      <div class="wf-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+      <div class="wf-step"><div class="wf-num">5</div><div class="wf-body"><h4>ML / AI</h4><p>scikit-learn, PyTorch, TensorFlow</p></div></div>
+      <div class="wf-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+      <div class="wf-step"><div class="wf-num">6</div><div class="wf-body"><h4>Report</h4><p>Jupyter, nbconvert, WeasyPrint</p></div></div>
+    </div>
+
+    <!-- Code snippets -->
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="glass-card">
+          <h3 class="card-title-accent"><i class="fa-solid fa-code"></i> Reading GeoTIFF with Rasterio</h3>
+          <pre class="code-block"><code><span class="kw">import</span> rasterio
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+<span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt
+
+<span class="cm"># Open a Sentinel-2 Band 8 (NIR) GeoTIFF</span>
+<span class="kw">with</span> rasterio.open(<span class="st">'sentinel2_B08.tif'</span>) <span class="kw">as</span> src:
+    nir = src.read(<span class="num">1</span>).astype(<span class="st">'float32'</span>)
+    crs = src.crs
+    transform = src.transform
+    meta = src.meta
+
+<span class="cm"># Open Red band (B04) for NDVI</span>
+<span class="kw">with</span> rasterio.open(<span class="st">'sentinel2_B04.tif'</span>) <span class="kw">as</span> src:
+    red = src.read(<span class="num">1</span>).astype(<span class="st">'float32'</span>)
+
+<span class="cm"># Calculate NDVI</span>
+ndvi = (nir - red) / (nir + red + <span class="num">1e-10</span>)
+
+plt.figure(figsize=(<span class="num">10</span>, <span class="num">8</span>))
+plt.imshow(ndvi, cmap=<span class="st">'RdYlGn'</span>, vmin=-<span class="num">1</span>, vmax=<span class="num">1</span>)
+plt.colorbar(label=<span class="st">'NDVI'</span>)
+plt.title(<span class="st">'Vegetation Index (NDVI)'</span>)
+plt.savefig(<span class="st">'ndvi_output.png'</span>, dpi=<span class="num">150</span>)
+plt.show()
+</code></pre>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="glass-card">
+          <h3 class="card-title-accent"><i class="fa-solid fa-code"></i> Reading NetCDF with Xarray</h3>
+          <pre class="code-block"><code><span class="kw">import</span> xarray <span class="kw">as</span> xr
+<span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt
+<span class="kw">import</span> cartopy.crs <span class="kw">as</span> ccrs
+
+<span class="cm"># Open ERA5 temperature NetCDF</span>
+ds = xr.open_dataset(<span class="st">'era5_temperature_2023.nc'</span>)
+
+<span class="cm"># Select surface temperature for a specific time</span>
+temp = ds[<span class="st">'t2m'</span>].sel(time=<span class="st">'2023-06-01T12:00'</span>)
+
+<span class="cm"># Convert Kelvin to Celsius</span>
+temp_c = temp - <span class="num">273.15</span>
+
+<span class="cm"># Plot with cartopy projection</span>
+fig, ax = plt.subplots(
+    subplot_kw={<span class="st">'projection'</span>: ccrs.PlateCarree()},
+    figsize=(<span class="num">14</span>, <span class="num">7</span>)
+)
+temp_c.plot(ax=ax, transform=ccrs.PlateCarree(),
+            cmap=<span class="st">'RdBu_r'</span>, cbar_kwargs={<span class="st">'label'</span>:<span class="st">'°C'</span>})
+ax.coastlines()
+ax.add_feature(cartopy.feature.BORDERS)
+plt.title(<span class="st">'ERA5 2m Temperature – June 2023'</span>)
+plt.savefig(<span class="st">'era5_temp.png'</span>)
+</code></pre>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="glass-card">
+          <h3 class="card-title-accent"><i class="fa-solid fa-code"></i> GeoPandas Vector Analysis</h3>
+          <pre class="code-block"><code><span class="kw">import</span> geopandas <span class="kw">as</span> gpd
+<span class="kw">from</span> shapely.geometry <span class="kw">import</span> Point, Polygon
+<span class="kw">import</span> rasterio.mask
+
+<span class="cm"># Load district boundaries shapefile</span>
+districts = gpd.read_file(<span class="st">'india_districts.shp'</span>)
+districts = districts.to_crs(epsg=<span class="num">4326</span>)  <span class="cm"># WGS-84</span>
+
+<span class="cm"># Filter Telangana state</span>
+telangana = districts[
+    districts[<span class="st">'STATE_NAME'</span>] == <span class="st">'Telangana'</span>
+]
+
+<span class="cm"># Buffer 10 km around Hyderabad</span>
+hyd = telangana[telangana[<span class="st">'DIST_NAME'</span>]==<span class="st">'Hyderabad'</span>]
+hyd_proj = hyd.to_crs(epsg=<span class="num">32644</span>)  <span class="cm"># UTM for distance</span>
+hyd_buffer = hyd_proj.buffer(<span class="num">10000</span>)  <span class="cm"># 10 km</span>
+
+<span class="cm"># Spatial join — find all parcels in buffer</span>
+parcels = gpd.read_file(<span class="st">'parcels.shp'</span>).to_crs(epsg=<span class="num">32644</span>)
+nearby = gpd.sjoin(parcels, gpd.GeoDataFrame(
+    geometry=hyd_buffer), how=<span class="st">'inner'</span>)
+print(f<span class="st">'Parcels within 10 km: {len(nearby)}'</span>)
+</code></pre>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="glass-card">
+          <h3 class="card-title-accent"><i class="fa-solid fa-code"></i> PyTorch CNN for Image Classification</h3>
+          <pre class="code-block"><code><span class="kw">import</span> torch
+<span class="kw">import</span> torchvision.transforms <span class="kw">as</span> T
+<span class="kw">from</span> torchvision.models <span class="kw">import</span> resnet18
+<span class="kw">from</span> torch.utils.data <span class="kw">import</span> DataLoader
+<span class="kw">from</span> torchvision.datasets <span class="kw">import</span> ImageFolder
+
+<span class="cm"># Transforms for satellite patch dataset</span>
+transform = T.Compose([
+    T.Resize((<span class="num">64</span>, <span class="num">64</span>)),
+    T.ToTensor(),
+    T.Normalize(mean=[<span class="num">0.485</span>, <span class="num">0.456</span>, <span class="num">0.406</span>],
+                std=[<span class="num">0.229</span>, <span class="num">0.224</span>, <span class="num">0.225</span>])
+])
+
+<span class="cm"># EuroSAT dataset — 27,000 Sentinel-2 patches</span>
+train_ds = ImageFolder(<span class="st">'eurosat/train'</span>, transform)
+loader   = DataLoader(train_ds, batch_size=<span class="num">32</span>)
+
+<span class="cm"># Pretrained ResNet-18 fine-tuned for 10 classes</span>
+model = resnet18(pretrained=<span class="kw">True</span>)
+model.fc = torch.nn.Linear(<span class="num">512</span>, <span class="num">10</span>)
+optimizer = torch.optim.Adam(model.parameters(), lr=<span class="num">1e-4</span>)
+criterion = torch.nn.CrossEntropyLoss()
+
+model.train()
+<span class="kw">for</span> imgs, labels <span class="kw">in</span> loader:
+    optimizer.zero_grad()
+    loss = criterion(model(imgs), labels)
+    loss.backward()
+    optimizer.step()
+</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Library Reference Table -->
+    <h3 class="subsection-title mt-5">Python Library Quick Reference</h3>
+    <div class="table-responsive">
+      <table class="data-table">
+        <thead><tr><th>Library</th><th>Purpose</th><th>Key Functions</th><th>Install</th></tr></thead>
+        <tbody>
+          <tr><td><strong>rasterio</strong></td><td>Read/write raster (GeoTIFF, TIFF)</td><td>open(), read(), transform, CRS</td><td><code>pip install rasterio</code></td></tr>
+          <tr><td><strong>GDAL/osgeo</strong></td><td>Low-level raster/vector I/O</td><td>gdal.Open(), gdal.Warp(), ogr</td><td><code>conda install gdal</code></td></tr>
+          <tr><td><strong>geopandas</strong></td><td>Vector data analysis (SHP, GeoJSON)</td><td>read_file(), to_crs(), sjoin()</td><td><code>pip install geopandas</code></td></tr>
+          <tr><td><strong>shapely</strong></td><td>Geometric operations</td><td>Point, Polygon, buffer(), intersects()</td><td><code>pip install shapely</code></td></tr>
+          <tr><td><strong>xarray</strong></td><td>N-dimensional labeled arrays (NetCDF)</td><td>open_dataset(), sel(), groupby()</td><td><code>pip install xarray</code></td></tr>
+          <tr><td><strong>netCDF4</strong></td><td>Read NetCDF files directly</td><td>Dataset(), variables[], dimensions[]</td><td><code>pip install netCDF4</code></td></tr>
+          <tr><td><strong>h5py</strong></td><td>HDF5 file I/O</td><td>File(), Dataset(), Group()</td><td><code>pip install h5py</code></td></tr>
+          <tr><td><strong>pyproj</strong></td><td>Coordinate reference systems</td><td>CRS(), Transformer.from_crs()</td><td><code>pip install pyproj</code></td></tr>
+          <tr><td><strong>OpenCV</strong></td><td>Computer vision on satellite patches</td><td>imread(), GaussianBlur(), Canny()</td><td><code>pip install opencv-python</code></td></tr>
+          <tr><td><strong>PyTorch</strong></td><td>Deep learning for image segmentation/classification</td><td>nn.Module, DataLoader, optim</td><td><code>pip install torch torchvision</code></td></tr>
+          <tr><td><strong>TensorFlow</strong></td><td>Deep learning, Keras API</td><td>tf.keras.Model, tf.data</td><td><code>pip install tensorflow</code></td></tr>
+          <tr><td><strong>scikit-learn</strong></td><td>Classical ML — Random Forest, SVM</td><td>RandomForestClassifier, GridSearchCV</td><td><code>pip install scikit-learn</code></td></tr>
+          <tr><td><strong>earthaccess</strong></td><td>NASA EarthData API access</td><td>login(), search_data(), download()</td><td><code>pip install earthaccess</code></td></tr>
+          <tr><td><strong>sentinelsat</strong></td><td>Copernicus Open Hub API</td><td>SentinelAPI(), query(), download()</td><td><code>pip install sentinelsat</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── SECTION 8: AI / ML ───────────────────────────────── -->
+  <section id="s8" class="content-section">
+    <div class="section-header">
+      <div class="section-badge"><i class="fa-solid fa-brain"></i> MODULE 08</div>
+      <h2>AI &amp; Machine Learning for Satellite Data</h2>
+      <p class="section-desc">How deep learning and ML algorithms are applied to satellite imagery for real-world problem solving.</p>
+    </div>
+
+    <div class="row g-4 mb-5">
+      <div class="col-lg-8">
+        <canvas id="aiUsageChart" height="300"></canvas>
+      </div>
+      <div class="col-lg-4">
+        <div class="glass-card h-100">
+          <h4 class="card-title-accent">Key AI Tasks</h4>
+          <ul class="styled-list">
+            <li><strong>Classification</strong> — Land cover, crop type</li>
+            <li><strong>Object Detection</strong> — Aircraft, ships, vehicles</li>
+            <li><strong>Semantic Segmentation</strong> — Building footprints, roads</li>
+            <li><strong>Change Detection</strong> — Urban expansion, deforestation</li>
+            <li><strong>Super Resolution</strong> — Enhance low-res imagery</li>
+            <li><strong>Time Series Forecasting</strong> — Crop yield, sea level</li>
+            <li><strong>Anomaly Detection</strong> — Illegal mining, oil spills</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-xl-4">
+        <div class="ai-card"><div class="ai-icon fire"><i class="fa-solid fa-fire-flame-curved"></i></div><h4>Forest Fire Detection</h4><p>CNN + Random Forest models trained on MODIS active fire products (MCD14ML). Thermal anomaly detection using Band 21 (3.9μm). Time-series NDVI change alerts precede fires by 7–14 days. Accuracy: ~91% at 375m resolution using VIIRS.</p><div class="ai-models"><span>U-Net</span><span>Random Forest</span><span>LSTM</span></div></div>
+      </div>
+      <div class="col-md-6 col-xl-4">
+        <div class="ai-card"><div class="ai-icon flood"><i class="fa-solid fa-water"></i></div><h4>Flood Prediction</h4><p>SAR coherence change detection on Sentinel-1 data identifies inundated areas through cloud cover. ResNet-50 + LSTM trained on historical flood maps predicts flood extent 48–72 hours ahead using DEM + rainfall inputs.</p><div class="ai-models"><span>ResNet-50</span><span>SAR Change Detection</span><span>LSTM</span></div></div>
+      </div>
+      <div class="col-md-6 col-xl-4">
+        <div class="ai-card"><div class="ai-icon crop"><i class="fa-solid fa-seedling"></i></div><h4>Crop Health Monitoring</h4><p>Multi-temporal NDVI, EVI, LAI time series from Sentinel-2 fed into XGBoost + LSTM classifiers for crop health assessment. 95% accuracy for rice, wheat, sugarcane in India. FASAL programme uses this nationally.</p><div class="ai-models"><span>XGBoost</span><span>LSTM</span><span>Random Forest</span></div></div>
+      </div>
+      <div class="col-md-6 col-xl-4">
+        <div class="ai-card"><div class="ai-icon urban"><i class="fa-solid fa-city"></i></div><h4>Urban Growth Detection</h4><p>Semantic segmentation of multi-year Landsat/Cartosat imagery to map urban footprint expansion. DeepLab v3+ achieves mIoU of 0.89 on high-density Indian cities. Used for SDG monitoring and smart city planning.</p><div class="ai-models"><span>DeepLab v3+</span><span>SegNet</span><span>FCN</span></div></div>
+      </div>
+      <div class="col-md-6 col-xl-4">
+        <div class="ai-card"><div class="ai-icon mine"><i class="fa-solid fa-mountain"></i></div><h4>Illegal Mining Detection</h4><p>Sentinel-1 SAR time-series + optical change maps identify unauthorized excavation with pit geometry analysis. Planet Labs daily monitoring used for river sand mining in India. ISRO's NRSC provided mapping support for NGT.</p><div class="ai-models"><span>SVM</span><span>U-Net</span><span>Change Vector Analysis</span></div></div>
+      </div>
+      <div class="col-md-6 col-xl-4">
+        <div class="ai-card"><div class="ai-icon cloud"><i class="fa-solid fa-cloud-sun-rain"></i></div><h4>Weather Forecasting</h4><p>Deep learning NWP models — Google DeepMind's GraphCast and Huawei Pangu-Weather — trained on ERA5 reanalysis outperform traditional numerical models at 1–10 day forecasts with 1000x speedup.</p><div class="ai-models"><span>GraphCast</span><span>Pangu-Weather</span><span>FourCastNet</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 9: PIPELINE ──────────────────────────────── -->
+  <section id="s9" class="content-section alt-bg">
+    <div class="section-header">
+      <div class="section-badge"><i class="fa-solid fa-diagram-project"></i> MODULE 09</div>
+      <h2>Satellite Data Processing Pipeline</h2>
+      <p class="section-desc">End-to-end journey of satellite data from orbit to actionable intelligence.</p>
+    </div>
+
+    <div class="mermaid-container mb-5">
+      <div class="mermaid">
+        flowchart TD
+          A["🛰️ Satellite in Orbit\n(EO/Weather/Nav)"] -->|RF downlink S/X/Ka-band| B["📡 Ground Station\n(NRSC/ISTRAC/ESAC)"]
+          B -->|Raw binary CCSDS| C["📥 Data Reception\n& Decommutation"]
+          C -->|Level 0 packets| D["⚙️ Data Processing\nCalibration & Geo-correction"]
+          D -->|Level 1-2 products| E["💾 Data Storage\n(HDF5/GeoTIFF/NetCDF)"]
+          E -->|API/FTP/S3| F["🔍 Data Catalogue\n(STAC/OGC)"]
+          F -->|Query + Download| G["🤖 AI Analytics\nML/DL Models"]
+          G -->|Derived products| H["📊 Visualization\nGIS/Web Maps"]
+          H -->|Automated reports| I["📄 Report Generation\nPDF/Web/Dashboard"]
+          I -->|Decision support| J["🏛️ Decision Makers\nGovernment / Industry"]
+
+          style A fill:#1a237e,color:#fff
+          style B fill:#1565c0,color:#fff
+          style C fill:#0277bd,color:#fff
+          style D fill:#00838f,color:#fff
+          style E fill:#2e7d32,color:#fff
+          style F fill:#558b2f,color:#fff
+          style G fill:#6a1b9a,color:#fff
+          style H fill:#ad1457,color:#fff
+          style I fill:#c62828,color:#fff
+          style J fill:#e65100,color:#fff
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4"><div class="pipe-card"><div class="pipe-num">01</div><h4>Satellite Acquisition</h4><p>Satellite sensors capture electromagnetic radiation and digitise it into raw data packets (Level 0) stored onboard solid-state recorders before downlink windows.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="pipe-card"><div class="pipe-num">02</div><h4>Ground Station Reception</h4><p>High-gain dish antennas at ground stations (NRSC Shadnagar, ISAC Bengaluru) receive downlinked X-band or S-band signals, demodulate and store raw bitstreams.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="pipe-card"><div class="pipe-num">03</div><h4>Data Processing Levels</h4><p><strong>L0</strong>: Raw CCSDS · <strong>L1A</strong>: Reconstructed, unprocessed · <strong>L1B</strong>: Radiometrically corrected · <strong>L2</strong>: Geophysical variable (NDVI, SST) · <strong>L3/L4</strong>: Gridded/model output.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="pipe-card"><div class="pipe-num">04</div><h4>Data Storage & Archive</h4><p>Petabyte-scale archives at NRSC (Hyderabad), NASA EOSDIS, ESA ESRIN using HDF5, GeoTIFF, NetCDF formats with STAC metadata catalogues for discovery.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="pipe-card"><div class="pipe-num">05</div><h4>AI Analytics</h4><p>Machine learning pipelines run classification, segmentation, anomaly detection, and forecasting on derived products. Cloud platforms (GEE, SageMaker) scale computation.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="pipe-card"><div class="pipe-num">06</div><h4>Visualization & Reports</h4><p>Web GIS dashboards (Bhuvan, ArcGIS Online), automated PDF reports, API-served map tiles, and decision-support tools deliver insights to end users.</p></div></div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 10: REPORT GENERATION ───────────────────── -->
+  <section id="s10" class="content-section">
+    <div class="section-header">
+      <div class="section-badge"><i class="fa-solid fa-file-lines"></i> MODULE 10</div>
+      <h2>Report Generation</h2>
+      <p class="section-desc">How space agencies and government bodies generate actionable reports from satellite data.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-xl-4"><div class="report-card"><div class="report-icon" style="--c:#ef4444"><i class="fa-solid fa-house-flood-water"></i></div><h4>Disaster Reports</h4><p>Within hours of a flood, cyclone, or earthquake, NRSC produces damage assessment maps comparing pre/post satellite imagery. Bhuvan Disaster portal distributes GIS layers to NDMA and state governments in real-time for rescue coordination.</p><ul class="report-uses"><li>NDMA / SDMA decision support</li><li>Insurance loss estimation</li><li>Relief deployment planning</li></ul></div></div>
+      <div class="col-md-6 col-xl-4"><div class="report-card"><div class="report-icon" style="--c:#22c55e"><i class="fa-solid fa-wheat-awn"></i></div><h4>Agricultural Reports</h4><p>FASAL (Forecasting Agricultural output using Space, Agro-meteorology and Land-based observations) generates crop area and production forecasts using Resourcesat-2 NDVI time series combined with IMD weather data, contributing to national food security planning.</p><ul class="report-uses"><li>Kharif/Rabi crop acreage</li><li>Yield forecasting</li><li>Drought early warning</li></ul></div></div>
+      <div class="col-md-6 col-xl-4"><div class="report-card"><div class="report-icon" style="--c:#84cc16"><i class="fa-solid fa-tree"></i></div><h4>Forest Reports</h4><p>FSI's India State of Forest Report uses Resourcesat LISS-III imagery to map 7 forest density classes biennially across 328 million hectares. Detects encroachment, fire-affected areas, and plantation growth at 23.5 m resolution.</p><ul class="report-uses"><li>Biennial cover mapping</li><li>Carbon stock estimation</li><li>Encroachment detection</li></ul></div></div>
+      <div class="col-md-6 col-xl-4"><div class="report-card"><div class="report-icon" style="--c:#06b6d4"><i class="fa-solid fa-temperature-arrow-up"></i></div><h4>Climate Reports</h4><p>IMD integrates INSAT-3D/3DR data into climate monitoring: monsoon onset, cyclone track forecasts, heat island mapping. INCOIS generates ocean state forecasts from Oceansat-3 + MEOS combining satellite SST, wind, and wave models.</p><ul class="report-uses"><li>Monsoon monitoring</li><li>Sea surface temperature</li><li>Ice extent tracking</li></ul></div></div>
+      <div class="col-md-6 col-xl-4"><div class="report-card"><div class="report-icon" style="--c:#f59e0b"><i class="fa-solid fa-buildings"></i></div><h4>Urban Planning Reports</h4><p>Municipalities use Cartosat ortho-imagery + LULC change maps for master planning. ISRO's NRSC-Urban project mapped all Indian cities >1 lakh population at 5.8 m resolution for urban sprawl, green cover, and impervious surface analysis.</p><ul class="report-uses"><li>Land use / land cover</li><li>Impervious surface %</li><li>Green cover inventory</li></ul></div></div>
+      <div class="col-md-6 col-xl-4"><div class="report-card"><div class="report-icon" style="--c:#a855f7"><i class="fa-solid fa-droplet"></i></div><h4>Water Resource Reports</h4><p>ISRO's National Wetland Atlas and NWSC water body inventory use AWiFS seasonal mosaic to map water bodies, reservoirs, and groundwater potential zones. Jal Shakti ministry uses these for PMKSY watershed management.</p><ul class="report-uses"><li>Reservoir storage levels</li><li>Flood plain mapping</li><li>Groundwater recharge zones</li></ul></div></div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 11: CAREERS ──────────────────────────────── -->
+  <section id="s11" class="content-section alt-bg">
+    <div class="section-header">
+      <div class="section-badge"><i class="fa-solid fa-briefcase"></i> MODULE 11</div>
+      <h2>Career Paths in Space Data</h2>
+      <p class="section-desc">Roles, skills, salary ranges, and hiring organisations across the space data ecosystem.</p>
+    </div>
+
+    <div class="career-grid">
+      <div class="career-card"><div class="career-icon"><i class="fa-solid fa-rocket"></i></div><h4>Aerospace Engineer</h4><div class="career-orgs"><span>ISRO</span><span>DRDO</span><span>HAL</span><span>Boeing</span></div><div class="career-skills"><h5>Core Skills</h5><p>Spacecraft dynamics, orbital mechanics, structural analysis, propulsion, control systems, MATLAB/Python</p></div><div class="career-salary"><i class="fa-solid fa-indian-rupee-sign"></i> ₹6–25 LPA (India) · $80–180K (USA)</div><div class="career-certs"><span>GATE Aerospace</span><span>ESA PGCS</span></div></div>
+      <div class="career-card"><div class="career-icon"><i class="fa-solid fa-satellite-dish"></i></div><h4>Remote Sensing Scientist</h4><div class="career-orgs"><span>NRSC</span><span>SAC</span><span>FSI</span><span>Planet Labs</span></div><div class="career-skills"><h5>Core Skills</h5><p>Image classification, spectral analysis, photogrammetry, ENVI/SNAP, Python (rasterio, scikit-image), field validation</p></div><div class="career-salary"><i class="fa-solid fa-indian-rupee-sign"></i> ₹5–20 LPA · $70–140K</div><div class="career-certs"><span>ESRI RSPC</span><span>ASPRS Certification</span></div></div>
+      <div class="career-card"><div class="career-icon"><i class="fa-solid fa-map-location-dot"></i></div><h4>GIS Analyst</h4><div class="career-orgs"><span>NRSC</span><span>Esri India</span><span>NATGRID</span><span>Municipalities</span></div><div class="career-skills"><h5>Core Skills</h5><p>QGIS, ArcGIS Pro, spatial SQL (PostGIS), cartography, web GIS (Leaflet, MapboxGL), Python geopandas</p></div><div class="career-salary"><i class="fa-solid fa-indian-rupee-sign"></i> ₹4–15 LPA · $55–110K</div><div class="career-certs"><span>Esri Technical Cert</span><span>GISP</span></div></div>
+      <div class="career-card"><div class="career-icon"><i class="fa-solid fa-code"></i></div><h4>Geospatial Developer</h4><div class="career-orgs"><span>Esri</span><span>HERE</span><span>TomTom</span><span>MapMyIndia</span></div><div class="career-skills"><h5>Core Skills</h5><p>Python, JavaScript, PostGIS, GDAL, FastAPI, Leaflet/MapboxGL, cloud GIS (GEE, Planetary Computer), Docker, REST APIs</p></div><div class="career-salary"><i class="fa-solid fa-indian-rupee-sign"></i> ₹6–22 LPA · $75–160K</div><div class="career-certs"><span>Google GCP</span><span>AWS Solutions Arch</span></div></div>
+      <div class="career-card"><div class="career-icon"><i class="fa-solid fa-brain"></i></div><h4>AI/ML Engineer (Space)</h4><div class="career-orgs"><span>Planet Labs</span><span>Maxar</span><span>ISRO</span><span>BlackSky</span></div><div class="career-skills"><h5>Core Skills</h5><p>PyTorch/TensorFlow, computer vision, segmentation (U-Net, DeepLab), time-series models (LSTM), MLOps, cloud (AWS SageMaker), EO domain knowledge</p></div><div class="career-salary"><i class="fa-solid fa-indian-rupee-sign"></i> ₹10–40 LPA · $110–250K</div><div class="career-certs"><span>DeepLearning.AI</span><span>AWS MLS-C01</span></div></div>
+      <div class="career-card"><div class="career-icon"><i class="fa-solid fa-chart-line"></i></div><h4>Data Scientist (EO)</h4><div class="career-orgs"><span>NRSC</span><span>IMD</span><span>INCOIS</span><span>SpaceKnow</span></div><div class="career-skills"><h5>Core Skills</h5><p>Python (pandas, sklearn, xarray), statistics, satellite data analysis, NLP for report generation, visualisation (Plotly, Dash), SQL</p></div><div class="career-salary"><i class="fa-solid fa-indian-rupee-sign"></i> ₹8–30 LPA · $90–180K</div><div class="career-certs"><span>Coursera DS Specialisation</span></div></div>
+      <div class="career-card"><div class="career-icon"><i class="fa-solid fa-satellite"></i></div><h4>Satellite Operations Engineer</h4><div class="career-orgs"><span>ISRO ISTRAC</span><span>NSIL</span><span>Intelsat</span><span>Eutelsat</span></div><div class="career-skills"><h5>Core Skills</h5><p>Telemetry analysis, orbit determination, anomaly resolution, scripting for automation, AOCS knowledge, 24×7 shift operations</p></div><div class="career-salary"><i class="fa-solid fa-indian-rupee-sign"></i> ₹6–18 LPA · $70–130K</div><div class="career-certs"><span>GATE ECE/AE</span></div></div>
+      <div class="career-card"><div class="career-icon"><i class="fa-solid fa-calculator"></i></div><h4>Flight Dynamics Engineer</h4><div class="career-orgs"><span>ISRO ISAC</span><span>ESA ESOC</span><span>Rocket Lab</span></div><div class="career-skills"><h5>Core Skills</h5><p>Astrodynamics, STK, MATLAB/Python for orbit prop, launch window computation, manoeuvre planning, conjunction analysis</p></div><div class="career-salary"><i class="fa-solid fa-indian-rupee-sign"></i> ₹8–25 LPA · $90–160K</div><div class="career-certs"><span>AGI STK Certified</span><span>GATE AE</span></div></div>
+    </div>
+
+    <div class="glass-card mt-5">
+      <h3 class="card-title-accent"><i class="fa-solid fa-chart-bar"></i> Salary Comparison Chart</h3>
+      <canvas id="salaryChart" height="200"></canvas>
+    </div>
+  </section>
+
+  <!-- ── SECTION 12: LEARNING ROADMAP ────────────────────── -->
+  <section id="s12" class="content-section">
+    <div class="section-header">
+      <div class="section-badge"><i class="fa-solid fa-graduation-cap"></i> MODULE 12</div>
+      <h2>Learning Roadmap for Students</h2>
+      <p class="section-desc">A structured progression from beginner to advanced in space data and geospatial AI.</p>
+    </div>
+
+    <div class="roadmap">
+      <div class="rm-phase beginner">
+        <div class="rm-badge"><i class="fa-solid fa-seedling"></i> BEGINNER</div>
+        <h3>Phase 1: Foundations (0–6 months)</h3>
+        <div class="row g-3 mt-2">
+          <div class="col-md-4"><div class="rm-card"><h5><i class="fa-solid fa-globe"></i> Geography & GIS</h5><ul><li>Map projections & CRS</li><li>QGIS basics — layer types, symbology</li><li>OpenStreetMap data</li><li>Spatial queries and geoprocessing</li></ul></div></div>
+          <div class="col-md-4"><div class="rm-card"><h5><i class="fa-brands fa-python"></i> Python Fundamentals</h5><ul><li>Python syntax, data structures</li><li>NumPy & Pandas</li><li>Matplotlib visualization</li><li>Jupyter notebooks</li></ul></div></div>
+          <div class="col-md-4"><div class="rm-card"><h5><i class="fa-solid fa-satellite"></i> Space Basics</h5><ul><li>Types of satellites & orbits</li><li>Electromagnetic spectrum</li><li>What is remote sensing?</li><li>Explore Bhuvan / Google Earth</li></ul></div></div>
+        </div>
+        <div class="rm-resources"><strong>Free Resources:</strong> QGIS Documentation · Python.org Tutorial · NASA SciJinks · Khan Academy Geography · ISRO Student Chapter Webinars</div>
+      </div>
+
+      <div class="rm-connector"><i class="fa-solid fa-arrow-down"></i></div>
+
+      <div class="rm-phase intermediate">
+        <div class="rm-badge"><i class="fa-solid fa-fire"></i> INTERMEDIATE</div>
+        <h3>Phase 2: Core Skills (6–18 months)</h3>
+        <div class="row g-3 mt-2">
+          <div class="col-md-4"><div class="rm-card"><h5><i class="fa-solid fa-satellite-dish"></i> Remote Sensing</h5><ul><li>Band combinations & indices (NDVI, NDWI)</li><li>Image classification (supervised/unsupervised)</li><li>SAR data processing in SNAP</li><li>Sentinel-2 analysis in Python</li></ul></div></div>
+          <div class="col-md-4"><div class="rm-card"><h5><i class="fa-solid fa-brain"></i> ML Fundamentals</h5><ul><li>Scikit-learn — classification, regression</li><li>CNN basics with PyTorch</li><li>EuroSAT land cover classification project</li><li>Model evaluation metrics</li></ul></div></div>
+          <div class="col-md-4"><div class="rm-card"><h5><i class="fa-solid fa-cloud"></i> Cloud & APIs</h5><ul><li>Google Earth Engine (JavaScript API)</li><li>NASA EarthData access via Python</li><li>Planetary Computer STAC API</li><li>Sentinel Hub EvalScript</li></ul></div></div>
+        </div>
+        <div class="rm-resources"><strong>Courses:</strong> Coursera GIS Specialisation (UC Davis) · ESA SNAP Tutorials · Google Earth Engine Guides · Fast.ai Practical DL · ISRO IIRS Online Courses (free)</div>
+      </div>
+
+      <div class="rm-connector"><i class="fa-solid fa-arrow-down"></i></div>
+
+      <div class="rm-phase advanced">
+        <div class="rm-badge"><i class="fa-solid fa-rocket"></i> ADVANCED</div>
+        <h3>Phase 3: Specialisation (18+ months)</h3>
+        <div class="row g-3 mt-2">
+          <div class="col-md-4"><div class="rm-card"><h5><i class="fa-solid fa-satellite"></i> Satellite Systems</h5><ul><li>Orbital mechanics (STK, GMAT)</li><li>Payload design and link budgets</li><li>Attitude & orbit control</li><li>Mission design lifecycle</li></ul></div></div>
+          <div class="col-md-4"><div class="rm-card"><h5><i class="fa-solid fa-microchip"></i> Advanced AI/DL</h5><ul><li>Semantic segmentation (U-Net, SegFormer)</li><li>Change detection with Siamese networks</li><li>Vision Transformers for EO</li><li>MLOps & model deployment</li></ul></div></div>
+          <div class="col-md-4"><div class="rm-card"><h5><i class="fa-solid fa-diagram-project"></i> Mission Operations</h5><ul><li>Spacecraft commanding & telemetry analysis</li><li>Flight dynamics & manoeuvre planning</li><li>Mission control procedures</li><li>Spacecraft anomaly resolution</li></ul></div></div>
+        </div>
+        <div class="rm-resources"><strong>Advanced:</strong> MIT OpenCourseWare (Astrodynamics) · AGI STK University · IIRS ISRO PG Diploma · Praxis Satellite Engineering · Mendeley EO Research Papers</div>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <h3 class="subsection-title mt-5">Recommended Certifications</h3>
+    <div class="cert-grid">
+      <div class="cert-card"><i class="fa-solid fa-award"></i><h5>IIRS Online Courses</h5><p>Free remote sensing & GIS courses from ISRO's Indian Institute of Remote Sensing</p><a href="https://elearning.iirs.gov.in" target="_blank">elearning.iirs.gov.in</a></div>
+      <div class="cert-card"><i class="fa-solid fa-award"></i><h5>Esri Technical Certifications</h5><p>Industry-recognised ArcGIS certifications for GIS analysts and developers</p><a href="https://www.esri.com/training/certification" target="_blank">esri.com/certification</a></div>
+      <div class="cert-card"><i class="fa-solid fa-award"></i><h5>AWS ML Specialty (MLS-C01)</h5><p>Cloud ML for large-scale geospatial data processing and model deployment</p><a href="https://aws.amazon.com/certification/certified-machine-learning-specialty/" target="_blank">aws.amazon.com/cert</a></div>
+      <div class="cert-card"><i class="fa-solid fa-award"></i><h5>Google Professional Data Engineer</h5><p>Big data pipelines, GEE integration, data warehousing for Earth observation</p><a href="https://cloud.google.com/certification/data-engineer" target="_blank">cloud.google.com/cert</a></div>
+      <div class="cert-card"><i class="fa-solid fa-award"></i><h5>ASPRS Certified GIS/LIS Professional</h5><p>US-based professional certification for geospatial practitioners with global recognition</p><a href="https://www.asprs.org/membership/certification-program" target="_blank">asprs.org/certification</a></div>
+      <div class="cert-card"><i class="fa-solid fa-award"></i><h5>Deep Learning Specialisation (Coursera)</h5><p>Andrew Ng's foundational DL course — essential before specialising in EO deep learning</p><a href="https://www.coursera.org/specializations/deep-learning" target="_blank">coursera.org</a></div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 13: HACKATHON GUIDE ─────────────────────── -->
+  <section id="s13" class="content-section alt-bg">
+    <div class="section-header">
+      <div class="section-badge"><i class="fa-solid fa-trophy"></i> MODULE 13</div>
+      <h2>Hackathon Guide</h2>
+      <p class="section-desc">Winning strategies for ISRO, NASA, and geospatial hackathons from team formation to presentation.</p>
+    </div>
+
+    <div class="row g-4 mb-5">
+      <div class="col-lg-8">
+        <div class="glass-card">
+          <h3 class="card-title-accent"><i class="fa-solid fa-satellite"></i> How ISRO Hackathons Work</h3>
+          <p>ISRO conducts the <strong>Smart India Hackathon (SIH)</strong> problems, dedicated <strong>ISRO Space Hackathons</strong>, and collaborates with SAC/NRSC for domain-specific challenges. Participants are given:</p>
+          <ul class="styled-list">
+            <li>A problem statement defining the satellite data challenge and expected output</li>
+            <li>Sample datasets (usually Bhuvan, MOSDAC, or VEDAS links)</li>
+            <li>A 24–36 hour development window with mentors available</li>
+            <li>Judging criteria: Innovation (30%), Technical feasibility (25%), Accuracy (25%), Presentation (20%)</li>
+          </ul>
+          <p>Winners typically demonstrate working prototypes with real satellite data — not just ML models on sample images. Integration with Bhuvan APIs or MOSDAC data access is viewed very favourably by judges.</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="glass-card">
+          <h3 class="card-title-accent"><i class="fa-solid fa-users"></i> Ideal Team Composition</h3>
+          <ul class="styled-list">
+            <li><strong>Domain Expert</strong> — Remote sensing / GIS background</li>
+            <li><strong>ML Engineer</strong> — Model development & training</li>
+            <li><strong>Backend Dev</strong> — API, data pipeline, storage</li>
+            <li><strong>Frontend Dev</strong> — Dashboard, map visualisation</li>
+            <li><strong>Project Lead</strong> — Presentation, documentation, coordination</li>
+          </ul>
+          <p>6 members is optimal for 36-hour hackathons — allows 3h rotational rest cycles.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">Past Challenge Examples &amp; Winning Strategies</h3>
+    <div class="row g-4 mb-5">
+      <div class="col-md-6"><div class="hack-card"><div class="hack-badge" style="background:#ef4444">FIRE DETECTION</div><h4>Forest Fire Prediction</h4><p><strong>Dataset:</strong> MODIS MOD14A1 daily active fire · VIIRS VNP14A1 · Historical FIRMS data · LULC from Bhuvan</p><p><strong>Winning approach:</strong> LSTM trained on 10-year MODIS time series combined with meteorological indices (FWI). Integrated real-time MOSDAC weather feed for 48-hr prediction. Frontend built on Leaflet with risk heatmap overlaid on Bhuvan WMS.</p><p><strong>Key insight:</strong> Don't just detect — predict and provide actionable alerts with district-level risk scores that match Forest Department workflow.</p></div></div>
+      <div class="col-md-6"><div class="hack-card"><div class="hack-badge" style="background:#3b82f6">CLASSIFICATION</div><h4>Satellite Image Classification</h4><p><strong>Dataset:</strong> BigEarthNet (Sentinel-2, 590K patches) · EuroSAT · ISRO's Resourcesat LULC labels</p><p><strong>Winning approach:</strong> Transfer learning with ResNet-50 pretrained on ImageNet, fine-tuned on EuroSAT (97.5% accuracy). Then applied to Resourcesat LISS-III patches for Indian land cover. Created an interactive Web UI for real-time classification of user-uploaded patches.</p><p><strong>Key insight:</strong> Show the model working on new unseen data live during presentation — not just test set metrics.</p></div></div>
+      <div class="col-md-6"><div class="hack-card"><div class="hack-badge" style="background:#8b5cf6">LUNAR MAPPING</div><h4>Lunar Terrain Mapping</h4><p><strong>Dataset:</strong> Chandrayaan-2 OHRC imagery · LRO LROC NAC DEM · NASA Lunar Reconnaissance Orbiter data</p><p><strong>Winning approach:</strong> DEM-based slope/roughness classification for landing site suitability assessment. Crater detection with Hough transform + CNN to identify fresh vs. degraded craters. Visualized in 3D using CesiumJS with Chandrayaan-3 landing site overlaid.</p><p><strong>Key insight:</strong> Connect your results to Chandrayaan-3 findings to demonstrate relevance.</p></div></div>
+      <div class="col-md-6"><div class="hack-card"><div class="hack-badge" style="background:#06b6d4">FORECASTING</div><h4>Cloud Motion Forecasting</h4><p><strong>Dataset:</strong> INSAT-3DR / 3D hourly Cloud Top Temperature images · MOSDAC real-time API</p><p><strong>Winning approach:</strong> ConvLSTM (spatiotemporal LSTM) trained on 3-year INSAT IR imagery sequences to predict cloud patterns 3–6 hours ahead. Beat ECMWF short-range forecasts for convective systems over Bay of Bengal. Live demo using MOSDAC's real-time data feed.</p><p><strong>Key insight:</strong> Use the MOSDAC live API — judges love real-time systems.</p></div></div>
+    </div>
+
+    <div class="glass-card">
+      <h3 class="card-title-accent"><i class="fa-solid fa-lightbulb"></i> 72-Hour Hackathon Playbook</h3>
+      <div class="playbook-timeline">
+        <div class="pb-item"><div class="pb-time">H+0–2</div><div class="pb-content"><strong>Problem Decomposition</strong> — Read the statement 3x, define measurable success criteria, assign roles, set up shared repo (GitHub) and communication (Discord/Slack).</div></div>
+        <div class="pb-item"><div class="pb-time">H+2–6</div><div class="pb-content"><strong>Data Discovery</strong> — Access the provided datasets, write EDA notebook, understand resolution/coverage/format. Identify any data gaps early.</div></div>
+        <div class="pb-item"><div class="pb-time">H+6–24</div><div class="pb-content"><strong>Core Development</strong> — Build the ML pipeline (baseline model first, then improve). Build data preprocessing and backend API in parallel.</div></div>
+        <div class="pb-item"><div class="pb-time">H+24–48</div><div class="pb-content"><strong>Integration & Frontend</strong> — Connect frontend map UI to backend API. Ensure end-to-end data flow with real satellite data. Test edge cases.</div></div>
+        <div class="pb-item"><div class="pb-time">H+48–60</div><div class="pb-content"><strong>Polish & Documentation</strong> — Clean code, write README, record a 2-min demo video as backup, prepare 5-slide pitch deck.</div></div>
+        <div class="pb-item"><div class="pb-time">H+60–72</div><div class="pb-content"><strong>Presentation Prep</strong> — Rehearse demo 3x, anticipate jury questions (accuracy, scalability, real-world deployment), create compelling opening with impact stats.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 14: IMAGE LIBRARY ───────────────────────── -->
+  <section id="s14" class="content-section">
+    <div class="section-header">
+      <div class="section-badge"><i class="fa-solid fa-images"></i> MODULE 14</div>
+      <h2>Image Library</h2>
+      <p class="section-desc">Public-domain imagery of satellites, launch vehicles, ground stations, and Earth from space.</p>
+    </div>
+
+    <ul class="tab-nav" id="galleryTabs">
+      <li class="tab-item active" data-tab="g-sat">Satellites</li>
+      <li class="tab-item" data-tab="g-launch">Launch Vehicles</li>
+      <li class="tab-item" data-tab="g-earth">Earth Imagery</li>
+      <li class="tab-item" data-tab="g-moon">Moon &amp; Mars</li>
+    </ul>
+
+    <div class="tab-content" id="g-sat">
+      <div class="img-gallery large">
+        <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/ISRO_CartoSat_1.jpg/320px-ISRO_CartoSat_1.jpg" alt="Cartosat-1"/><div class="gallery-caption">Cartosat-1 (ISRO)</div></div>
+        <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Sentinel-2.jpg/320px-Sentinel-2.jpg" alt="Sentinel-2"/><div class="gallery-caption">Sentinel-2 (ESA)</div></div>
+        <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/HST-SM4.jpeg/320px-HST-SM4.jpeg" alt="Hubble"/><div class="gallery-caption">Hubble Space Telescope</div></div>
+        <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/GPS_Satellite_NASA_art-iif.jpg/320px-GPS_Satellite_NASA_art-iif.jpg" alt="GPS"/><div class="gallery-caption">GPS Block IIF (USAF)</div></div>
+        <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/GOES-16_Satellite.jpg/320px-GOES-16_Satellite.jpg" alt="GOES-16"/><div class="gallery-caption">GOES-16 (NOAA)</div></div>
+        <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Webb_banner_image.jpg/320px-Webb_banner_image.jpg" alt="JWST"/><div class="gallery-caption">James Webb (NASA)</div></div>
+      </div>
+    </div>
+    <div class="tab-content hidden" id="g-launch">
+      <div class="img-gallery large">
+        <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/PSLV-C37_launching_from_FLP.jpg/213px-PSLV-C37_launching_from_FLP.jpg" alt="PSLV"/><div class="gallery-caption">PSLV-C37 (ISRO) — world record 104 satellites</div></div>
+        <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/LVM3-M2_OneWeb_India-2_mission_launch.jpg/213px-LVM3-M2_OneWeb_India-2_mission_launch.jpg" alt="LVM3"/><div class="gallery-caption">LVM3 / GSLV Mk-III (ISRO)</div></div>
+        <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Falcon_Heavy_Demo_Mission_%2840126461851%29.jpg/320px-Falcon_Heavy_Demo_Mission_%2840126461851%29.jpg" alt="Falcon Heavy"/><div class="gallery-caption">Falcon Heavy (SpaceX)</div></div>
+        <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Ariane_5_ES_ATV_4.jpg/213px-Ariane_5_ES_ATV_4.jpg" alt="Ariane 5"/><div class="gallery-caption">Ariane 5 (ESA)</div></div>
+      </div>
+    </div>
+    <div class="tab-content hidden" id="g-earth">
+      <div class="img-gallery large">
+        <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/320px-The_Earth_seen_from_Apollo_17.jpg" alt="Blue Marble"/><div class="gallery-caption">Blue Marble (Apollo 17, NASA)</div></div>
+        <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/India_from_Suomi_NPP.jpg/320px-India_from_Suomi_NPP.jpg" alt="India from Suomi NPP"/><div class="gallery-caption">India from Suomi NPP (NOAA)</div></div>
+        <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Sentinel-2_image_-_Amazon_delta.jpg/320px-Sentinel-2_image_-_Amazon_delta.jpg" alt="Amazon from Sentinel"/><div class="gallery-caption">Amazon Delta (Sentinel-2)</div></div>
+        <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/STS120LaunchHiRes-edit1.jpg/320px-STS120LaunchHiRes-edit1.jpg" alt="Space Shuttle"/><div class="gallery-caption">Space Shuttle Ascent (NASA)</div></div>
+      </div>
+    </div>
+    <div class="tab-content hidden" id="g-moon">
+      <div class="img-gallery large">
+        <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Moon_Phases_2015-16.jpg/320px-Moon_Phases_2015-16.jpg" alt="Moon Phases"/><div class="gallery-caption">Moon Phases</div></div>
+        <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Chandrayaan-3_Pragyan_Rover_on_Moon.jpg/320px-Chandrayaan-3_Pragyan_Rover_on_Moon.jpg" alt="Chandrayaan-3 Pragyan"/><div class="gallery-caption">Pragyan Rover on Moon (ISRO)</div></div>
+        <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/320px-OSIRIS_Mars_true_color.jpg" alt="Mars"/><div class="gallery-caption">Mars (Rosetta/OSIRIS)</div></div>
+        <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Mars_Valles_Marineris.jpeg/320px-Mars_Valles_Marineris.jpeg" alt="Mars Valles Marineris"/><div class="gallery-caption">Valles Marineris, Mars (Viking)</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 15: KNOWLEDGE GRAPH ─────────────────────── -->
+  <section id="s15" class="content-section alt-bg">
+    <div class="section-header">
+      <div class="section-badge"><i class="fa-solid fa-circle-nodes"></i> MODULE 15</div>
+      <h2>Knowledge Graph</h2>
+      <p class="section-desc">Interactive visualization linking organisations, satellites, datasets, tools, and applications.</p>
+    </div>
+    <div class="glass-card">
+      <canvas id="knowledgeGraph" style="width:100%;height:520px;cursor:pointer;"></canvas>
+      <p class="text-center mt-3" style="color:var(--text-muted);font-size:0.85rem"><i class="fa-solid fa-hand-pointer"></i> Click and drag nodes to explore relationships</p>
+    </div>
+  </section>
+
+  <!-- ── SECTION 16: SEARCHABLE DATABASE ─────────────────── -->
+  <section id="s16" class="content-section">
+    <div class="section-header">
+      <div class="section-badge"><i class="fa-solid fa-table"></i> MODULE 16</div>
+      <h2>Searchable Database</h2>
+      <p class="section-desc">Comprehensive reference tables for organisations, satellites, software, and hackathons.</p>
+    </div>
+
+    <ul class="tab-nav" id="dbTabs">
+      <li class="tab-item active" data-tab="db-org">Organisations</li>
+      <li class="tab-item" data-tab="db-sat">Satellites</li>
+      <li class="tab-item" data-tab="db-sw">Software</li>
+      <li class="tab-item" data-tab="db-hack">Hackathons</li>
+    </ul>
+
+    <div class="search-bar-local mb-3">
+      <i class="fa-solid fa-search"></i>
+      <input type="text" id="dbSearch" placeholder="Search the current table…" oninput="filterActiveTable()"/>
+    </div>
+
+    <div class="tab-content" id="db-org">
+      <div class="table-responsive">
+        <table class="data-table" id="t-org">
+          <thead><tr><th>Organisation</th><th>Country</th><th>Type</th><th>Key Missions</th><th>Data Portal</th></tr></thead>
+          <tbody>
+            <tr><td>ISRO</td><td>India</td><td>National Agency</td><td>Chandrayaan, Mangalyaan, Aditya-L1, NavIC</td><td>isro.gov.in</td></tr>
+            <tr><td>NRSC</td><td>India</td><td>Research Centre</td><td>Cartosat, Resourcesat, Bhuvan</td><td>bhuvan.nrsc.gov.in</td></tr>
+            <tr><td>SAC</td><td>India</td><td>Research Centre</td><td>INSAT payloads, Oceansat, MOSDAC</td><td>mosdac.gov.in</td></tr>
+            <tr><td>NASA</td><td>USA</td><td>National Agency</td><td>Landsat, JWST, Artemis, Mars Perseverance</td><td>earthdata.nasa.gov</td></tr>
+            <tr><td>NOAA</td><td>USA</td><td>Federal Agency</td><td>GOES-16/18, JPSS, Suomi NPP</td><td>noaa.gov</td></tr>
+            <tr><td>USGS</td><td>USA</td><td>Federal Agency</td><td>Landsat (joint with NASA)</td><td>earthexplorer.usgs.gov</td></tr>
+            <tr><td>ESA</td><td>Europe</td><td>Multinational Agency</td><td>Copernicus/Sentinel, Galileo, BepiColombo</td><td>scihub.copernicus.eu</td></tr>
+            <tr><td>EUMETSAT</td><td>Europe</td><td>Intergovernmental Org</td><td>Meteosat, MetOp, MTG</td><td>eoportal.eumetsat.int</td></tr>
+            <tr><td>JAXA</td><td>Japan</td><td>National Agency</td><td>ALOS, Hayabusa2, H-IIA/B</td><td>jaxa.jp</td></tr>
+            <tr><td>CSA</td><td>Canada</td><td>National Agency</td><td>RADARSAT Constellation</td><td>asc-csa.gc.ca</td></tr>
+            <tr><td>SpaceX</td><td>USA</td><td>Private</td><td>Starlink, Dragon, Starship</td><td>spacex.com</td></tr>
+            <tr><td>Planet Labs</td><td>USA</td><td>Private</td><td>Dove, SkySat constellations</td><td>planet.com</td></tr>
+            <tr><td>Maxar</td><td>USA</td><td>Private</td><td>WorldView, GeoEye, Legion</td><td>maxar.com</td></tr>
+            <tr><td>ICEYE</td><td>Finland</td><td>Private</td><td>SAR microsatellite constellation</td><td>iceye.com</td></tr>
+            <tr><td>BlackSky</td><td>USA</td><td>Private</td><td>High-revisit EO + AI analytics</td><td>blacksky.com</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-content hidden" id="db-sat">
+      <div class="table-responsive">
+        <table class="data-table" id="t-sat">
+          <thead><tr><th>Satellite</th><th>Agency</th><th>Type</th><th>Orbit</th><th>Resolution</th><th>Status</th><th>Key Use</th></tr></thead>
+          <tbody>
+            <tr><td>Cartosat-3</td><td>ISRO</td><td>EO Optical</td><td>509 km SSO</td><td>0.25 m</td><td class="badge-yes">Active</td><td>Urban mapping, defence</td></tr>
+            <tr><td>Resourcesat-2A</td><td>ISRO</td><td>EO Optical</td><td>817 km SSO</td><td>5.8–56 m</td><td class="badge-yes">Active</td><td>Agriculture, forest</td></tr>
+            <tr><td>Oceansat-3</td><td>ISRO</td><td>Ocean/Atmo</td><td>742 km SSO</td><td>360 m</td><td class="badge-yes">Active</td><td>Ocean colour, SST</td></tr>
+            <tr><td>RISAT-1A</td><td>ISRO</td><td>SAR</td><td>555 km SSO</td><td>1 m</td><td class="badge-yes">Active</td><td>Flood, agriculture, defence</td></tr>
+            <tr><td>INSAT-3DR</td><td>ISRO</td><td>Meteo/Comm</td><td>GEO 74°E</td><td>1–8 km</td><td class="badge-yes">Active</td><td>Weather, cyclone tracking</td></tr>
+            <tr><td>Sentinel-2A/B</td><td>ESA</td><td>EO Optical</td><td>786 km SSO</td><td>10–60 m</td><td class="badge-yes">Active</td><td>Agriculture, land cover</td></tr>
+            <tr><td>Sentinel-1A/B</td><td>ESA</td><td>SAR</td><td>693 km SSO</td><td>5–40 m</td><td class="badge-yes">Active</td><td>Flood SAR, deformation</td></tr>
+            <tr><td>Landsat 9</td><td>NASA/USGS</td><td>EO Optical</td><td>705 km SSO</td><td>15–100 m</td><td class="badge-yes">Active</td><td>Land change, 50-yr archive</td></tr>
+            <tr><td>GOES-18</td><td>NOAA</td><td>Weather</td><td>GEO 137°W</td><td>0.5–2 km</td><td class="badge-yes">Active</td><td>US West coast weather</td></tr>
+            <tr><td>ALOS-4</td><td>JAXA</td><td>SAR L-band</td><td>628 km SSO</td><td>3 m</td><td class="badge-yes">Active</td><td>Disaster, deformation</td></tr>
+            <tr><td>Chandrayaan-3</td><td>ISRO</td><td>Lunar Mission</td><td>Lunar orbit</td><td>5 m (OHRC)</td><td>Mission Complete</td><td>Lunar science</td></tr>
+            <tr><td>Aditya-L1</td><td>ISRO</td><td>Solar Mission</td><td>L1 Halo</td><td>—</td><td class="badge-yes">Active</td><td>Solar corona, CMEs</td></tr>
+            <tr><td>JWST</td><td>NASA/ESA</td><td>Space Telescope</td><td>L2 Halo</td><td>~0.06"</td><td class="badge-yes">Active</td><td>Deep universe, exoplanets</td></tr>
+            <tr><td>NavIC (IRNSS)</td><td>ISRO</td><td>Navigation</td><td>GEO+IGSO</td><td>&lt;5 m</td><td class="badge-yes">Active</td><td>India regional navigation</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-content hidden" id="db-sw">
+      <div class="table-responsive">
+        <table class="data-table" id="t-sw">
+          <thead><tr><th>Software</th><th>Category</th><th>License</th><th>Platform</th><th>Strength</th><th>Download</th></tr></thead>
+          <tbody>
+            <tr><td>QGIS 3.x</td><td>GIS Desktop</td><td>Free / GPL</td><td>Win/Mac/Linux</td><td>Vector/Raster, 1000+ plugins</td><td><a href="https://qgis.org" target="_blank">qgis.org</a></td></tr>
+            <tr><td>ArcGIS Pro</td><td>GIS Desktop</td><td>Commercial</td><td>Windows</td><td>Industry standard, 3D, ModelBuilder</td><td><a href="https://esri.com" target="_blank">esri.com</a></td></tr>
+            <tr><td>Google Earth Pro</td><td>Viewer</td><td>Free</td><td>Win/Mac/Linux</td><td>Global imagery, time-lapse</td><td><a href="https://earth.google.com" target="_blank">earth.google.com</a></td></tr>
+            <tr><td>SNAP (ESA)</td><td>Remote Sensing</td><td>Free</td><td>Win/Mac/Linux</td><td>Sentinel SAR/optical processing</td><td><a href="https://step.esa.int" target="_blank">step.esa.int</a></td></tr>
+            <tr><td>ENVI</td><td>Remote Sensing</td><td>Commercial</td><td>Win/Mac/Linux</td><td>Hyperspectral, classification</td><td><a href="https://nv5geospatialsoftware.com" target="_blank">nv5...</a></td></tr>
+            <tr><td>ERDAS Imagine</td><td>Remote Sensing</td><td>Commercial</td><td>Windows</td><td>Photogrammetry, mosaicking</td><td><a href="https://hexagon.com" target="_blank">hexagon.com</a></td></tr>
+            <tr><td>Google Earth Engine</td><td>Cloud Platform</td><td>Free (Research)</td><td>Web/Python</td><td>Petabyte EO analysis in cloud</td><td><a href="https://earthengine.google.com" target="_blank">earthengine...</a></td></tr>
+            <tr><td>Microsoft Planetary Computer</td><td>Cloud Platform</td><td>Free</td><td>Web/Python</td><td>STAC, JupyterHub, MODIS/Sentinel</td><td><a href="https://planetarycomputer.microsoft.com" target="_blank">planetarycomp...</a></td></tr>
+            <tr><td>Jupyter Lab</td><td>IDE</td><td>Free</td><td>Web</td><td>Interactive notebooks, Python</td><td><a href="https://jupyter.org" target="_blank">jupyter.org</a></td></tr>
+            <tr><td>MATLAB</td><td>Scientific</td><td>Commercial</td><td>Win/Mac/Linux</td><td>Aerospace engineering, algorithms</td><td><a href="https://mathworks.com" target="_blank">mathworks.com</a></td></tr>
+            <tr><td>GMAT</td><td>Astrodynamics</td><td>Free (NASA)</td><td>Win/Mac/Linux</td><td>Mission planning, orbit design</td><td><a href="https://gmatcentral.org" target="_blank">gmatcentral.org</a></td></tr>
+            <tr><td>STK (AGI)</td><td>Mission Analysis</td><td>Commercial</td><td>Windows</td><td>Satellite coverage, link budgets</td><td><a href="https://agi.com" target="_blank">agi.com</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-content hidden" id="db-hack">
+      <div class="table-responsive">
+        <table class="data-table" id="t-hack">
+          <thead><tr><th>Hackathon</th><th>Organiser</th><th>Focus</th><th>Data Used</th><th>Prize</th><th>When</th></tr></thead>
+          <tbody>
+            <tr><td>Smart India Hackathon</td><td>ISRO/GoI</td><td>Space & Remote Sensing</td><td>Bhuvan, MOSDAC, VEDAS</td><td>₹1 Lakh per team</td><td>Annual (Aug-Dec)</td></tr>
+            <tr><td>ISRO Space Hackathon</td><td>ISRO/NRSC</td><td>Earth Observation AI</td><td>Cartosat, Resourcesat, RISAT</td><td>₹50K + Internship</td><td>Biennial</td></tr>
+            <tr><td>NASA Space Apps Challenge</td><td>NASA</td><td>Space data innovation</td><td>NASA EarthData, EOSDIS, JWST</td><td>Global recognition</td><td>Annual (Oct)</td></tr>
+            <tr><td>ESA ∅ Drones Hackathon</td><td>ESA</td><td>Sentinel + UAV fusion</td><td>Copernicus Sentinel-1/2</td><td>€10K</td><td>Annual</td></tr>
+            <tr><td>Copernicus Masters</td><td>ESA/EC</td><td>Copernicus data products</td><td>Full Copernicus catalogue</td><td>€10K + incubation</td><td>Annual</td></tr>
+            <tr><td>EO Dash Hackathon</td><td>ESA/NASA</td><td>COVID-19 Earth Observation</td><td>Sentinel-2, Landsat, MODIS</td><td>Recognition</td><td>Past</td></tr>
+            <tr><td>ISPRS Student Consortium</td><td>ISPRS</td><td>Photogrammetry & RS</td><td>Open datasets</td><td>Travel grants</td><td>Annual</td></tr>
+            <tr><td>IEEE GRSS Data Fusion</td><td>IEEE GRSS</td><td>Multisource data fusion</td><td>Hyperspectral + LiDAR</td><td>Cash prizes</td><td>Annual</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand"><i class="fa-solid fa-satellite"></i> Space Data Intelligence Hub</div>
+      <p>An open educational resource for the global satellite-data community. All data and imagery credited to respective agencies (ISRO, NASA, ESA, NOAA, USGS). Public domain where noted.</p>
+      <div class="footer-links">
+        <a href="https://www.isro.gov.in" target="_blank">ISRO</a>
+        <a href="https://earthdata.nasa.gov" target="_blank">NASA EarthData</a>
+        <a href="https://www.esa.int" target="_blank">ESA</a>
+        <a href="https://bhuvan.nrsc.gov.in" target="_blank">Bhuvan</a>
+        <a href="https://earthengine.google.com" target="_blank">Google Earth Engine</a>
+      </div>
+      <p class="footer-copy">Built for students, researchers, and hackathon participants. Educational use only.</p>
+    </div>
+  </footer>
+
+</div><!-- /mainContent -->
+
+<!-- ── SCRIPTS ──────────────────────────────────────────────── -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({startOnLoad:true, theme:'dark', themeVariables:{primaryColor:'#1e3a5f',primaryTextColor:'#e2e8f0',lineColor:'#4a9eff',edgeLabelBackground:'#0f172a'}});
+</script>
+<script src="script.js"></script>
+</body>
+</html>

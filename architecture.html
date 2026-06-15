@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Space Data Architecture — Intelligence Hub</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#4a9eff;--cyan:#06b6d4;--purple:#a855f7;--orange:#f97316;
+  --green:#22c55e;--amber:#f59e0b;--red:#ef4444;
+  --bg1:#020817;--bg2:#080f1e;--bg3:#0f172a;--bg4:#1e293b;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);
+  --t1:#f1f5f9;--t2:#94a3b8;--t3:#475569;--t4:#334155;
+  --font:'Inter',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg1);color:var(--t1);overflow-x:hidden;font-size:15px;line-height:1.7}
+a{color:var(--blue);text-decoration:none}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg2)}::-webkit-scrollbar-thumb{background:rgba(74,158,255,0.3);border-radius:3px}
+
+/* TOPBAR */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 32px;height:60px;
+  background:rgba(2,8,23,0.9);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.topbar-logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:.95rem;letter-spacing:.04em;
+  background:linear-gradient(90deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.topbar-logo i{-webkit-text-fill-color:var(--cyan);font-size:1.1rem}
+.topbar-links{display:flex;gap:4px}
+.topbar-links a{padding:7px 14px;border-radius:8px;font-size:.82rem;font-weight:600;color:var(--t3);transition:all .2s}
+.topbar-links a:hover{background:rgba(74,158,255,.08);color:var(--blue)}
+.topbar-links a.active{background:rgba(74,158,255,.12);color:var(--blue)}
+.btn-back{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border-radius:9px;font-size:.8rem;font-weight:600;
+  background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--t2);transition:all .2s}
+.btn-back:hover{background:rgba(74,158,255,.08);border-color:rgba(74,158,255,.25);color:var(--blue)}
+
+/* HERO */
+.hero{
+  position:relative;padding:88px 32px 72px;text-align:center;overflow:hidden;
+  background:radial-gradient(ellipse 90% 60% at 50% 0%,rgba(74,158,255,.08),transparent 65%),
+             radial-gradient(ellipse 60% 50% at 90% 100%,rgba(168,85,247,.06),transparent 60%),var(--bg1);
+}
+#bgCanvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:780px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(74,158,255,.08);border:1px solid rgba(74,158,255,.2);
+  border-radius:100px;padding:5px 16px;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:24px}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--blue);animation:bdot 2s ease-in-out infinite}
+@keyframes bdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
+.hero h1{font-size:clamp(2.4rem,6vw,5rem);font-weight:800;letter-spacing:-.03em;line-height:1.06;margin-bottom:20px}
+.hero h1 span{background:linear-gradient(135deg,var(--blue) 0%,var(--cyan) 45%,var(--purple) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:1rem;color:var(--t2);max-width:540px;margin:0 auto 40px;line-height:1.75}
+.hero-stats{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:44px}
+.hstat{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:16px 22px;text-align:center;min-width:110px;transition:all .25s}
+.hstat:hover{background:rgba(74,158,255,.06);border-color:rgba(74,158,255,.25);transform:translateY(-2px)}
+.hstat-num{font-size:1.9rem;font-weight:800;display:block;background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.hstat-lbl{font-size:.68rem;color:var(--t3);text-transform:uppercase;letter-spacing:.1em;font-weight:600;margin-top:4px;display:block}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;font-weight:700;font-size:.88rem;padding:12px 26px;border-radius:11px;transition:all .2s;box-shadow:0 8px 32px rgba(74,158,255,.3)}
+.cta-primary:hover{color:#fff;transform:translateY(-2px);box-shadow:0 12px 40px rgba(74,158,255,.45)}
+.cta-sec{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.05);color:var(--t1);font-weight:600;font-size:.88rem;padding:12px 26px;border-radius:11px;border:1px solid var(--border);transition:all .2s}
+.cta-sec:hover{color:var(--t1);background:rgba(255,255,255,.08);transform:translateY(-2px)}
+
+/* SECTION COMMON */
+.section{padding:80px 32px;max-width:1200px;margin:0 auto}
+.sec-hdr{text-align:center;margin-bottom:52px}
+.sec-eyebrow{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px;padding:4px 14px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.2);border-radius:100px}
+.sec-hdr h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;letter-spacing:-.02em;margin-bottom:10px}
+.sec-hdr p{font-size:.97rem;color:var(--t2);max-width:520px;margin:0 auto}
+.glow-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(74,158,255,.25),rgba(6,182,212,.25),rgba(168,85,247,.15),transparent)}
+
+/* ARCHITECTURE CANVAS */
+.arch-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:8px;overflow:hidden}
+#archCanvas{width:100%;display:block;border-radius:14px}
+.arch-legend{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:16px}
+.leg-i{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--t2)}
+.leg-dot{width:10px;height:10px;border-radius:50%}
+
+/* PIPELINE STEPS */
+.pipeline{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border:1px solid var(--border);border-radius:16px;overflow:hidden}
+@media(max-width:900px){.pipeline{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.pipeline{grid-template-columns:repeat(2,1fr)}}
+.pipe-step{padding:22px 14px;background:var(--bg2);text-align:center;cursor:pointer;transition:all .25s;position:relative;border-right:1px solid var(--border)}
+.pipe-step:last-child{border-right:none}
+.pipe-step:hover,.pipe-step.active{background:rgba(74,158,255,.07);transform:translateY(-3px)}
+.pipe-step.active::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--cyan))}
+.pipe-icon{font-size:1.6rem;margin-bottom:10px;display:block}
+.pipe-num{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t4);margin-bottom:4px}
+.pipe-name{font-size:.88rem;font-weight:700;color:var(--t1);margin-bottom:3px}
+.pipe-sub{font-size:.72rem;color:var(--t3)}
+.step-detail{background:rgba(74,158,255,.05);border:1px solid rgba(74,158,255,.2);border-radius:14px;padding:24px 28px;margin-top:16px;animation:fadeUp .3s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.sd-title{font-size:1.1rem;font-weight:700;color:var(--t1);margin-bottom:8px}
+.sd-desc{font-size:.88rem;color:var(--t2);line-height:1.75;margin-bottom:14px}
+.sd-tags{display:flex;flex-wrap:wrap;gap:7px}
+.sd-tag{font-size:.7rem;padding:3px 10px;border-radius:6px;background:rgba(74,158,255,.1);color:var(--blue);border:1px solid rgba(74,158,255,.18);font-weight:500}
+
+/* ORBIT CANVAS */
+.orbit-wrap{display:flex;justify-content:center;padding:16px 0}
+#orbitCanvas{max-width:560px;width:100%}
+
+/* ECOSYSTEM GRID */
+.eco-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.eco-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px;transition:all .25s;cursor:default;position:relative;overflow:hidden}
+.eco-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 90% 10%,var(--gc,transparent) 0%,transparent 65%);opacity:0;transition:opacity .3s;pointer-events:none}
+.eco-card:hover{transform:translateY(-4px);border-color:var(--gc2,rgba(74,158,255,.2));box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.eco-card:hover::after{opacity:1}
+.eco-abbr{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;letter-spacing:-.02em;margin-bottom:12px}
+.eco-name{font-size:.88rem;font-weight:700;color:var(--t1);margin-bottom:3px}
+.eco-country{font-size:.72rem;color:var(--t3);margin-bottom:9px}
+.eco-missions{display:flex;flex-wrap:wrap;gap:4px}
+.eco-tag{font-size:.68rem;padding:2px 7px;border-radius:4px;background:rgba(255,255,255,.05);color:var(--t3);border:1px solid rgba(255,255,255,.06)}
+
+/* CHARTS GRID */
+.charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:700px){.charts-grid{grid-template-columns:1fr}}
+.chart-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:22px}
+.chart-card h3{font-size:.9rem;font-weight:700;color:var(--t1);margin-bottom:3px}
+.chart-card .chart-sub{font-size:.75rem;color:var(--t3);margin-bottom:16px}
+.chart-wrap{position:relative;height:220px}
+canvas{border-radius:4px}
+
+/* FORMAT BARS */
+.fmt-bars{display:flex;flex-direction:column;gap:11px;margin-top:14px}
+.fmt-row{display:flex;align-items:center;gap:10px}
+.fmt-lbl{width:95px;font-size:.78rem;color:var(--t2);text-align:right;flex-shrink:0}
+.fmt-bg{flex:1;height:8px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden}
+.fmt-fill{height:100%;border-radius:4px;transition:width 1.2s ease}
+.fmt-score{width:28px;font-size:.72rem;color:var(--t3);text-align:right;flex-shrink:0}
+
+/* CAREER TABLE */
+.career-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+thead tr{border-bottom:1px solid rgba(74,158,255,.2)}
+th{padding:11px 16px;text-align:left;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.03);color:var(--t2);vertical-align:middle}
+tbody tr:hover td{background:rgba(74,158,255,.04);color:var(--t1)}
+tbody tr:last-child td{border-bottom:none}
+.sal-bar-inline{display:inline-block;height:6px;background:linear-gradient(90deg,var(--blue),var(--cyan));border-radius:3px;vertical-align:middle;margin-right:6px}
+.role-em{color:var(--t1);font-weight:600}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:40px 32px;text-align:center}
+.footer-inner{max-width:600px;margin:0 auto}
+.footer-brand{font-size:1rem;font-weight:800;color:var(--blue);margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:8px}
+footer p{font-size:.78rem;color:var(--t3);margin-bottom:10px;line-height:1.7}
+.footer-links{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:12px 0}
+.footer-links a{font-size:.78rem;color:var(--t3);transition:color .2s}
+.footer-links a:hover{color:var(--cyan)}
+
+/* BACK TO TOP */
+#btt{position:fixed;bottom:24px;right:24px;width:42px;height:42px;border-radius:50%;background:rgba(74,158,255,.15);border:1px solid rgba(74,158,255,.35);color:var(--blue);font-size:.9rem;cursor:pointer;opacity:0;transform:translateY(14px);transition:opacity .3s,transform .3s;z-index:900;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px)}
+#btt.on{opacity:1;transform:translateY(0)}
+#btt:hover{background:rgba(74,158,255,.28)}
+
+/* FADE IN */
+.fi{opacity:0;transform:translateY(18px);transition:opacity .5s,transform .5s}
+.fi.vis{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="topbar-logo"><i class="fa-solid fa-satellite"></i>SDIH · Architecture</div>
+  <nav class="topbar-links">
+    <a href="#arch">Architecture</a>
+    <a href="#pipeline">Pipeline</a>
+    <a href="#orbits">Orbits</a>
+    <a href="#ecosystem">Agencies</a>
+    <a href="#charts">Data</a>
+    <a href="#careers">Careers</a>
+  </nav>
+  <a href="index.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i>Full Hub</a>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <canvas id="bgCanvas"></canvas>
+  <div class="hero-inner">
+    <div class="hero-badge"><span class="badge-dot"></span>Space Data Intelligence Architecture</div>
+    <h1>From Orbit to<br/><span>Actionable Intelligence</span></h1>
+    <p>A complete visual tour of the global satellite data ecosystem — agencies, satellites, pipelines, formats, tools, and careers — in one stunning interactive view.</p>
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-num" data-t="17">0</span><span class="hstat-lbl">Agencies</span></div>
+      <div class="hstat"><span class="hstat-num" data-t="200">0</span><span class="hstat-lbl">Satellites</span></div>
+      <div class="hstat"><span class="hstat-num" data-t="16">0</span><span class="hstat-lbl">Modules</span></div>
+      <div class="hstat"><span class="hstat-num" data-t="8">0</span><span class="hstat-lbl">Career Paths</span></div>
+    </div>
+    <div class="hero-cta">
+      <a href="#arch" class="cta-primary">Explore Architecture <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="index.html" class="cta-sec"><i class="fa-solid fa-book-open"></i>Full Learning Hub</a>
+    </div>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<!-- ARCHITECTURE DIAGRAM -->
+<div class="section" id="arch">
+  <div class="sec-hdr">
+    <div class="sec-eyebrow">System Architecture</div>
+    <h2>End-to-End Data Architecture</h2>
+    <p>How satellite data travels from orbit to decision-makers — every node and edge of the global space data stack.</p>
+  </div>
+  <div class="arch-wrap fi">
+    <canvas id="archCanvas" height="360"></canvas>
+  </div>
+  <div class="arch-legend">
+    <div class="leg-i"><div class="leg-dot" style="background:#4a9eff"></div>Space Segment</div>
+    <div class="leg-i"><div class="leg-dot" style="background:#a855f7"></div>Ground Segment</div>
+    <div class="leg-i"><div class="leg-dot" style="background:#06b6d4"></div>Processing</div>
+    <div class="leg-i"><div class="leg-dot" style="background:#22c55e"></div>Storage / Archive</div>
+    <div class="leg-i"><div class="leg-dot" style="background:#f59e0b"></div>Analytics / AI</div>
+    <div class="leg-i"><div class="leg-dot" style="background:#f97316"></div>Applications</div>
+  </div>
+</div>
+
+<div class="glow-divider"></div>
+
+<!-- PIPELINE -->
+<div class="section" id="pipeline">
+  <div class="sec-hdr">
+    <div class="sec-eyebrow">Data Pipeline</div>
+    <h2>6-Stage Processing Journey</h2>
+    <p>Click any stage to see what happens at each step — from photon capture to policy report.</p>
+  </div>
+  <div class="pipeline" id="pipelineGrid">
+    <div class="pipe-step active" onclick="selectStep(0)"><span class="pipe-icon">🛰️</span><div class="pipe-num">Stage 01</div><div class="pipe-name">Acquire</div><div class="pipe-sub">EO · SAR · GNSS</div></div>
+    <div class="pipe-step" onclick="selectStep(1)"><span class="pipe-icon">📡</span><div class="pipe-num">Stage 02</div><div class="pipe-name">Downlink</div><div class="pipe-sub">S/X/Ka-band RF</div></div>
+    <div class="pipe-step" onclick="selectStep(2)"><span class="pipe-icon">⚙️</span><div class="pipe-num">Stage 03</div><div class="pipe-name">Process</div><div class="pipe-sub">L0 → L2 Products</div></div>
+    <div class="pipe-step" onclick="selectStep(3)"><span class="pipe-icon">💾</span><div class="pipe-num">Stage 04</div><div class="pipe-name">Store</div><div class="pipe-sub">HDF5 · NetCDF · COG</div></div>
+    <div class="pipe-step" onclick="selectStep(4)"><span class="pipe-icon">🤖</span><div class="pipe-num">Stage 05</div><div class="pipe-name">Analyse</div><div class="pipe-sub">ML · DL · CV Models</div></div>
+    <div class="pipe-step" onclick="selectStep(5)"><span class="pipe-icon">📊</span><div class="pipe-num">Stage 06</div><div class="pipe-name">Deliver</div><div class="pipe-sub">APIs · Dashboards</div></div>
+  </div>
+  <div class="step-detail" id="stepDetail"></div>
+</div>
+
+<div class="glow-divider"></div>
+
+<!-- ORBIT VISUALIZATION -->
+<div class="section" id="orbits">
+  <div class="sec-hdr">
+    <div class="sec-eyebrow">Orbital Mechanics</div>
+    <h2>Live Satellite Orbits</h2>
+    <p>LEO, MEO, and GEO orbits at correct relative distances — watch them move in real time.</p>
+  </div>
+  <div class="orbit-wrap fi">
+    <canvas id="orbitCanvas" height="460"></canvas>
+  </div>
+</div>
+
+<div class="glow-divider"></div>
+
+<!-- ECOSYSTEM -->
+<div class="section" id="ecosystem">
+  <div class="sec-hdr">
+    <div class="sec-eyebrow">Global Ecosystem</div>
+    <h2>Key Agencies & Players</h2>
+    <p>Every organisation that shapes the world's satellite data landscape.</p>
+  </div>
+  <div class="eco-grid" id="ecoGrid"></div>
+</div>
+
+<div class="glow-divider"></div>
+
+<!-- CHARTS -->
+<div class="section" id="charts">
+  <div class="sec-hdr">
+    <div class="sec-eyebrow">Data Intelligence</div>
+    <h2>By the Numbers</h2>
+    <p>Satellite distribution, AI application share, and format support scores.</p>
+  </div>
+  <div class="charts-grid">
+    <div class="chart-card fi">
+      <h3>Satellites by Category</h3>
+      <div class="chart-sub">Active operational satellite distribution</div>
+      <div class="chart-wrap"><canvas id="satChart" role="img" aria-label="Doughnut chart of satellites by category. EO 35%, Weather 20%, Nav 18%, Comm 17%, Scientific 10%"></canvas></div>
+    </div>
+    <div class="chart-card fi">
+      <h3>AI Applications in Earth Observation</h3>
+      <div class="chart-sub">Research and operational usage share</div>
+      <div class="chart-wrap"><canvas id="aiChart" role="img" aria-label="Bar chart of AI use cases in EO"></canvas></div>
+    </div>
+  </div>
+  <div class="chart-card fi" style="margin-top:16px">
+    <h3>Data Format Support Score</h3>
+    <div class="chart-sub">Composite of GIS support, compression efficiency, and scientific utility (out of 10)</div>
+    <div class="fmt-bars" id="fmtBars"></div>
+  </div>
+</div>
+
+<div class="glow-divider"></div>
+
+<!-- CAREERS -->
+<div class="section" id="careers">
+  <div class="sec-hdr">
+    <div class="sec-eyebrow">Career Paths</div>
+    <h2>Roles & Salary Ranges</h2>
+    <p>What you can earn across 8 core roles in the space data industry.</p>
+  </div>
+  <div class="career-wrap fi">
+    <table>
+      <thead><tr><th>Role</th><th>India (₹ LPA)</th><th>USA ($K)</th><th>Growth</th></tr></thead>
+      <tbody id="careerTbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><i class="fa-solid fa-satellite"></i>Space Data Intelligence Hub</div>
+    <p>An open educational resource for the global satellite-data community. All data credited to ISRO, NASA, ESA, NOAA, USGS.</p>
+    <div class="footer-links">
+      <a href="https://www.isro.gov.in" target="_blank">ISRO</a>
+      <a href="https://earthdata.nasa.gov" target="_blank">NASA EarthData</a>
+      <a href="https://www.esa.int" target="_blank">ESA</a>
+      <a href="https://bhuvan.nrsc.gov.in" target="_blank">Bhuvan</a>
+      <a href="index.html">← Full Hub</a>
+    </div>
+    <p>Built for students, researchers, and hackathon participants.</p>
+  </div>
+</footer>
+
+<button id="btt" onclick="scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+/* ─── STAR BACKGROUND ─── */
+(function(){
+  const c=document.getElementById('bgCanvas'),ctx=c.getContext('2d');
+  function resize(){c.width=c.offsetWidth;c.height=c.offsetHeight}resize();
+  window.addEventListener('resize',resize);
+  const s=Array.from({length:260},()=>({x:Math.random(),y:Math.random(),r:Math.random()*1.5+.2,a:Math.random(),da:(Math.random()*.007+.002)*(Math.random()<.5?1:-1)}));
+  (function draw(){ctx.clearRect(0,0,c.width,c.height);s.forEach(st=>{st.a+=st.da;if(st.a<.05||st.a>1)st.da=-st.da;ctx.beginPath();ctx.arc(st.x*c.width,st.y*c.height,st.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,255,255,${Math.max(0,Math.min(1,st.a))})`;ctx.fill()});requestAnimationFrame(draw)})();
+})();
+
+/* ─── STAT COUNTERS ─── */
+document.querySelectorAll('.hstat-num[data-t]').forEach(el=>{
+  const t=+el.dataset.t,dur=1600,steps=dur/16;let cur=0;const inc=t/steps;
+  const id=setInterval(()=>{cur+=inc;if(cur>=t){el.textContent=t+'+';clearInterval(id)}else el.textContent=Math.floor(cur)+'+'},16);
+});
+
+/* ─── ARCHITECTURE CANVAS ─── */
+(function(){
+  const canvas=document.getElementById('archCanvas');if(!canvas)return;
+  const ctx=canvas.getContext('2d'),DPR=window.devicePixelRatio||1;
+  const nodes=[
+    {x:.10,y:.10,w:.14,h:.13,label:'🛰️ Cartosat-3',sub:'LEO · EO',col:'#4a9eff'},
+    {x:.28,y:.04,w:.14,h:.13,label:'🛰️ INSAT-3DR',sub:'GEO · Weather',col:'#4a9eff'},
+    {x:.46,y:.10,w:.14,h:.13,label:'🛰️ RISAT-1A',sub:'SSO · SAR',col:'#4a9eff'},
+    {x:.64,y:.04,w:.14,h:.13,label:'🛰️ NavIC',sub:'GEO+IGSO',col:'#4a9eff'},
+    {x:.82,y:.10,w:.14,h:.13,label:'🛰️ Aditya-L1',sub:'L1 Halo',col:'#4a9eff'},
+    {x:.20,y:.30,w:.18,h:.12,label:'📡 ISTRAC',sub:'Bangalore · ISRO',col:'#a855f7'},
+    {x:.58,y:.30,w:.18,h:.12,label:'📡 ESAC',sub:'Madrid · ESA',col:'#a855f7'},
+    {x:.10,y:.51,w:.18,h:.12,label:'⚙️ Calibration',sub:'L0 → L1B',col:'#06b6d4'},
+    {x:.38,y:.51,w:.18,h:.12,label:'⚙️ Geo-correct',sub:'L1B → L2A',col:'#06b6d4'},
+    {x:.66,y:.51,w:.18,h:.12,label:'💾 Archive',sub:'COG · HDF5',col:'#22c55e'},
+    {x:.10,y:.73,w:.18,h:.12,label:'🤖 ML Models',sub:'PyTorch · GEE',col:'#f59e0b'},
+    {x:.38,y:.73,w:.18,h:.12,label:'📊 Dashboard',sub:'APIs · Bhuvan',col:'#f97316'},
+    {x:.66,y:.73,w:.18,h:.12,label:'🌍 Decisions',sub:'Reports · Alerts',col:'#f97316'},
+  ];
+  const edges=[[0,5],[1,5],[1,6],[2,6],[3,6],[4,6],[5,7],[5,8],[6,8],[6,9],[7,10],[8,10],[8,11],[9,11],[9,12],[10,11],[11,12]];
+  function draw(){
+    const W=canvas.offsetWidth,H=360;
+    canvas.style.width=W+'px';canvas.style.height=H+'px';
+    canvas.width=W*DPR;canvas.height=H*DPR;ctx.scale(DPR,DPR);
+    ctx.clearRect(0,0,W,H);
+    edges.forEach(([ai,bi])=>{
+      const a=nodes[ai],b=nodes[bi];
+      const ax=(a.x+a.w/2)*W,ay=(a.y+a.h)*H,bx=(b.x+b.w/2)*W,by=b.y*H;
+      const g=ctx.createLinearGradient(ax,ay,bx,by);
+      g.addColorStop(0,a.col+'70');g.addColorStop(1,b.col+'70');
+      ctx.beginPath();ctx.moveTo(ax,ay);ctx.bezierCurveTo(ax,ay+20,bx,by-20,bx,by);
+      ctx.strokeStyle=g;ctx.lineWidth=1.5;ctx.stroke();
+      ctx.beginPath();ctx.moveTo(bx-5,by-9);ctx.lineTo(bx,by-1);ctx.lineTo(bx+5,by-9);
+      ctx.strokeStyle=b.col+'cc';ctx.lineWidth=1.5;ctx.stroke();
+    });
+    nodes.forEach(n=>{
+      const x=n.x*W,y=n.y*H,w=n.w*W,h=n.h*H;
+      ctx.beginPath();ctx.roundRect(x,y,w,h,8);
+      const g=ctx.createLinearGradient(x,y,x+w,y+h);
+      g.addColorStop(0,n.col+'22');g.addColorStop(1,n.col+'08');
+      ctx.fillStyle=g;ctx.fill();ctx.strokeStyle=n.col+'55';ctx.lineWidth=1;ctx.stroke();
+      ctx.fillStyle='#f1f5f9';ctx.font=`500 11.5px Inter,sans-serif`;ctx.textAlign='center';
+      ctx.fillText(n.label,x+w/2,y+h/2-6);
+      ctx.fillStyle=n.col+'cc';ctx.font=`400 9.5px Inter,sans-serif`;
+      ctx.fillText(n.sub,x+w/2,y+h/2+9);
+    });
+  }
+  draw();window.addEventListener('resize',draw);
+})();
+
+/* ─── PIPELINE ─── */
+const STEPS=[
+  {title:'Stage 01 — Acquisition',desc:'Satellites in LEO (500–700 km), MEO (20,000 km), and GEO (35,786 km) carry active and passive sensors capturing electromagnetic radiation from Earth. Cartosat-3 delivers 0.25 m panchromatic; RISAT-1A penetrates clouds with C-band SAR; INSAT-3DR monitors cyclones every 30 minutes from geostationary orbit.',tags:['Optical EO','C-band SAR','GNSS','Thermal IR','Hyperspectral','Multi-spectral']},
+  {title:'Stage 02 — Ground Station Downlink',desc:'Raw CCSDS telemetry packets descend via S-band or X-band RF links at up to 800 Mbps to stations like ISTRAC Bangalore, NRSC Shadnagar, ESAC Madrid, and NASA DSN. Packets are decommutated, time-stamped, and quality-flagged before entering Level-0 archives.',tags:['CCSDS Packets','X/S/Ka-band','ISTRAC Bangalore','DSN Goldstone','ESAC Madrid','800 Mbps max']},
+  {title:'Stage 03 — Radiometric & Geometric Processing',desc:'L0 raw data undergoes dark-current subtraction, flat-field correction, atmospheric correction (using 6S or MODTRAN models), and ortho-rectification using onboard GPS + DEM. ISRO generates Cartosat ortho-products at NRSC. ESA\'s Sen2Cor delivers Sentinel-2 L2A within 12 hours.',tags:['Dark subtraction','Flat-field','Sen2Cor','GDAL','Atmospheric correction','RPC ortho']},
+  {title:'Stage 04 — Cloud-Native Storage',desc:'Products land in Cloud-Optimised GeoTIFF (COG) on AWS S3/Azure Blob, Zarr for multi-dim arrays, HDF5 for complex science data, and STAC catalogs for searchable metadata. NASA EarthData stores 120+ PB. Copernicus Data Space serves 2+ PB/year to 700K+ users.',tags:['COG on S3','HDF5/NetCDF','STAC API','Zarr arrays','EarthData 120 PB','Copernicus 2 PB/yr']},
+  {title:'Stage 05 — AI/ML Analysis',desc:'Deep learning models (U-Net, ResNet-50, LSTM, XGBoost) trained on EO imagery perform land-cover classification, flood SAR change detection, NDVI crop health monitoring, fire thermal anomaly detection, and urban extent mapping. Google Earth Engine and Microsoft Planetary Computer run these at petabyte scale without data download.',tags:['U-Net segmentation','ResNet-50','LSTM forecasting','XGBoost','Google Earth Engine','Planetary Computer']},
+  {title:'Stage 06 — Product Delivery',desc:'Final products reach end-users as GeoTIFF downloads, REST/OGC APIs, WMS/WMTS tile services, real-time alert SMS/email, and PDF situation reports. ISRO Bhuvan serves 4M+ users. Copernicus Emergency Management Service (EMS) delivers flood maps within 6 hours of event onset to EU civil protection authorities.',tags:['REST APIs','WMS/WMTS','OGC Standards','Bhuvan Portal','Copernicus EMS','PDF Reports']},
+];
+function selectStep(i){
+  document.querySelectorAll('.pipe-step').forEach((s,j)=>s.classList.toggle('active',i===j));
+  const d=STEPS[i];
+  document.getElementById('stepDetail').innerHTML=`<div class="sd-title">${d.title}</div><div class="sd-desc">${d.desc}</div><div class="sd-tags">${d.tags.map(t=>`<span class="sd-tag">${t}</span>`).join('')}</div>`;
+}
+selectStep(0);
+
+/* ─── ORBIT CANVAS ─── */
+(function(){
+  const c=document.getElementById('orbitCanvas');if(!c)return;
+  const ctx=c.getContext('2d'),DPR=window.devicePixelRatio||1;
+  const W=560,H=460;c.width=W*DPR;c.height=H*DPR;ctx.scale(DPR,DPR);c.style.width=W+'px';c.style.height=H+'px';
+  const CX=W/2,CY=H/2+10;
+  const orbits=[
+    {name:'LEO  200–2000 km',r:72,col:'#4a9eff',sats:[
+      {a:0,lbl:'Cartosat-3',spd:.014},{a:Math.PI*.65,lbl:'Sentinel-2',spd:.014},{a:Math.PI*1.3,lbl:'Landsat-9',spd:.014}
+    ]},
+    {name:'MEO  2000–36000 km',r:128,col:'#22c55e',sats:[
+      {a:Math.PI*.2,lbl:'NavIC',spd:.007},{a:Math.PI*1.15,lbl:'GPS IIF',spd:.007},{a:Math.PI*1.8,lbl:'Galileo',spd:.007}
+    ]},
+    {name:'GEO  35786 km',r:195,col:'#f59e0b',sats:[
+      {a:Math.PI*.08,lbl:'INSAT-3DR',spd:.0016},{a:Math.PI*.72,lbl:'GOES-18',spd:.0016},{a:Math.PI*1.45,lbl:'GSAT-11',spd:.0016}
+    ]},
+  ];
+  let t=0;
+  (function draw(){
+    ctx.clearRect(0,0,W,H);
+    // Earth
+    const eg=ctx.createRadialGradient(CX-10,CY-12,0,CX,CY,40);
+    eg.addColorStop(0,'#1e6eab');eg.addColorStop(.55,'#155e97');eg.addColorStop(1,'#0c2d4a');
+    ctx.beginPath();ctx.arc(CX,CY,40,0,Math.PI*2);ctx.fillStyle=eg;ctx.fill();
+    ctx.strokeStyle='rgba(74,158,255,.4)';ctx.lineWidth=1.5;ctx.stroke();
+    ctx.fillStyle='rgba(34,197,94,.28)';
+    [[CX-9,CY-14,15,10],[CX+11,CY+5,11,7],[CX-15,CY+10,8,6]].forEach(([x,y,rw,rh])=>{ctx.beginPath();ctx.ellipse(x,y,rw,rh,0,0,Math.PI*2);ctx.fill()});
+    ctx.fillStyle='#94a3b8';ctx.font='bold 9px Inter,sans-serif';ctx.textAlign='center';ctx.fillText('EARTH',CX,CY+3);
+    // Rings
+    orbits.forEach(o=>{
+      ctx.beginPath();ctx.arc(CX,CY,o.r,0,Math.PI*2);
+      ctx.strokeStyle=o.col+'28';ctx.lineWidth=1;ctx.setLineDash([4,7]);ctx.stroke();ctx.setLineDash([]);
+    });
+    // Orbit labels
+    orbits.forEach(o=>{
+      ctx.fillStyle='#334155';ctx.font='10px Inter,sans-serif';ctx.textAlign='right';
+      ctx.fillText(o.name,CX-o.r-10,CY+4);
+    });
+    // Sats
+    orbits.forEach(o=>{
+      o.sats.forEach(s=>{
+        const a=s.a+t*s.spd,sx=CX+o.r*Math.cos(a),sy=CY+o.r*Math.sin(a);
+        const g=ctx.createRadialGradient(sx,sy,0,sx,sy,14);
+        g.addColorStop(0,o.col+'55');g.addColorStop(1,'transparent');
+        ctx.beginPath();ctx.arc(sx,sy,14,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
+        ctx.beginPath();ctx.arc(sx,sy,5,0,Math.PI*2);
+        ctx.fillStyle=o.col;ctx.fill();ctx.strokeStyle='#020817';ctx.lineWidth=1.5;ctx.stroke();
+        const dx=Math.cos(a),dy=Math.sin(a),lx=sx+dx*22,ly=sy+dy*22-5;
+        ctx.fillStyle='#e2e8f0';ctx.font='9px Inter,sans-serif';
+        ctx.textAlign=dx>0?'left':'right';ctx.fillText(s.lbl,lx,ly);
+      });
+    });
+    t++;requestAnimationFrame(draw);
+  })();
+})();
+
+/* ─── ECOSYSTEM CARDS ─── */
+const AGENCIES=[
+  {abbr:'ISRO',name:'Indian Space Research Org.',country:'🇮🇳 India',col:'#f97316',missions:['Chandrayaan-3','NavIC','Cartosat','Aditya-L1']},
+  {abbr:'NASA',name:'National Aeronautics & Space Admin.',country:'🇺🇸 USA',col:'#4a9eff',missions:['JWST','Landsat-9','Artemis','PACE']},
+  {abbr:'ESA',name:'European Space Agency',country:'🇪🇺 Europe',col:'#a855f7',missions:['Sentinel-2','Galileo','BepiColombo']},
+  {abbr:'NOAA',name:'Natl. Oceanic & Atmospheric Admin.',country:'🇺🇸 USA',col:'#06b6d4',missions:['GOES-18','JPSS','Suomi NPP']},
+  {abbr:'JAXA',name:'Japan Aerospace Exploration Agency',country:'🇯🇵 Japan',col:'#22c55e',missions:['ALOS-4','Hayabusa2','H3']},
+  {abbr:'NRSC',name:'National Remote Sensing Centre',country:'🇮🇳 India',col:'#f59e0b',missions:['Bhuvan','VEDAS','EO Products']},
+  {abbr:'Planet',name:'Planet Labs PBC',country:'🌍 Private',col:'#ef4444',missions:['Dove','SkySat','Pelican']},
+  {abbr:'Maxar',name:'Maxar Technologies',country:'🌍 Private',col:'#94a3b8',missions:['WorldView-3','Legion','GeoEye']},
+];
+document.getElementById('ecoGrid').innerHTML=AGENCIES.map(a=>`
+  <div class="eco-card fi" style="--gc:${a.col}18;--gc2:${a.col}40">
+    <div class="eco-abbr" style="background:${a.col}18;color:${a.col};font-size:${a.abbr.length>5?9:11}px">${a.abbr}</div>
+    <div class="eco-name">${a.name}</div>
+    <div class="eco-country">${a.country}</div>
+    <div class="eco-missions">${a.missions.map(m=>`<span class="eco-tag">${m}</span>`).join('')}</div>
+  </div>`).join('');
+
+/* ─── CHARTS ─── */
+const tip={backgroundColor:'rgba(8,15,30,.96)',borderColor:'rgba(74,158,255,.22)',borderWidth:1,titleColor:'#f1f5f9',bodyColor:'#94a3b8',padding:10,cornerRadius:8};
+Chart.defaults.color='#94a3b8';Chart.defaults.font.family="'Inter',sans-serif";Chart.defaults.font.size=12;
+new Chart(document.getElementById('satChart'),{type:'doughnut',data:{labels:['Earth Observation','Weather','Navigation','Communication','Scientific'],datasets:[{data:[35,20,18,17,10],backgroundColor:['#4a9effcc','#06b6d4cc','#22c55ecc','#f59e0bcc','#a855f7cc'],borderColor:'#080f1e',borderWidth:2,hoverOffset:7}]},options:{responsive:true,maintainAspectRatio:false,cutout:'62%',plugins:{legend:{position:'bottom',labels:{color:'#94a3b8',boxWidth:10,padding:10,font:{size:10}}},tooltip:{...tip}}}});
+new Chart(document.getElementById('aiChart'),{type:'bar',data:{labels:['Flood','Fire','Crop','Urban','Mining','Weather'],datasets:[{label:'Usage %',data:[20,18,22,14,10,16],backgroundColor:['#06b6d4aa','#ef4444aa','#22c55eaa','#f59e0baa','#a855f7aa','#4a9effaa'],borderColor:['#06b6d4','#ef4444','#22c55e','#f59e0b','#a855f7','#4a9eff'],borderWidth:1,borderRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{...tip}},scales:{x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#64748b',font:{size:11}}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#64748b'},max:25}}}});
+
+/* ─── FORMAT BARS ─── */
+[{n:'GeoTIFF',s:9.2,c:'#4a9eff'},{n:'NetCDF',s:8.5,c:'#06b6d4'},{n:'HDF5',s:8.0,c:'#a855f7'},{n:'JPEG2000',s:7.4,c:'#22c55e'},{n:'GeoPackage',s:7.0,c:'#f59e0b'},{n:'GeoJSON',s:6.8,c:'#f97316'},{n:'GRIB2',s:6.2,c:'#ef4444'}].forEach(f=>{
+  document.getElementById('fmtBars').innerHTML+=`<div class="fmt-row"><div class="fmt-lbl">${f.n}</div><div class="fmt-bg"><div class="fmt-fill" style="width:${f.s*10}%;background:linear-gradient(90deg,${f.c},${f.c}66)"></div></div><div class="fmt-score">${f.s}</div></div>`;
+});
+
+/* ─── CAREERS ─── */
+const CAREERS=[
+  {role:'AI/ML Engineer',em:'🤖',india:'10–40',usa:'110–250',trend:'🔥 Fastest'},
+  {role:'Geospatial Developer',em:'💻',india:'6–22',usa:'75–160',trend:'📈 High'},
+  {role:'Data Scientist (EO)',em:'📊',india:'8–30',usa:'90–180',trend:'📈 High'},
+  {role:'Remote Sensing Sci.',em:'🛰️',india:'5–20',usa:'70–140',trend:'📊 Stable'},
+  {role:'Aerospace Engineer',em:'🚀',india:'6–25',usa:'80–180',trend:'📊 Stable'},
+  {role:'GIS Analyst',em:'🗺️',india:'4–15',usa:'55–110',trend:'📊 Stable'},
+  {role:'Satellite Ops Eng.',em:'📡',india:'6–18',usa:'70–130',trend:'📊 Stable'},
+  {role:'Flight Dynamics Eng.',em:'🪐',india:'8–25',usa:'90–160',trend:'📊 Stable'},
+];
+document.getElementById('careerTbody').innerHTML=CAREERS.map(c=>{
+  const bw=Math.min(parseInt(c.usa.split('–')[1])/250*80,80);
+  return`<tr><td><span style="font-size:1.1rem;margin-right:8px">${c.em}</span><span class="role-em">${c.role}</span></td><td style="color:#4ade80;font-weight:600">₹${c.india} LPA</td><td><span class="sal-bar-inline" style="width:${bw}px"></span>$${c.usa}K</td><td style="font-size:.78rem">${c.trend}</td></tr>`;
+}).join('');
+
+/* ─── FADE IN ─── */
+const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}})},{threshold:.07});
+document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+
+/* ─── BACK TO TOP ─── */
+window.addEventListener('scroll',()=>document.getElementById('btt').classList.toggle('on',scrollY>400),{passive:true});
+
+/* ─── TOPBAR ACTIVE LINKS ─── */
+(function(){
+  const links=document.querySelectorAll('.topbar-links a');
+  const sections=document.querySelectorAll('.section[id],section[id]');
+  const o=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting){const id=e.target.id;links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+id))}})},{rootMargin:'-20% 0px -70% 0px',threshold:0});
+  sections.forEach(s=>o.observe(s));
+})();
+
+/* ─── SMOOTH SCROLL ─── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id=a.getAttribute('href').slice(1),t=document.getElementById(id);
+    if(!t)return;e.preventDefault();
+    window.scrollTo({top:t.getBoundingClientRect().top+scrollY-64,behavior:'smooth'});
+  });
+});
+</script>
+</body>
+</html>
