@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Phase 2 — Space Data Intelligence Hub</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="styles.css"/>
+<link rel="stylesheet" href="phase2.css"/>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<nav id="sidebar">
+  <div class="sidebar-header">
+    <i class="fa-solid fa-satellite sidebar-logo"></i>
+    <span>SDIH</span>
+  </div>
+  <ul class="sidebar-nav">
+    <li><a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i><span>Main Hub</span></a></li>
+    <li><a href="architecture.html" class="nav-link"><i class="fa-solid fa-diagram-project"></i><span>Architecture</span></a></li>
+    <li class="nav-divider"><span>Phase 2 Modules</span></li>
+    <li><a href="#s17" class="nav-link active"><i class="fa-solid fa-satellite-dish"></i><span>Sensor Encyclopedia</span></a></li>
+    <li><a href="#s18" class="nav-link"><i class="fa-solid fa-rocket"></i><span>Space Missions</span></a></li>
+    <li><a href="#s19" class="nav-link"><i class="fa-solid fa-code"></i><span>Hands-On Projects</span></a></li>
+    <li><a href="#s20" class="nav-link"><i class="fa-solid fa-brain"></i><span>AI for Aerospace</span></a></li>
+    <li><a href="#s21" class="nav-link"><i class="fa-solid fa-briefcase"></i><span>Career Encyclopedia</span></a></li>
+    <li><a href="#s22" class="nav-link"><i class="fa-solid fa-graduation-cap"></i><span>Full Roadmap</span></a></li>
+    <li><a href="#s23" class="nav-link"><i class="fa-solid fa-trophy"></i><span>Hackathon Center</span></a></li>
+    <li><a href="#s24" class="nav-link"><i class="fa-solid fa-database"></i><span>Master Database</span></a></li>
+  </ul>
+  <div class="sidebar-toggle" id="sidebarToggle"><i class="fa-solid fa-chevron-left"></i></div>
+</nav>
+
+<div id="mainContent">
+
+  <!-- TOPBAR -->
+  <header id="topbar">
+    <button id="mobileSidebarBtn" class="btn-icon"><i class="fa-solid fa-bars"></i></button>
+    <div class="topbar-brand">Space Data Hub — Phase 2</div>
+    <div class="topbar-search">
+      <i class="fa-solid fa-search"></i>
+      <input type="text" id="globalSearch" placeholder="Search sensors, missions, careers, projects…"/>
+      <div id="searchResults" class="search-dropdown hidden"></div>
+    </div>
+    <div class="topbar-actions">
+      <a href="index.html" class="btn-icon" title="Main Hub"><i class="fa-solid fa-house"></i></a>
+      <button class="btn-icon" id="themeToggle" title="Toggle theme"><i class="fa-solid fa-circle-half-stroke"></i></button>
+      <button class="btn-icon" onclick="window.print()" title="Print"><i class="fa-solid fa-print"></i></button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" style="min-height:55vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(74,158,255,.09),transparent 65%),var(--space-black)">
+    <canvas id="starCanvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none"></canvas>
+    <div style="position:relative;z-index:2;padding:60px 24px 40px">
+      <div class="hero-badge"><span class="pulse-dot"></span>Phase 2 Expansion — 8 Advanced Modules</div>
+      <h1 class="hero-title"><span class="t1">Advanced Space Intelligence</span><br/><span class="t2">Sensors · Missions · Projects · AI · Careers</span></h1>
+      <p class="hero-sub">Deep-dive modules for aerospace engineers, AI researchers, hackathon teams, and space enthusiasts. 20 career profiles, 11 space missions, 7 hands-on projects, 8 sensor types.</p>
+      <div class="hero-stats" style="justify-content:center">
+        <div class="stat"><span class="stat-num" data-target="20">0</span><span class="stat-label">Careers</span></div>
+        <div class="stat"><span class="stat-num" data-target="11">0</span><span class="stat-label">Missions</span></div>
+        <div class="stat"><span class="stat-num" data-target="7">0</span><span class="stat-label">Projects</span></div>
+        <div class="stat"><span class="stat-num" data-target="8">0</span><span class="stat-label">Sensors</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       S17 — SATELLITE SENSOR ENCYCLOPEDIA
+  ══════════════════════════════════════════════════════════ -->
+  <section id="s17" class="content-section">
+    <div class="section-header">
+      <div class="section-badge"><i class="fa-solid fa-satellite-dish"></i> MODULE 17</div>
+      <h2>Satellite Sensor Encyclopedia</h2>
+      <p class="section-desc">Deep-dive profiles of every major sensor type — working principles, applications, real satellites, and datasets.</p>
+    </div>
+    <div id="sensorGrid" class="row g-4"></div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       S18 — SPACE MISSIONS DATABASE
+  ══════════════════════════════════════════════════════════ -->
+  <section id="s18" class="content-section alt-bg">
+    <div class="section-header">
+      <div class="section-badge"><i class="fa-solid fa-rocket"></i> MODULE 18</div>
+      <h2>Space Missions Database</h2>
+      <p class="section-desc">Detailed profiles of landmark space missions — objectives, payloads, achievements, and data products.</p>
+    </div>
+    <!-- Mission filter tabs -->
+    <ul class="tab-nav" id="missionTabs">
+      <li class="tab-item active" data-tab="m-all">All Missions</li>
+      <li class="tab-item" data-tab="m-isro">ISRO</li>
+      <li class="tab-item" data-tab="m-nasa">NASA</li>
+      <li class="tab-item" data-tab="m-esa">ESA/International</li>
+    </ul>
+    <div class="tab-content" id="m-all">
+      <div id="missionGrid" class="row g-4"></div>
+    </div>
+    <div class="tab-content hidden" id="m-isro">
+      <div id="missionGridISRO" class="row g-4"></div>
+    </div>
+    <div class="tab-content hidden" id="m-nasa">
+      <div id="missionGridNASA" class="row g-4"></div>
+    </div>
+    <div class="tab-content hidden" id="m-esa">
+      <div id="missionGridESA" class="row g-4"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       S19 — HANDS-ON PROJECTS
+  ══════════════════════════════════════════════════════════ -->
+  <section id="s19" class="content-section">
+    <div class="section-header">
+      <div class="section-badge"><i class="fa-solid fa-code"></i> MODULE 19</div>
+      <h2>Satellite Data Projects</h2>
+      <p class="section-desc">7 complete hands-on projects with datasets, Python code, workflows, and expected outputs — ready to run.</p>
+    </div>
+    <div id="projectGrid" class="row g-4"></div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       S20 — AI FOR AEROSPACE
+  ══════════════════════════════════════════════════════════ -->
+  <section id="s20" class="content-section alt-bg">
+    <div class="section-header">
+      <div class="section-badge"><i class="fa-solid fa-brain"></i> MODULE 20</div>
+      <h2>Aerospace AI Applications</h2>
+      <p class="section-desc">How AI and deep learning are transforming satellites, UAVs, spacecraft, and mission operations.</p>
+    </div>
+    <div id="aiAeroGrid" class="row g-4 mb-5"></div>
+    <!-- Digital Twins deep-dive -->
+    <div class="glass-card mb-4">
+      <h3 class="card-title-accent"><i class="fa-solid fa-cube"></i> Digital Twins in Space Systems</h3>
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <p>A Digital Twin is a real-time virtual replica of a physical space asset — satellite, spacecraft, or ground station. It continuously ingests telemetry and predicts behaviour, failures, and performance degradation.</p>
+          <h5 style="color:var(--accent-cyan);margin:14px 0 8px;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em">Architecture</h5>
+          <ul class="styled-list">
+            <li>Physical asset → sensors → telemetry stream</li>
+            <li>Edge processing → anomaly detection</li>
+            <li>Cloud twin → physics-based simulation model</li>
+            <li>ML layer → predictive maintenance alerts</li>
+            <li>Visualization → 3D model + dashboards</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <h5 style="color:var(--accent-cyan);margin:0 0 8px;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em">Real Applications</h5>
+          <div class="row g-2">
+            <div class="col-6"><div class="p2-mini-card"><i class="fa-solid fa-satellite" style="color:var(--accent-blue)"></i><strong>ISRO Satellite Health</strong><span>Battery, thermal, AOCS telemetry twin</span></div></div>
+            <div class="col-6"><div class="p2-mini-card"><i class="fa-solid fa-rocket" style="color:var(--accent-purple)"></i><strong>NASA Artemis SLS</strong><span>Engine digital twin for pre-launch</span></div></div>
+            <div class="col-6"><div class="p2-mini-card"><i class="fa-solid fa-industry" style="color:var(--accent-orange)"></i><strong>ESA Factory of Future</strong><span>Spacecraft integration digital twin</span></div></div>
+            <div class="col-6"><div class="p2-mini-card"><i class="fa-solid fa-broadcast-tower" style="color:var(--accent-green)"></i><strong>Ground Station Twin</strong><span>Antenna pointing, link budget sim</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Space Situational Awareness -->
+    <div class="glass-card">
+      <h3 class="card-title-accent"><i class="fa-solid fa-eye"></i> Space Situational Awareness & Debris AI</h3>
+      <div class="row g-3">
+        <div class="col-md-4"><div class="p2-stat-card" style="--c:var(--accent-blue)"><div class="p2-stat-num">27,000+</div><div class="p2-stat-lbl">Tracked debris objects</div></div></div>
+        <div class="col-md-4"><div class="p2-stat-card" style="--c:var(--accent-orange)"><div class="p2-stat-num">500,000+</div><div class="p2-stat-lbl">Objects >1cm estimated</div></div></div>
+        <div class="col-md-4"><div class="p2-stat-card" style="--c:var(--accent-red,#ef4444)"><div class="p2-stat-num">~5,000</div><div class="p2-stat-lbl">Conjunction alerts/day</div></div></div>
+      </div>
+      <div class="row g-4 mt-2">
+        <div class="col-lg-6">
+          <h5 style="color:var(--accent-cyan);margin-bottom:10px;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em">AI Techniques Used</h5>
+          <ul class="styled-list">
+            <li><strong>LSTM networks</strong> — Predict debris orbital evolution</li>
+            <li><strong>Transformer models</strong> — Multi-object conjunction probability</li>
+            <li><strong>Graph Neural Networks</strong> — Constellation collision avoidance</li>
+            <li><strong>Computer Vision</strong> — Optical image debris classification</li>
+            <li><strong>Reinforcement Learning</strong> — Autonomous avoidance manoeuvre</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <h5 style="color:var(--accent-cyan);margin-bottom:10px;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em">Key Organizations</h5>
+          <ul class="styled-list">
+            <li><strong>18th Space Control Squadron (US)</strong> — LeoLabs radar network</li>
+            <li><strong>ESA Space Debris Office</strong> — MASTER model, PROOF sim</li>
+            <li><strong>ISRO ISTRAC</strong> — Collision avoidance for ISRO satellites</li>
+            <li><strong>ExoAnalytic Solutions</strong> — Commercial SSA network</li>
+            <li><strong>Slingshot Aerospace</strong> — AI-powered SSA platform</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       S21 — CAREER ENCYCLOPEDIA
+  ══════════════════════════════════════════════════════════ -->
+  <section id="s21" class="content-section">
+    <div class="section-header">
+      <div class="section-badge"><i class="fa-solid fa-briefcase"></i> MODULE 21</div>
+      <h2>Career Encyclopedia</h2>
+      <p class="section-desc">20 complete career profiles — daily activities, skills, education, certifications, salary ranges, and hiring organizations.</p>
+    </div>
+    <!-- Career search + filter -->
+    <div class="row g-3 mb-4">
+      <div class="col-md-6">
+        <div class="search-bar-local">
+          <i class="fa-solid fa-search"></i>
+          <input type="text" id="careerSearch" placeholder="Search careers, skills, organizations…" oninput="filterCareers()"/>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="p2-filter-btn active" onclick="filterByDomain('all',this)">All</button>
+          <button class="p2-filter-btn" onclick="filterByDomain('AI/ML',this)">AI/ML</button>
+          <button class="p2-filter-btn" onclick="filterByDomain('EO',this)">Earth Obs</button>
+          <button class="p2-filter-btn" onclick="filterByDomain('Spacecraft',this)">Spacecraft</button>
+          <button class="p2-filter-btn" onclick="filterByDomain('Drone',this)">Drones</button>
+          <button class="p2-filter-btn" onclick="filterByDomain('Data',this)">Data Eng</button>
+        </div>
+      </div>
+    </div>
+    <div id="careerGrid" class="row g-4"></div>
+    <!-- Career comparison table -->
+    <div class="glass-card mt-5">
+      <h3 class="card-title-accent"><i class="fa-solid fa-table-columns"></i> Career Quick Comparison</h3>
+      <div class="table-responsive mt-3">
+        <table class="data-table" id="careerCompareTable">
+          <thead><tr><th>Role</th><th>Domain</th><th>India (LPA)</th><th>USA ($K)</th><th>Europe (€K)</th><th>Growth</th><th>Demand</th></tr></thead>
+          <tbody id="careerCompareTbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       S22 — COMPLETE LEARNING ROADMAP
+  ══════════════════════════════════════════════════════════ -->
+  <section id="s22" class="content-section alt-bg">
+    <div class="section-header">
+      <div class="section-badge"><i class="fa-solid fa-graduation-cap"></i> MODULE 22</div>
+      <h2>Complete Learning Roadmap</h2>
+      <p class="section-desc">From absolute beginner to space data expert — books, courses, certifications, projects, and competitions at every level.</p>
+    </div>
+    <div id="roadmapFull"></div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       S23 — ISRO HACKATHON SUCCESS CENTER
+  ══════════════════════════════════════════════════════════ -->
+  <section id="s23" class="content-section">
+    <div class="section-header">
+      <div class="section-badge"><i class="fa-solid fa-trophy"></i> MODULE 23</div>
+      <h2>ISRO Hackathon Success Center</h2>
+      <p class="section-desc">Everything you need to win — problem analysis, team strategy, technical architecture, winning case studies, and downloadable templates.</p>
+    </div>
+    <!-- Previous hackathon themes -->
+    <h3 class="subsection-title">Previous ISRO Hackathon Problem Themes</h3>
+    <div class="row g-3 mb-5" id="hackThemes"></div>
+
+    <!-- Winning strategy -->
+    <div class="row g-4 mb-5">
+      <div class="col-lg-8">
+        <div class="glass-card h-100">
+          <h3 class="card-title-accent"><i class="fa-solid fa-chess-king"></i> 72-Hour Winning Playbook</h3>
+          <div id="hackPlaybook"></div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="glass-card h-100">
+          <h3 class="card-title-accent"><i class="fa-solid fa-users"></i> Ideal Team Composition</h3>
+          <div id="hackTeam"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Judging criteria + common mistakes -->
+    <div class="row g-4 mb-5">
+      <div class="col-lg-6">
+        <div class="glass-card h-100">
+          <h3 class="card-title-accent"><i class="fa-solid fa-star"></i> Judging Criteria Breakdown</h3>
+          <div id="hackJudging"></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="glass-card h-100">
+          <h3 class="card-title-accent"><i class="fa-solid fa-triangle-exclamation"></i> Common Mistakes to Avoid</h3>
+          <div id="hackMistakes"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case studies -->
+    <h3 class="subsection-title">Winning Team Case Studies</h3>
+    <div class="row g-4" id="hackCaseStudies"></div>
+
+    <!-- Templates download -->
+    <div class="glass-card mt-4" style="border-color:rgba(74,158,255,.3)">
+      <h3 class="card-title-accent"><i class="fa-solid fa-download"></i> Downloadable Templates</h3>
+      <div class="row g-3 mt-2" id="hackTemplates"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       S24 — MASTER SEARCHABLE DATABASE
+  ══════════════════════════════════════════════════════════ -->
+  <section id="s24" class="content-section alt-bg">
+    <div class="section-header">
+      <div class="section-badge"><i class="fa-solid fa-database"></i> MODULE 24</div>
+      <h2>Master Database</h2>
+      <p class="section-desc">Search, filter, sort, and export data across all four catalogs — satellites, missions, software, and careers.</p>
+    </div>
+    <ul class="tab-nav" id="dbTabs">
+      <li class="tab-item active" data-tab="db2-sat">🛰️ Satellites</li>
+      <li class="tab-item" data-tab="db2-mis">🚀 Missions</li>
+      <li class="tab-item" data-tab="db2-sw">🛠️ Software</li>
+      <li class="tab-item" data-tab="db2-car">💼 Careers</li>
+    </ul>
+
+    <div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap">
+      <div class="search-bar-local" style="flex:1;min-width:200px">
+        <i class="fa-solid fa-search"></i>
+        <input type="text" id="dbSearch2" placeholder="Search current table…" oninput="filterDB2()"/>
+      </div>
+      <button class="btn-icon" onclick="exportCSV()" title="Export CSV" style="border:1px solid var(--glass-border);padding:0 16px;border-radius:10px;font-size:.8rem;gap:6px;display:flex;align-items:center">
+        <i class="fa-solid fa-file-csv"></i> Export CSV
+      </button>
+    </div>
+
+    <div class="tab-content" id="db2-sat">
+      <div class="table-responsive">
+        <table class="data-table" id="t2-sat">
+          <thead><tr><th onclick="sortTable('t2-sat',0)" style="cursor:pointer">Name ↕</th><th onclick="sortTable('t2-sat',1)" style="cursor:pointer">Country ↕</th><th>Operator</th><th onclick="sortTable('t2-sat',3)" style="cursor:pointer">Launch ↕</th><th>Orbit</th><th>Sensors</th><th>Type</th><th>Status</th></tr></thead>
+          <tbody id="t2-sat-body"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="tab-content hidden" id="db2-mis">
+      <div class="table-responsive">
+        <table class="data-table" id="t2-mis">
+          <thead><tr><th onclick="sortTable('t2-mis',0)" style="cursor:pointer">Mission ↕</th><th>Org</th><th onclick="sortTable('t2-mis',2)" style="cursor:pointer">Launch ↕</th><th>Status</th><th>Type</th><th>Key Achievement</th></tr></thead>
+          <tbody id="t2-mis-body"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="tab-content hidden" id="db2-sw">
+      <div class="table-responsive">
+        <table class="data-table" id="t2-sw">
+          <thead><tr><th>Tool</th><th>Category</th><th>License</th><th>Platform</th><th>Strength</th><th>Link</th></tr></thead>
+          <tbody id="t2-sw-body"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="tab-content hidden" id="db2-car">
+      <div class="table-responsive">
+        <table class="data-table" id="t2-car">
+          <thead><tr><th onclick="sortTable('t2-car',0)" style="cursor:pointer">Role ↕</th><th>Domain</th><th onclick="sortTable('t2-car',2)" style="cursor:pointer">India (LPA) ↕</th><th>USA ($K)</th><th>Demand</th><th onclick="sortTable('t2-car',5)" style="cursor:pointer">Growth ↕</th></tr></thead>
+          <tbody id="t2-car-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand"><i class="fa-solid fa-satellite"></i> Space Data Intelligence Hub — Phase 2</div>
+      <p>Advanced modules for aerospace engineers, AI researchers, GIS professionals, and space enthusiasts.</p>
+      <div class="footer-links">
+        <a href="index.html">Main Hub</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="https://www.isro.gov.in" target="_blank">ISRO</a>
+        <a href="https://earthdata.nasa.gov" target="_blank">NASA EarthData</a>
+        <a href="https://www.esa.int" target="_blank">ESA</a>
+      </div>
+      <p class="footer-copy">Educational use only. Data credited to respective agencies.</p>
+    </div>
+  </footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="script.js"></script>
+<script src="phase2.js"></script>
+</body>
+</html>

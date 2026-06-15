@@ -1,0 +1,174 @@
+/* ═══════════════════════════════════════════════════
+   PHASE 2 CSS — Space Data Intelligence Hub
+   ═══════════════════════════════════════════════════ */
+
+/* NAV DIVIDER */
+.nav-divider{padding:16px 20px 4px;font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);white-space:nowrap;overflow:hidden}
+
+/* ─── SENSOR CARDS ─── */
+.sensor-card{background:rgba(255,255,255,.02);border:1px solid var(--glass-border);border-radius:18px;overflow:hidden;height:100%;transition:all .3s}
+.sensor-card:hover{transform:translateY(-4px);border-color:rgba(74,158,255,.25);box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.sensor-header{padding:18px 20px;display:flex;align-items:center;gap:12px}
+.sensor-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.sensor-type-badge{font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:5px;border:1px solid;margin-top:4px;display:inline-block}
+.sensor-body{padding:0 20px 20px}
+.sensor-body p{font-size:.82rem;color:var(--text-muted);line-height:1.6;margin-bottom:12px}
+.sensor-section-title{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:6px}
+.sensor-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
+.sensor-tag{font-size:.68rem;padding:2px 8px;border-radius:4px;background:rgba(255,255,255,.05);color:var(--text-muted);border:1px solid rgba(255,255,255,.07)}
+.sensor-examples{font-size:.78rem;color:var(--accent-blue);margin-bottom:8px}
+.sensor-pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.pros-col,.cons-col{padding:10px;border-radius:8px}
+.pros-col{background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.1)}
+.cons-col{background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.1)}
+.pros-col strong{color:var(--accent-green);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:5px}
+.cons-col strong{color:#f87171;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:5px}
+.pros-col li,.cons-col li{font-size:.75rem;color:var(--text-muted);margin-bottom:3px;list-style:none;padding-left:12px;position:relative}
+.pros-col li::before{content:'✓';color:var(--accent-green);position:absolute;left:0;font-size:.65rem}
+.cons-col li::before{content:'✗';color:#f87171;position:absolute;left:0;font-size:.65rem}
+
+/* ─── MISSION CARDS ─── */
+.mission-card{background:rgba(255,255,255,.02);border:1px solid var(--glass-border);border-radius:18px;overflow:hidden;height:100%;transition:all .3s}
+.mission-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.mission-header{padding:16px 20px;background:linear-gradient(135deg,var(--mh-c1,#1e3a5f),var(--mh-c2,#0f172a))}
+.mission-header h4{font-size:.95rem;font-weight:800;color:#f1f5f9;margin-bottom:4px}
+.mission-org{font-size:.72rem;color:rgba(241,245,249,.6);display:flex;align-items:center;gap:6px}
+.mission-status-badge{font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:4px;display:inline-block}
+.status-active{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.2)}
+.status-complete{background:rgba(148,163,184,.12);color:#94a3b8;border:1px solid rgba(148,163,184,.18)}
+.status-dev{background:rgba(245,158,11,.12);color:#fbbf24;border:1px solid rgba(245,158,11,.18)}
+.mission-body{padding:16px 20px}
+.mission-section{margin-bottom:12px}
+.mission-section-lbl{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:5px}
+.mission-body p,.mission-body li{font-size:.8rem;color:var(--text-muted);line-height:1.5}
+.mission-payloads{display:flex;flex-wrap:wrap;gap:4px}
+.mission-payload-tag{font-size:.65rem;padding:2px 6px;border-radius:4px;background:rgba(74,158,255,.08);color:var(--accent-blue);border:1px solid rgba(74,158,255,.12)}
+.mission-achievements{list-style:none;padding:0}
+.mission-achievements li{font-size:.78rem;color:var(--text-muted);padding:3px 0 3px 14px;position:relative;border-bottom:1px solid rgba(255,255,255,.03)}
+.mission-achievements li::before{content:'★';color:var(--accent-amber);position:absolute;left:0;font-size:.6rem;top:5px}
+
+/* ─── PROJECT CARDS ─── */
+.project-card{background:rgba(255,255,255,.02);border:1px solid var(--glass-border);border-radius:18px;overflow:hidden;height:100%;transition:all .3s}
+.project-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.project-num{font-size:.65rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-cyan);margin-bottom:6px}
+.project-card h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:8px}
+.project-card p{font-size:.82rem;color:var(--text-muted);line-height:1.6;margin-bottom:12px}
+.project-meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.project-meta-item label{font-size:.66rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--text-dim);display:block;margin-bottom:2px}
+.project-meta-item span{font-size:.78rem;color:var(--accent-blue)}
+.project-steps{list-style:none;padding:0;margin-bottom:14px}
+.project-steps li{font-size:.78rem;color:var(--text-muted);padding:4px 0 4px 18px;position:relative;border-bottom:1px solid rgba(255,255,255,.03)}
+.project-steps li::before{content:counter(step);counter-increment:step;position:absolute;left:0;width:14px;height:14px;border-radius:50%;background:var(--accent-blue);color:#fff;font-size:.55rem;font-weight:800;display:flex;align-items:center;justify-content:center;top:5px}
+.project-steps{counter-reset:step}
+.project-code{background:#080f1e;border:1px solid rgba(74,158,255,.1);border-radius:8px;padding:12px;font-size:.72rem;font-family:var(--font-mono);color:#c084fc;line-height:1.6;margin-bottom:10px;overflow-x:auto;max-height:200px;overflow-y:auto}
+.project-code .cm{color:#4ade80}.project-code .kw{color:#c084fc}.project-code .st{color:#fbbf24}.project-code .num{color:#60a5fa}
+.project-tools{display:flex;flex-wrap:wrap;gap:4px}
+.project-tool{font-size:.68rem;padding:2px 7px;border-radius:4px;background:rgba(168,85,247,.08);color:var(--accent-purple);border:1px solid rgba(168,85,247,.12)}
+
+/* ─── AI AEROSPACE CARDS ─── */
+.ai-aero-card{background:rgba(255,255,255,.02);border:1px solid var(--glass-border);border-radius:16px;padding:22px;height:100%;transition:all .3s}
+.ai-aero-card:hover{transform:translateY(-3px);background:rgba(255,255,255,.04);box-shadow:0 10px 36px rgba(0,0,0,.5)}
+.aai-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:14px}
+.ai-aero-card h4{font-size:.95rem;font-weight:700;color:var(--text-primary);margin-bottom:8px}
+.ai-aero-card p{font-size:.82rem;color:var(--text-muted);line-height:1.6;margin-bottom:12px}
+.aai-algos{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px}
+.aai-algo{font-size:.68rem;padding:2px 8px;border-radius:5px;background:rgba(74,158,255,.08);color:var(--accent-blue);border:1px solid rgba(74,158,255,.12)}
+.aai-org{font-size:.72rem;color:var(--text-dim)}
+
+/* ─── CAREER ENCYCLOPEDIA CARDS ─── */
+.career-enc-card{background:rgba(255,255,255,.02);border:1px solid var(--glass-border);border-radius:18px;padding:24px;height:100%;transition:all .3s}
+.career-enc-card:hover{transform:translateY(-3px);border-color:rgba(74,158,255,.2);box-shadow:0 10px 36px rgba(0,0,0,.5)}
+.career-enc-card[style*="display:none"]{display:none!important}
+.cec-header{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.cec-icon{font-size:1.8rem}
+.cec-title h4{font-size:.95rem;font-weight:700;color:var(--text-primary);margin-bottom:2px}
+.cec-domain{font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:5px;background:rgba(6,182,212,.1);color:var(--accent-cyan);border:1px solid rgba(6,182,212,.2)}
+.cec-salary{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:14px}
+.cec-sal-item{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:8px 10px;text-align:center}
+.cec-sal-item .flag{font-size:.8rem;display:block;margin-bottom:2px}
+.cec-sal-item .sal{font-size:.75rem;font-weight:700;color:var(--accent-green)}
+.cec-skills{margin-bottom:10px}
+.cec-skill-tags{display:flex;flex-wrap:wrap;gap:4px}
+.cec-skill-tag{font-size:.68rem;padding:2px 7px;border-radius:4px;background:rgba(74,158,255,.07);color:var(--accent-blue);border:1px solid rgba(74,158,255,.1)}
+.cec-tools-row{margin-bottom:10px;font-size:.78rem;color:var(--text-muted)}
+.cec-tools-row strong{color:var(--text-dim);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:4px}
+.cec-orgs{display:flex;flex-wrap:wrap;gap:4px}
+.cec-org{font-size:.68rem;padding:2px 7px;border-radius:4px;background:rgba(168,85,247,.07);color:var(--accent-purple);border:1px solid rgba(168,85,247,.1)}
+.cec-section-label{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:5px;margin-top:10px}
+.demand-badge{display:inline-block;padding:2px 8px;border-radius:5px;font-size:.68rem;font-weight:700}
+.demand-vh{background:rgba(34,197,94,.1);color:#4ade80;border:1px solid rgba(34,197,94,.2)}
+.demand-h{background:rgba(74,158,255,.1);color:var(--accent-blue);border:1px solid rgba(74,158,255,.2)}
+.demand-m{background:rgba(245,158,11,.1);color:#fbbf24;border:1px solid rgba(245,158,11,.2)}
+
+/* ─── FILTER BUTTONS ─── */
+.p2-filter-btn{background:rgba(255,255,255,.04);border:1px solid var(--glass-border);border-radius:8px;padding:7px 14px;color:var(--text-muted);font-size:.78rem;font-weight:600;cursor:pointer;transition:all .2s}
+.p2-filter-btn:hover{background:rgba(74,158,255,.08);color:var(--accent-blue);border-color:rgba(74,158,158,.25)}
+.p2-filter-btn.active{background:rgba(74,158,255,.15);color:var(--accent-blue);border-color:rgba(74,158,255,.35)}
+
+/* ─── ROADMAP FULL ─── */
+.rm-full-level{border:1px solid var(--glass-border);border-radius:20px;padding:28px;margin-bottom:20px;position:relative;overflow:hidden}
+.rm-full-level.l1{border-top:2px solid var(--accent-green)}
+.rm-full-level.l2{border-top:2px solid var(--accent-blue)}
+.rm-full-level.l3{border-top:2px solid var(--accent-purple)}
+.rm-level-hdr{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.rm-level-num{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:800;flex-shrink:0}
+.l1 .rm-level-num{background:rgba(34,197,94,.12);color:var(--accent-green)}
+.l2 .rm-level-num{background:rgba(74,158,255,.12);color:var(--accent-blue)}
+.l3 .rm-level-num{background:rgba(168,85,247,.12);color:var(--accent-purple)}
+.rm-level-info h3{font-size:1.1rem;font-weight:700;color:var(--text-primary)}
+.rm-level-info p{font-size:.8rem;color:var(--text-muted)}
+.rm-resource-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+.rm-resource-item{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);border-radius:10px;padding:12px}
+.rm-resource-item .ri-icon{font-size:.9rem;margin-bottom:5px}
+.rm-resource-item strong{font-size:.8rem;color:var(--text-primary);display:block;margin-bottom:2px}
+.rm-resource-item span{font-size:.72rem;color:var(--text-dim);line-height:1.4}
+
+/* ─── HACKATHON CENTER ─── */
+.hack-theme-card{background:rgba(255,255,255,.02);border:1px solid var(--glass-border);border-radius:14px;padding:18px;transition:all .25s;height:100%}
+.hack-theme-card:hover{transform:translateY(-3px);border-color:rgba(249,115,22,.3);background:rgba(249,115,22,.04)}
+.htc-icon{font-size:1.5rem;margin-bottom:8px}
+.htc-name{font-size:.9rem;font-weight:700;color:var(--text-primary);margin-bottom:4px}
+.htc-year{font-size:.72rem;color:var(--text-dim);margin-bottom:8px}
+.htc-data{font-size:.75rem;color:var(--accent-cyan)}
+.playbook-steps{list-style:none;padding:0;counter-reset:pbstep}
+.playbook-step{display:flex;gap:14px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.playbook-step:last-child{border-bottom:none}
+.pb-time-badge{min-width:70px;padding:4px 8px;border-radius:6px;background:rgba(6,182,212,.1);color:var(--accent-cyan);font-size:.68rem;font-weight:700;text-align:center;height:fit-content;flex-shrink:0}
+.pb-content strong{display:block;font-size:.85rem;color:var(--text-primary);margin-bottom:2px}
+.pb-content span{font-size:.78rem;color:var(--text-muted)}
+.team-role{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.team-role:last-child{border-bottom:none}
+.tr-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.tr-name{font-size:.85rem;font-weight:700;color:var(--text-primary)}
+.tr-skills{font-size:.72rem;color:var(--text-dim)}
+.judging-bar{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.jb-label{width:160px;font-size:.78rem;color:var(--text-muted);flex-shrink:0}
+.jb-bar-bg{flex:1;height:8px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden}
+.jb-bar{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--accent-blue),var(--accent-cyan))}
+.jb-pct{width:36px;font-size:.75rem;color:var(--text-dim);text-align:right;flex-shrink:0}
+.mistake-item{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.mistake-item:last-child{border-bottom:none}
+.mi-icon{color:#f87171;flex-shrink:0;font-size:.9rem;margin-top:2px}
+.mi-text strong{display:block;font-size:.82rem;color:var(--text-primary);margin-bottom:1px}
+.mi-text span{font-size:.75rem;color:var(--text-muted)}
+.case-study-card{background:rgba(255,255,255,.02);border:1px solid var(--glass-border);border-radius:16px;padding:22px;height:100%;transition:all .3s}
+.case-study-card:hover{transform:translateY(-3px);border-color:rgba(245,158,11,.3);box-shadow:0 10px 36px rgba(0,0,0,.5)}
+.cs-result{display:inline-block;padding:3px 10px;border-radius:6px;font-size:.7rem;font-weight:700;background:rgba(34,197,94,.1);color:#4ade80;border:1px solid rgba(34,197,94,.2);margin-bottom:10px}
+.template-btn{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.03);border:1px solid rgba(74,158,255,.15);border-radius:12px;padding:14px;text-decoration:none;color:var(--text-primary);transition:all .25s;cursor:pointer}
+.template-btn:hover{background:rgba(74,158,255,.07);border-color:rgba(74,158,255,.3);color:var(--text-primary)}
+.tb-icon{width:40px;height:40px;border-radius:9px;background:rgba(74,158,255,.1);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--accent-blue);flex-shrink:0}
+.tb-text strong{display:block;font-size:.85rem;font-weight:700;margin-bottom:2px}
+.tb-text span{font-size:.72rem;color:var(--text-dim)}
+
+/* ─── MINI HELPERS ─── */
+.p2-mini-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:12px;height:100%}
+.p2-mini-card i{font-size:1.1rem;display:block;margin-bottom:6px}
+.p2-mini-card strong{font-size:.8rem;color:var(--text-primary);display:block;margin-bottom:3px}
+.p2-mini-card span{font-size:.72rem;color:var(--text-muted)}
+.p2-stat-card{background:rgba(255,255,255,.02);border:1px solid var(--glass-border);border-radius:14px;padding:18px;text-align:center;border-top:2px solid var(--c,var(--accent-blue))}
+.p2-stat-num{font-size:1.8rem;font-weight:800;color:var(--c,var(--accent-blue));line-height:1}
+.p2-stat-lbl{font-size:.72rem;color:var(--text-dim);margin-top:4px}
+
+/* ─── SORTABLE TABLE HEADERS ─── */
+.data-table th[onclick]{cursor:pointer;user-select:none}
+.data-table th[onclick]:hover{color:var(--accent-cyan)}

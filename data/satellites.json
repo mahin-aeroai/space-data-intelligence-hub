@@ -1,0 +1,22 @@
+[
+  {"name":"Cartosat-3","country":"India","operator":"ISRO/NRSC","launch":"2019-11-27","orbit":"509 km SSO","sensors":"PAN (0.25m), MX (1m)","status":"Active","type":"EO"},
+  {"name":"Resourcesat-2A","country":"India","operator":"ISRO/NRSC","launch":"2016-12-07","orbit":"817 km SSO","sensors":"LISS-3 (23.5m), LISS-4 (5.8m), AWiFS (56m)","status":"Active","type":"EO"},
+  {"name":"Oceansat-3","country":"India","operator":"ISRO/SAC","launch":"2022-11-26","orbit":"742 km SSO","sensors":"OCM-3, OSCAT-3, SSTM","status":"Active","type":"Ocean"},
+  {"name":"RISAT-1A","country":"India","operator":"ISRO","launch":"2022-02-14","orbit":"555 km SSO","sensors":"C-band SAR (1m spotlight)","status":"Active","type":"SAR"},
+  {"name":"INSAT-3DR","country":"India","operator":"ISRO/IMD","launch":"2016-09-08","orbit":"GEO 74°E","sensors":"Imager (1km), Sounder","status":"Active","type":"Weather"},
+  {"name":"NavIC (IRNSS)","country":"India","operator":"ISRO","launch":"2013–2018","orbit":"GEO+IGSO","sensors":"L5+S navigation payload","status":"Active","type":"Navigation"},
+  {"name":"Aditya-L1","country":"India","operator":"ISRO","launch":"2023-09-02","orbit":"L1 Halo","sensors":"VELC, SUIT, SoLEXS, HEL1OS","status":"Active","type":"Solar"},
+  {"name":"Chandrayaan-3","country":"India","operator":"ISRO","launch":"2023-07-14","orbit":"Lunar Surface","sensors":"CHACE-2, ILSA, RAMBHA, LIBS, APXS","status":"Mission Complete","type":"Lunar"},
+  {"name":"Sentinel-2A","country":"Europe","operator":"ESA","launch":"2015-06-23","orbit":"786 km SSO","sensors":"MSI (10/20/60m, 13 bands)","status":"Active","type":"EO"},
+  {"name":"Sentinel-1A","country":"Europe","operator":"ESA","launch":"2014-04-03","orbit":"693 km SSO","sensors":"C-band SAR (5-40m)","status":"Active","type":"SAR"},
+  {"name":"Landsat-9","country":"USA","operator":"NASA/USGS","launch":"2021-09-27","orbit":"705 km SSO","sensors":"OLI-2 (15-30m), TIRS-2 (100m)","status":"Active","type":"EO"},
+  {"name":"GOES-18","country":"USA","operator":"NOAA","launch":"2022-03-01","orbit":"GEO 137°W","sensors":"ABI (0.5-2km, 16 bands), SUVI, EXIS","status":"Active","type":"Weather"},
+  {"name":"GPS Block III","country":"USA","operator":"US Space Force","launch":"2018-ongoing","orbit":"MEO 20200 km","sensors":"L1/L2/L5 navigation signals","status":"Active","type":"Navigation"},
+  {"name":"Meteosat-12 (MTG-I1)","country":"Europe","operator":"EUMETSAT","launch":"2022-12-13","orbit":"GEO 0°","sensors":"FCI (12 channels, 1-2km)","status":"Active","type":"Weather"},
+  {"name":"JWST","country":"International","operator":"NASA/ESA/CSA","launch":"2021-12-25","orbit":"L2 Halo","sensors":"NIRCam, NIRSpec, MIRI, NIRISS","status":"Active","type":"Science"},
+  {"name":"ALOS-4","country":"Japan","operator":"JAXA","launch":"2024-07-01","orbit":"628 km SSO","sensors":"PALSAR-3 (L-band SAR, 1-3m)","status":"Active","type":"SAR"},
+  {"name":"Planet Dove (SuperDove)","country":"USA","operator":"Planet Labs","launch":"Ongoing","orbit":"475 km SSO","sensors":"PS2.SD (3m, 8 bands)","status":"Active","type":"EO"},
+  {"name":"Maxar WorldView-3","country":"USA","operator":"Maxar","launch":"2014-08-13","orbit":"617 km SSO","sensors":"PAN (0.31m), SWIR (3.7m)","status":"Active","type":"EO"},
+  {"name":"ICEYE SAR","country":"Finland","operator":"ICEYE","launch":"Ongoing","orbit":"575 km SSO","sensors":"X-band SAR (0.25m spotlight)","status":"Active","type":"SAR"},
+  {"name":"Galileo","country":"Europe","operator":"ESA/EC","launch":"Ongoing","orbit":"MEO 23222 km","sensors":"E1/E5a/E5b/E6 navigation","status":"Active","type":"Navigation"}
+]
